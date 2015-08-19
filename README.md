@@ -1,7 +1,7 @@
 # SAWARITAI
 さわり隊
 
-## menber
+## member
 - 奥村彩水
 - 木邑和馬
 - 神武里奈
