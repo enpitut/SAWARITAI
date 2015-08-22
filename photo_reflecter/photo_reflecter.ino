@@ -38,7 +38,7 @@ void loop() {
           Serial.println("BOTTLE IN!!!!!!") ; // シリアルモニターへ表示(ボトル)
         }
         if(i == 1){
-          Serial.println("CAP IN!!!!!!") ; // シリアルモニターへ表示(ボトル)
+          Serial.println("CAP IN!!!!!!") ; // シリアルモニターへ表示(キャップ)
         }
         startTime = millis();
         recognize = false;
