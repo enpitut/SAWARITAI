@@ -1,0 +1,13 @@
+PODS:
+  - BubbleTransition (0.2)
+  - FLAnimatedImage (1.0.8)
+
+DEPENDENCIES:
+  - BubbleTransition (~> 0.1)
+  - FLAnimatedImage (~> 1.0)
+
+SPEC CHECKSUMS:
+  BubbleTransition: 6ee83cedb8b9eb2a9489e11b0e0c666f3916bb2c
+  FLAnimatedImage: f9422f796135aff80d8c00b2afc48015bb746e24
+
+COCOAPODS: 0.38.2

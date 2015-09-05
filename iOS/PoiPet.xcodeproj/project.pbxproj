@@ -1,0 +1,596 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		46BC27E41B881F7900385B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC27E31B881F7900385B54 /* AppDelegate.swift */; };
+		46BC27E61B881F7900385B54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC27E51B881F7900385B54 /* ViewController.swift */; };
+		46BC27E91B881F7900385B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BC27E71B881F7900385B54 /* Main.storyboard */; };
+		46BC27EB1B881F7900385B54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BC27EA1B881F7900385B54 /* Images.xcassets */; };
+		46BC27EE1B881F7900385B54 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46BC27EC1B881F7900385B54 /* LaunchScreen.xib */; };
+		46BC27FA1B881F7900385B54 /* PoiPetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC27F91B881F7900385B54 /* PoiPetTests.swift */; };
+		46BC28111B8862A900385B54 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC280F1B8862A900385B54 /* CalendarCollectionViewCell.swift */; };
+		46BC28121B8862A900385B54 /* CalendarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28101B8862A900385B54 /* CalendarCollectionViewCell.xib */; };
+		46BC28151B8866F200385B54 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC28131B8866F200385B54 /* DetailViewController.swift */; };
+		46BC28161B8866F200385B54 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28141B8866F200385B54 /* DetailViewController.xib */; };
+		46BC281A1B88901E00385B54 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28191B88901E00385B54 /* logo.png */; };
+		46BC281C1B8891BF00385B54 /* logoWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC281B1B8891BF00385B54 /* logoWhite.png */; };
+		46BC28231B895B0F00385B54 /* FLAnimatedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 46BC28221B895B0F00385B54 /* FLAnimatedImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46BC28251B895B1400385B54 /* FLAnimatedImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 46BC28241B895B1400385B54 /* FLAnimatedImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46BC282A1B895DE800385B54 /* pet_back_ground_gleen.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28261B895DE800385B54 /* pet_back_ground_gleen.png */; };
+		46BC282B1B895DE800385B54 /* pet_back_ground_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28271B895DE800385B54 /* pet_back_ground_orange.png */; };
+		46BC282C1B895DE800385B54 /* pet_back_ground_pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28281B895DE800385B54 /* pet_back_ground_pink.png */; };
+		46BC282D1B895DE800385B54 /* pet_back_ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28291B895DE800385B54 /* pet_back_ground.png */; };
+		46BC28351B89835E00385B54 /* navLogoWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28341B89835E00385B54 /* navLogoWhite.png */; };
+		46DB00AF1B8996630049DC4E /* pet_back_ground_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 46DB00AE1B8996630049DC4E /* pet_back_ground_gray.png */; };
+		46DB00B11B899D6A0049DC4E /* poikun.gif in Resources */ = {isa = PBXBuildFile; fileRef = 46DB00B01B899D6A0049DC4E /* poikun.gif */; };
+		E1EA09532413455317ED6F77 /* Pods_PoiPet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96912BC2E57199658BB6AE64 /* Pods_PoiPet.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		46BC27F41B881F7900385B54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46BC27D61B881F7900385B54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46BC27DD1B881F7900385B54;
+			remoteInfo = PoiPet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		46BC27DE1B881F7900385B54 /* PoiPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoiPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		46BC27E21B881F7900385B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46BC27E31B881F7900385B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		46BC27E51B881F7900385B54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		46BC27E81B881F7900385B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		46BC27EA1B881F7900385B54 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		46BC27ED1B881F7900385B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		46BC27F31B881F7900385B54 /* PoiPetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PoiPetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		46BC27F81B881F7900385B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46BC27F91B881F7900385B54 /* PoiPetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoiPetTests.swift; sourceTree = "<group>"; };
+		46BC280F1B8862A900385B54 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		46BC28101B8862A900385B54 /* CalendarCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarCollectionViewCell.xib; sourceTree = "<group>"; };
+		46BC28131B8866F200385B54 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		46BC28141B8866F200385B54 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		46BC28191B88901E00385B54 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		46BC281B1B8891BF00385B54 /* logoWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoWhite.png; sourceTree = "<group>"; };
+		46BC281E1B89557400385B54 /* PoiPet-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PoiPet-Bridging-Header.h"; path = "PoiPet/PoiPet-Bridging-Header.h"; sourceTree = "<group>"; };
+		46BC28221B895B0F00385B54 /* FLAnimatedImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FLAnimatedImage.h; path = Pods/FLAnimatedImage/FLAnimatedImageDemo/FLAnimatedImage/FLAnimatedImage.h; sourceTree = "<group>"; };
+		46BC28241B895B1400385B54 /* FLAnimatedImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FLAnimatedImageView.h; path = Pods/FLAnimatedImage/FLAnimatedImageDemo/FLAnimatedImage/FLAnimatedImageView.h; sourceTree = "<group>"; };
+		46BC28261B895DE800385B54 /* pet_back_ground_gleen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_gleen.png; sourceTree = "<group>"; };
+		46BC28271B895DE800385B54 /* pet_back_ground_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_orange.png; sourceTree = "<group>"; };
+		46BC28281B895DE800385B54 /* pet_back_ground_pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_pink.png; sourceTree = "<group>"; };
+		46BC28291B895DE800385B54 /* pet_back_ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground.png; sourceTree = "<group>"; };
+		46BC28341B89835E00385B54 /* navLogoWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navLogoWhite.png; sourceTree = "<group>"; };
+		46DB00AE1B8996630049DC4E /* pet_back_ground_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_gray.png; sourceTree = "<group>"; };
+		46DB00B01B899D6A0049DC4E /* poikun.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = poikun.gif; sourceTree = "<group>"; };
+		4BD0B0F8F65A992C14473233 /* Pods-PoiPet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoiPet.release.xcconfig"; path = "Pods/Target Support Files/Pods-PoiPet/Pods-PoiPet.release.xcconfig"; sourceTree = "<group>"; };
+		96912BC2E57199658BB6AE64 /* Pods_PoiPet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoiPet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2334CD19E9FF8DE5B2773F6 /* Pods-PoiPet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoiPet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PoiPet/Pods-PoiPet.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		46BC27DB1B881F7900385B54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1EA09532413455317ED6F77 /* Pods_PoiPet.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46BC27F01B881F7900385B54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		46BC27D51B881F7900385B54 = {
+			isa = PBXGroup;
+			children = (
+				46BC28241B895B1400385B54 /* FLAnimatedImageView.h */,
+				46BC28221B895B0F00385B54 /* FLAnimatedImage.h */,
+				46BC27E01B881F7900385B54 /* PoiPet */,
+				46BC281E1B89557400385B54 /* PoiPet-Bridging-Header.h */,
+				46BC27F61B881F7900385B54 /* PoiPetTests */,
+				46BC27DF1B881F7900385B54 /* Products */,
+				4B18EF990CF639C5CD526390 /* Pods */,
+				93A8674E532B64899CA1CC05 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		46BC27DF1B881F7900385B54 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				46BC27DE1B881F7900385B54 /* PoiPet.app */,
+				46BC27F31B881F7900385B54 /* PoiPetTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		46BC27E01B881F7900385B54 /* PoiPet */ = {
+			isa = PBXGroup;
+			children = (
+				46BC27E31B881F7900385B54 /* AppDelegate.swift */,
+				46BC28181B88670E00385B54 /* Main */,
+				46BC28131B8866F200385B54 /* DetailViewController.swift */,
+				46BC28141B8866F200385B54 /* DetailViewController.xib */,
+				46BC27EA1B881F7900385B54 /* Images.xcassets */,
+				46BC27EC1B881F7900385B54 /* LaunchScreen.xib */,
+				46BC28171B88670000385B54 /* Image */,
+				46BC27E11B881F7900385B54 /* Supporting Files */,
+			);
+			path = PoiPet;
+			sourceTree = "<group>";
+		};
+		46BC27E11B881F7900385B54 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				46BC27E21B881F7900385B54 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		46BC27F61B881F7900385B54 /* PoiPetTests */ = {
+			isa = PBXGroup;
+			children = (
+				46BC27F91B881F7900385B54 /* PoiPetTests.swift */,
+				46BC27F71B881F7900385B54 /* Supporting Files */,
+			);
+			path = PoiPetTests;
+			sourceTree = "<group>";
+		};
+		46BC27F71B881F7900385B54 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				46BC27F81B881F7900385B54 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		46BC28171B88670000385B54 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				46BC28341B89835E00385B54 /* navLogoWhite.png */,
+				46BC28261B895DE800385B54 /* pet_back_ground_gleen.png */,
+				46DB00AE1B8996630049DC4E /* pet_back_ground_gray.png */,
+				46BC28271B895DE800385B54 /* pet_back_ground_orange.png */,
+				46DB00B01B899D6A0049DC4E /* poikun.gif */,
+				46BC28281B895DE800385B54 /* pet_back_ground_pink.png */,
+				46BC28291B895DE800385B54 /* pet_back_ground.png */,
+				46BC281B1B8891BF00385B54 /* logoWhite.png */,
+				46BC28191B88901E00385B54 /* logo.png */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		46BC28181B88670E00385B54 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				46BC27E71B881F7900385B54 /* Main.storyboard */,
+				46BC27E51B881F7900385B54 /* ViewController.swift */,
+				46BC280F1B8862A900385B54 /* CalendarCollectionViewCell.swift */,
+				46BC28101B8862A900385B54 /* CalendarCollectionViewCell.xib */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		4B18EF990CF639C5CD526390 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A2334CD19E9FF8DE5B2773F6 /* Pods-PoiPet.debug.xcconfig */,
+				4BD0B0F8F65A992C14473233 /* Pods-PoiPet.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		93A8674E532B64899CA1CC05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96912BC2E57199658BB6AE64 /* Pods_PoiPet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		46BC28211B895AC600385B54 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46BC28231B895B0F00385B54 /* FLAnimatedImage.h in Headers */,
+				46BC28251B895B1400385B54 /* FLAnimatedImageView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		46BC27DD1B881F7900385B54 /* PoiPet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46BC27FD1B881F7900385B54 /* Build configuration list for PBXNativeTarget "PoiPet" */;
+			buildPhases = (
+				6B8331C233BCF9B1D6626CD7 /* Check Pods Manifest.lock */,
+				46BC27DA1B881F7900385B54 /* Sources */,
+				46BC27DB1B881F7900385B54 /* Frameworks */,
+				46BC27DC1B881F7900385B54 /* Resources */,
+				0BD7B16786395ED20FF6461F /* Embed Pods Frameworks */,
+				528CA4BDD043167B50F668BE /* Copy Pods Resources */,
+				46BC28211B895AC600385B54 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PoiPet;
+			productName = PoiPet;
+			productReference = 46BC27DE1B881F7900385B54 /* PoiPet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		46BC27F21B881F7900385B54 /* PoiPetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46BC28001B881F7900385B54 /* Build configuration list for PBXNativeTarget "PoiPetTests" */;
+			buildPhases = (
+				46BC27EF1B881F7900385B54 /* Sources */,
+				46BC27F01B881F7900385B54 /* Frameworks */,
+				46BC27F11B881F7900385B54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46BC27F51B881F7900385B54 /* PBXTargetDependency */,
+			);
+			name = PoiPetTests;
+			productName = PoiPetTests;
+			productReference = 46BC27F31B881F7900385B54 /* PoiPetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46BC27D61B881F7900385B54 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = koooootake;
+				TargetAttributes = {
+					46BC27DD1B881F7900385B54 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					46BC27F21B881F7900385B54 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 46BC27DD1B881F7900385B54;
+					};
+				};
+			};
+			buildConfigurationList = 46BC27D91B881F7900385B54 /* Build configuration list for PBXProject "PoiPet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 46BC27D51B881F7900385B54;
+			productRefGroup = 46BC27DF1B881F7900385B54 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				46BC27DD1B881F7900385B54 /* PoiPet */,
+				46BC27F21B881F7900385B54 /* PoiPetTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		46BC27DC1B881F7900385B54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46DB00B11B899D6A0049DC4E /* poikun.gif in Resources */,
+				46BC282A1B895DE800385B54 /* pet_back_ground_gleen.png in Resources */,
+				46BC28161B8866F200385B54 /* DetailViewController.xib in Resources */,
+				46BC281C1B8891BF00385B54 /* logoWhite.png in Resources */,
+				46BC28351B89835E00385B54 /* navLogoWhite.png in Resources */,
+				46BC282B1B895DE800385B54 /* pet_back_ground_orange.png in Resources */,
+				46BC27E91B881F7900385B54 /* Main.storyboard in Resources */,
+				46BC27EE1B881F7900385B54 /* LaunchScreen.xib in Resources */,
+				46BC282C1B895DE800385B54 /* pet_back_ground_pink.png in Resources */,
+				46BC281A1B88901E00385B54 /* logo.png in Resources */,
+				46DB00AF1B8996630049DC4E /* pet_back_ground_gray.png in Resources */,
+				46BC282D1B895DE800385B54 /* pet_back_ground.png in Resources */,
+				46BC28121B8862A900385B54 /* CalendarCollectionViewCell.xib in Resources */,
+				46BC27EB1B881F7900385B54 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46BC27F11B881F7900385B54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0BD7B16786395ED20FF6461F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PoiPet/Pods-PoiPet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		528CA4BDD043167B50F668BE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PoiPet/Pods-PoiPet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B8331C233BCF9B1D6626CD7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		46BC27DA1B881F7900385B54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46BC28111B8862A900385B54 /* CalendarCollectionViewCell.swift in Sources */,
+				46BC27E61B881F7900385B54 /* ViewController.swift in Sources */,
+				46BC27E41B881F7900385B54 /* AppDelegate.swift in Sources */,
+				46BC28151B8866F200385B54 /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46BC27EF1B881F7900385B54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46BC27FA1B881F7900385B54 /* PoiPetTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		46BC27F51B881F7900385B54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46BC27DD1B881F7900385B54 /* PoiPet */;
+			targetProxy = 46BC27F41B881F7900385B54 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		46BC27E71B881F7900385B54 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46BC27E81B881F7900385B54 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		46BC27EC1B881F7900385B54 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46BC27ED1B881F7900385B54 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		46BC27FB1B881F7900385B54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		46BC27FC1B881F7900385B54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		46BC27FE1B881F7900385B54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2334CD19E9FF8DE5B2773F6 /* Pods-PoiPet.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PoiPet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PoiPet/PoiPet-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		46BC27FF1B881F7900385B54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BD0B0F8F65A992C14473233 /* Pods-PoiPet.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PoiPet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PoiPet/PoiPet-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		46BC28011B881F7900385B54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PoiPetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PoiPet.app/PoiPet";
+			};
+			name = Debug;
+		};
+		46BC28021B881F7900385B54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PoiPetTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PoiPet.app/PoiPet";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		46BC27D91B881F7900385B54 /* Build configuration list for PBXProject "PoiPet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46BC27FB1B881F7900385B54 /* Debug */,
+				46BC27FC1B881F7900385B54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46BC27FD1B881F7900385B54 /* Build configuration list for PBXNativeTarget "PoiPet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46BC27FE1B881F7900385B54 /* Debug */,
+				46BC27FF1B881F7900385B54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46BC28001B881F7900385B54 /* Build configuration list for PBXNativeTarget "PoiPetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46BC28011B881F7900385B54 /* Debug */,
+				46BC28021B881F7900385B54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 46BC27D61B881F7900385B54 /* Project object */;
+}

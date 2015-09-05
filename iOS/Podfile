@@ -1,0 +1,13 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '6.0'
+
+target 'PoiPet' do
+  pod 'BubbleTransition', '~> 0.1'
+  pod 'FLAnimatedImage', '~> 1.0'
+  use_frameworks!
+end
+
+target 'PoiPetTests' do
+
+end
+
