@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+/*
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         let pageViewController: ViewController = ViewController()
@@ -25,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
+*/
         return true
     }
 
