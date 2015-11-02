@@ -24,6 +24,7 @@
 		46BC282C1B895DE800385B54 /* pet_back_ground_pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28281B895DE800385B54 /* pet_back_ground_pink.png */; };
 		46BC282D1B895DE800385B54 /* pet_back_ground_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28291B895DE800385B54 /* pet_back_ground_blue.png */; };
 		46BC28351B89835E00385B54 /* navLogoWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28341B89835E00385B54 /* navLogoWhite.png */; };
+		46C780E71BE76C5700629B4D /* titleLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 46C780E61BE76C5700629B4D /* titleLogo.png */; };
 		46DB00AF1B8996630049DC4E /* pet_back_ground_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 46DB00AE1B8996630049DC4E /* pet_back_ground_gray.png */; };
 		46DB00B11B899D6A0049DC4E /* poikun.gif in Resources */ = {isa = PBXBuildFile; fileRef = 46DB00B01B899D6A0049DC4E /* poikun.gif */; };
 		E1EA09532413455317ED6F77 /* Pods_PoiPet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96912BC2E57199658BB6AE64 /* Pods_PoiPet.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -62,6 +63,7 @@
 		46BC28281B895DE800385B54 /* pet_back_ground_pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_pink.png; sourceTree = "<group>"; };
 		46BC28291B895DE800385B54 /* pet_back_ground_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_blue.png; sourceTree = "<group>"; };
 		46BC28341B89835E00385B54 /* navLogoWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navLogoWhite.png; sourceTree = "<group>"; };
+		46C780E61BE76C5700629B4D /* titleLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleLogo.png; sourceTree = "<group>"; };
 		46DB00AE1B8996630049DC4E /* pet_back_ground_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_gray.png; sourceTree = "<group>"; };
 		46DB00B01B899D6A0049DC4E /* poikun.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = poikun.gif; sourceTree = "<group>"; };
 		4BD0B0F8F65A992C14473233 /* Pods-PoiPet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoiPet.release.xcconfig"; path = "Pods/Target Support Files/Pods-PoiPet/Pods-PoiPet.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				46BC28191B88901E00385B54 /* logo.png */,
 				46BC28341B89835E00385B54 /* navLogoWhite.png */,
 				46BC281B1B8891BF00385B54 /* logoWhite.png */,
+				46C780E61BE76C5700629B4D /* titleLogo.png */,
 				46BC28261B895DE800385B54 /* pet_back_ground_gleen.png */,
 				46DB00AE1B8996630049DC4E /* pet_back_ground_gray.png */,
 				46BC28271B895DE800385B54 /* pet_back_ground_orange.png */,
@@ -290,6 +293,7 @@
 				46BC282B1B895DE800385B54 /* pet_back_ground_orange.png in Resources */,
 				46BC27E91B881F7900385B54 /* Main.storyboard in Resources */,
 				46BC27EE1B881F7900385B54 /* LaunchScreen.xib in Resources */,
+				46C780E71BE76C5700629B4D /* titleLogo.png in Resources */,
 				46BC282C1B895DE800385B54 /* pet_back_ground_pink.png in Resources */,
 				46BC281A1B88901E00385B54 /* logo.png in Resources */,
 				46DB00AF1B8996630049DC4E /* pet_back_ground_gray.png in Resources */,

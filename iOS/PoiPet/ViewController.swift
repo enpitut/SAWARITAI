@@ -261,7 +261,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         let todayView=UIView(frame: CGRectMake(0,0,wBounds,hBounds))
         
         let todayLabel:UILabel = UILabel(frame: CGRectMake(20, 0,wBounds-40, hBounds/2-10))
-        todayLabel.text="- TOTAL -"
+        todayLabel.text="- \(currentMonth)月の合計 -"
         todayLabel.textColor=UIColor.grayColor()
         todayLabel.font=UIFont.systemFontOfSize(30)
         todayLabel.textAlignment=NSTextAlignment.Center
@@ -315,7 +315,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         currentMonth = Int(dates[1])!
         currentDay = Int(dates[2])!
         
-        currentMonthLastDay=getLastDay(currentYear, month: currentMonth)!
+        currentMonthLastDay=getLastDay(currentYear, month: currentMonth)
         
         let layout = UICollectionViewFlowLayout()
         //せるの大きさ
@@ -351,22 +351,18 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         return calendarCollectionView
     }
     
-    //その月の最終日の取得
-    func getLastDay(var year:Int,var month:Int) -> Int?{
-        let dateFormatter:NSDateFormatter = NSDateFormatter();
-        dateFormatter.dateFormat = "yyyy/MM/dd";
-        if month < 13 {
-            month = 1
-            year++
-        }
-        let targetDate:NSDate? = dateFormatter.dateFromString(String(format:"%04d/%02d/01",year,month));
-        if targetDate != nil {
-            //月初から一日前を計算し、月末の日付を取得
-            //let orgDate = NSDate(timeInterval:(24*60*60)*(-1), sinceDate: targetDate!)
-            //let str:String = dateFormatter.stringFromDate(orgDate)
-            return 31;
-        }
-        return nil;
+    //月の最終日の取得
+    func getLastDay(year:Int,month:Int) -> Int{
+        
+        let calendar = NSCalendar.currentCalendar()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM";
+        let date:NSDate = dateFormatter.dateFromString("\(year)/\(month)")!;
+        let range = calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: date)
+        let dayCount = range.length
+        print("\(dayCount)")
+        
+        return dayCount;
     }
     
     //初日の曜日を取得
@@ -420,13 +416,13 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         let cell : CalendarCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CalendarCollectionViewCell
         
         //indexは0からのため
-        let day = indexPath.row-self.setUpDays(currentYear, month: currentMonth)-2
+        let day = indexPath.row-self.setUpDays(currentYear, month: currentMonth)-3
 
         
         //
         if day <= 0{
             //先月の尻：12月
-            let lastMonthDay = self.getLastDay(currentYear, month: currentMonth-1)! + day
+            let lastMonthDay = self.getLastDay(currentYear, month: currentMonth-1) + day
             cell.textLabel?.text=lastMonthDay.description
             cell.iconImageView?.image=UIImage(named: "pet_back_ground_gray.png")
         }else if day <= currentMonthLastDay{
@@ -478,7 +474,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         
         let headerReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath) 
         let todayLabel:UILabel = UILabel(frame: CGRectMake(20, 0,wBounds-40, hBounds/2-10))
-        todayLabel.text="- August -"
+        todayLabel.text="- \(currentMonth)月 -"
         todayLabel.textColor=UIColor.grayColor()
         todayLabel.font=UIFont.systemFontOfSize(30)
         todayLabel.textAlignment=NSTextAlignment.Center
@@ -519,7 +515,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     private func settingView()->UIView{
         let settingView=UIView(frame: CGRectMake(0,0,wBounds,hBounds))
         let settingLabel:UILabel = UILabel(frame: CGRectMake(0, 0, wBounds, hBounds))
-        settingLabel.text="User"
+        settingLabel.text=""
         settingLabel.backgroundColor=UIColor.whiteColor()
         settingLabel.font=UIFont.systemFontOfSize(200)
         settingLabel.font = UIFont.boldSystemFontOfSize(UIFont.labelFontSize())
