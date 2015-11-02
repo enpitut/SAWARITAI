@@ -14,7 +14,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     var numberLabel : UILabel?
     var iconImageView : UIImageView?
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

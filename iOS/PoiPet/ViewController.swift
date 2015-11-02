@@ -49,7 +49,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
             parser!.delegate=self
             parser!.parse()
         }else{
-            println("false")
+            print("false")
         }
         
         //Creating some shorthand for these values
@@ -124,7 +124,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
 
         //self.view.addSubview(navbarView)
         //navbarView.hidden=true
-        
+
         //CalendarView
         view2=calendarView()
         view2.frame=CGRectMake(wBounds+10, navbarView.frame.height, wBounds-20, hBounds)
@@ -148,13 +148,14 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         let backgroundAnimationImage=FLAnimatedImageView()
         
         let path = NSBundle.mainBundle().pathForResource("poikun", ofType: "gif")!
-        let url = NSURL(fileURLWithPath: path)!
+        let url = NSURL(fileURLWithPath: path)
         let animatedImage = FLAnimatedImage(animatedGIFData: NSData(contentsOfURL: url))
         
         backgroundAnimationImage.animatedImage = animatedImage
         backgroundAnimationImage.frame=CGRectMake(0.0, hBounds, wBounds, self.view.bounds.height*0.3)
         
         self.view.insertSubview(backgroundAnimationImage, atIndex: 0)
+
         
        
     }
@@ -163,15 +164,15 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         
         pois=[]
         
-        var data:NSData? = NSData(contentsOfURL: NSURL(string: "http://210.140.67.223/poilog.php?name=kimura1&pass=kimu1")!)
+        let data:NSData? = NSData(contentsOfURL: NSURL(string: "http://210.140.67.223/poilog.php?name=kimura1&pass=kimu1")!)
         
-        var parser : NSXMLParser! = NSXMLParser(data: data!)
+        let parser : NSXMLParser! = NSXMLParser(data: data!)
         
         if parser != nil{
             parser!.delegate=self
             parser!.parse()
         }else{
-            println("false")
+            print("false")
         }
         
         //CalendarView
@@ -201,11 +202,11 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
-        var xOffset: CGFloat = scrollView.contentOffset.x
+        let xOffset: CGFloat = scrollView.contentOffset.x
         
         //Setup some math to position the elements where we need them when the view is scrolled
         
-        var widthOffset = wBounds / 100
+        let widthOffset = wBounds / 100
         var offsetPosition = 0 - xOffset/widthOffset
         
         //Apply the positioning values created above to the frame's position based on user's scroll
@@ -232,7 +233,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         
-        var xOffset: CGFloat = scrollView.contentOffset.x
+        let xOffset: CGFloat = scrollView.contentOffset.x
         
         //Change the pageControl dots depending on the page / offset values
         
@@ -257,7 +258,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     
     //今日のんだ本数View
     private func todayView()->UIView{
-        var todayView=UIView(frame: CGRectMake(0,0,wBounds,hBounds))
+        let todayView=UIView(frame: CGRectMake(0,0,wBounds,hBounds))
         
         let todayLabel:UILabel = UILabel(frame: CGRectMake(20, 0,wBounds-40, hBounds/2-10))
         todayLabel.text="- TOTAL -"
@@ -271,7 +272,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         petImageView.contentMode=UIViewContentMode.ScaleAspectFit
         petImageView.image=petImage
         //本数のラベル
-        var todayNumberLabel:UILabel = UILabel(frame: CGRectMake(20, 80,wBounds-40, hBounds))
+        let todayNumberLabel:UILabel = UILabel(frame: CGRectMake(20, 80,wBounds-40, hBounds))
         todayNumberLabel.text=pois.count.description
         todayNumberLabel.textColor=UIColor.whiteColor()
         todayNumberLabel.font=UIFont.systemFontOfSize(100)
@@ -286,8 +287,8 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         poiLabel.textAlignment=NSTextAlignment.Center
         
         //値段
-        var priceLabel:UILabel = UILabel(frame: CGRectMake(20, 160,wBounds-40, hBounds))
-        var price:Int = pois.count*150
+        let priceLabel:UILabel = UILabel(frame: CGRectMake(20, 160,wBounds-40, hBounds))
+        let price:Int = pois.count*150
         priceLabel.text="x 150 = \(price) yen"
         priceLabel.textColor=UIColor.whiteColor()
         priceLabel.font=UIFont.systemFontOfSize(20)
@@ -306,13 +307,13 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     private func calendarView()->UIView{
         
         //現在の月と年と日を取得
-        var dateFormatter:NSDateFormatter = NSDateFormatter();
+        let dateFormatter:NSDateFormatter = NSDateFormatter();
         dateFormatter.dateFormat = "yyyy/MM/dd";
-        var dateString:String = dateFormatter.stringFromDate(NSDate());
+        let dateString:String = dateFormatter.stringFromDate(NSDate());
         var dates:[String] = dateString.componentsSeparatedByString("/")
-        currentYear  = dates[0].toInt()!
-        currentMonth = dates[1].toInt()!
-        currentDay = dates[2].toInt()!
+        currentYear  = Int(dates[0])!
+        currentMonth = Int(dates[1])!
+        currentDay = Int(dates[2])!
         
         currentMonthLastDay=getLastDay(currentYear, month: currentMonth)!
         
@@ -352,18 +353,18 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     
     //その月の最終日の取得
     func getLastDay(var year:Int,var month:Int) -> Int?{
-        var dateFormatter:NSDateFormatter = NSDateFormatter();
+        let dateFormatter:NSDateFormatter = NSDateFormatter();
         dateFormatter.dateFormat = "yyyy/MM/dd";
         if month < 13 {
             month = 1
             year++
         }
-        var targetDate:NSDate? = dateFormatter.dateFromString(String(format:"%04d/%02d/01",year,month));
+        let targetDate:NSDate? = dateFormatter.dateFromString(String(format:"%04d/%02d/01",year,month));
         if targetDate != nil {
             //月初から一日前を計算し、月末の日付を取得
-            var orgDate = NSDate(timeInterval:(24*60*60)*(-1), sinceDate: targetDate!)
-            var str:String = dateFormatter.stringFromDate(orgDate)
-            return str.lastPathComponent.toInt();
+            let orgDate = NSDate(timeInterval:(24*60*60)*(-1), sinceDate: targetDate!)
+            let str:String = dateFormatter.stringFromDate(orgDate)
+            return 31;
         }
         return nil;
     }
@@ -371,7 +372,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     //初日の曜日を取得
     func setUpDays(year:Int,month:Int) ->Int{
         
-        var day:Int? = currentMonthLastDay
+        let day:Int? = currentMonthLastDay
         
         if day != nil {
             var weekday:Int = self.getWeekDay(year,month: month,day:1)
@@ -389,12 +390,12 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     
     //曜日の取得
     func getWeek(year:Int,month:Int,day:Int) ->Int{
-        var dateFormatter:NSDateFormatter = NSDateFormatter();
+        let dateFormatter:NSDateFormatter = NSDateFormatter();
         dateFormatter.dateFormat = "yyyy/MM/dd";
-        var date:NSDate? = dateFormatter.dateFromString(String(format:"%04d/%02d/%02d",year,month,day));
+        let date:NSDate? = dateFormatter.dateFromString(String(format:"%04d/%02d/%02d",year,month,day));
         if date != nil {
-            var calendar:NSCalendar = NSCalendar.currentCalendar()
-            var dateComp:NSDateComponents = calendar.components(NSCalendarUnit.CalendarUnitWeekOfMonth, fromDate: date!)
+            let calendar:NSCalendar = NSCalendar.currentCalendar()
+            let dateComp:NSDateComponents = calendar.components(NSCalendarUnit.WeekOfMonth, fromDate: date!)
             return dateComp.weekOfMonth;
         }
         return 0;
@@ -402,12 +403,12 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     
     //第何週の取得
     func getWeekDay(year:Int,month:Int,day:Int) ->Int{
-        var dateFormatter:NSDateFormatter = NSDateFormatter();
+        let dateFormatter:NSDateFormatter = NSDateFormatter();
         dateFormatter.dateFormat = "yyyy/MM/dd";
-        var date:NSDate? = dateFormatter.dateFromString(String(format:"%04d/%02d/%02d",year,month,day));
+        let date:NSDate? = dateFormatter.dateFromString(String(format:"%04d/%02d/%02d",year,month,day));
         if date != nil {
-            var calendar:NSCalendar = NSCalendar.currentCalendar()
-            var dateComp:NSDateComponents = calendar.components(NSCalendarUnit.CalendarUnitWeekday, fromDate: date!)
+            let calendar:NSCalendar = NSCalendar.currentCalendar()
+            let dateComp:NSDateComponents = calendar.components(NSCalendarUnit.Weekday, fromDate: date!)
             return dateComp.weekday;
         }
         return 0;
@@ -437,8 +438,8 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
             
             for var n:Int = 0; n<pois.count; n++ {
                 
-                var poi = pois[n]
-                if poi.date.toInt()==day{
+                let poi = pois[n]
+                if Int(poi.date)==day{
                     number++
                 }
             }
@@ -475,7 +476,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     //Cellのヘッダーを設定する
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         
-        let headerReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath) as! UICollectionReusableView
+        let headerReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath) 
         let todayLabel:UILabel = UILabel(frame: CGRectMake(20, 0,wBounds-40, hBounds/2-10))
         todayLabel.text="- August -"
         todayLabel.textColor=UIColor.grayColor()
@@ -494,7 +495,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     
     //Cellが選択された際に呼び出される
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        println("Num: \(indexPath.row)")
+        print("Num: \(indexPath.row)")
         //詳細画面に遷移
         /*
         pageControl.hidden=true
@@ -502,7 +503,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         navTitleLabel2.hidden=true
         navTitleLabel3.hidden=true
         */
-        var appDelegate:AppDelegate=UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate:AppDelegate=UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.selectId?=indexPath.row
         let toDetailViewController:UIViewController=DetailViewController()
         self.navigationController?.pushViewController(toDetailViewController, animated: true)
@@ -516,8 +517,8 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     
     //今日のんだ本数View
     private func settingView()->UIView{
-        var settingView=UIView(frame: CGRectMake(0,0,wBounds,hBounds))
-        var settingLabel:UILabel = UILabel(frame: CGRectMake(0, 0, wBounds, hBounds))
+        let settingView=UIView(frame: CGRectMake(0,0,wBounds,hBounds))
+        let settingLabel:UILabel = UILabel(frame: CGRectMake(0, 0, wBounds, hBounds))
         settingLabel.text="User"
         settingLabel.backgroundColor=UIColor.whiteColor()
         settingLabel.font=UIFont.systemFontOfSize(200)
@@ -547,7 +548,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     let dateElementName="day"
     
     func parserDidStartDocument(parser: NSXMLParser) {
-        println("解析開始")
+        print("解析開始")
     }
     
     
@@ -556,7 +557,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         didStartElement elementName: String,
         namespaceURI: String?,
         qualifiedName: String?,
-        attributes attributeDict: [NSObject : AnyObject])
+        attributes attributeDict: [String : String])
     {
         currentElementName = nil
         if elementName == poiElementName {
@@ -569,14 +570,14 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     func parser(parser: NSXMLParser, foundCharacters string: String?)
     {
         if pois.count > 0 {
-            var lastPoi = pois[pois.count-1]
+            let lastPoi = pois[pois.count-1]
             if currentElementName == idElementName {
-                var tmpString : String? = lastPoi.id
+                let tmpString : String? = lastPoi.id
                 lastPoi.id = (tmpString != nil) ? tmpString! + string! : string
-                 println("ID:\(lastPoi.id)")
+                 print("ID:\(lastPoi.id)")
             } else if currentElementName == dateElementName {
                 lastPoi.date = string
-                println("DATE:\(lastPoi.date)")
+                print("DATE:\(lastPoi.date)")
             }
         }
     }
@@ -588,7 +589,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     
     func parserDidEndDocument(parser: NSXMLParser)
     {
-        println("解析終了")
+        print("解析終了")
     }
     
    

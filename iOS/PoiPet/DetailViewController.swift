@@ -18,8 +18,8 @@ class DetailViewController: UIViewController {
         self.view.backgroundColor=UIColor.whiteColor()
         selectIdLabel = UILabel(frame: CGRectMake(0, 0, self.view.frame.width*3, self.view.frame.height))
         
-        var appDelegate:AppDelegate=UIApplication.sharedApplication().delegate as! AppDelegate
-        var selectId=appDelegate.selectId
+        let appDelegate:AppDelegate=UIApplication.sharedApplication().delegate as! AppDelegate
+        let selectId=appDelegate.selectId
         selectIdLabel?.backgroundColor=UIColor.redColor()
         selectIdLabel?.text=selectId?.description
         selectIdLabel?.font=UIFont.systemFontOfSize(200)
