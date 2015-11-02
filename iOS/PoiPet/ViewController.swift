@@ -41,9 +41,9 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         
         self.view.backgroundColor = UIColor.whiteColor()
         
-        var data:NSData? = NSData(contentsOfURL: NSURL(string: "http://210.140.67.223/poilog.php?name=kimura1&pass=kimu1")!)
+        let data:NSData? = NSData(contentsOfURL: NSURL(string: "http://210.140.67.223/poilog.php?name=kimura1&pass=kimu1")!)
         
-        var parser : NSXMLParser! = NSXMLParser(data: data!)
+        let parser : NSXMLParser! = NSXMLParser(data: data!)
         
         if parser != nil{
             parser!.delegate=self
@@ -74,7 +74,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         //navbarView.backgroundColor=UIColor(red: 247.0, green: 150.0, blue: 70.0, alpha: 1)
         self.navigationController?.navigationBar.addSubview(navbarView)
         self.navigationController?.navigationBar.barTintColor=UIColor(red: 247.0/255.0, green: 150.0/255.0, blue: 70.0/255.0, alpha: 1)
-        var titleImageView:UIImageView?=UIImageView(image: UIImage(named: "navLogoWhite.png"))
+        let titleImageView:UIImageView?=UIImageView(image: UIImage(named: "navLogoWhite.png"))
         //titleImageView?.frame=navbarView.frame
         titleImageView?.contentMode=UIViewContentMode.ScaleAspectFit
         self.navigationItem.titleView=titleImageView
@@ -99,7 +99,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         
         //Titles for the nav controller (also added to a subview in the uinavigationcontroller)
         //Setting size for the titles. FYI changing width will break the paging fades/movement
-        var titleSize = CGRect(x: 0, y: 8, width: wBounds, height: 20)
+        //var titleSize = CGRect(x: 0, y: 8, width: wBounds, height: 20)
         
 /*
         navTitleLabel1 = UILabel()
@@ -202,12 +202,12 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
-        let xOffset: CGFloat = scrollView.contentOffset.x
+        //let xOffset: CGFloat = scrollView.contentOffset.x
         
         //Setup some math to position the elements where we need them when the view is scrolled
         
-        let widthOffset = wBounds / 100
-        var offsetPosition = 0 - xOffset/widthOffset
+        //let widthOffset = wBounds / 100
+        //var offsetPosition = 0 - xOffset/widthOffset
         
         //Apply the positioning values created above to the frame's position based on user's scroll
 /*
@@ -362,8 +362,8 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         let targetDate:NSDate? = dateFormatter.dateFromString(String(format:"%04d/%02d/01",year,month));
         if targetDate != nil {
             //月初から一日前を計算し、月末の日付を取得
-            let orgDate = NSDate(timeInterval:(24*60*60)*(-1), sinceDate: targetDate!)
-            let str:String = dateFormatter.stringFromDate(orgDate)
+            //let orgDate = NSDate(timeInterval:(24*60*60)*(-1), sinceDate: targetDate!)
+            //let str:String = dateFormatter.stringFromDate(orgDate)
             return 31;
         }
         return nil;
@@ -377,7 +377,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         if day != nil {
             var weekday:Int = self.getWeekDay(year,month: month,day:1)
             for var i:Int = 0; i < day!;i++ {
-                var week:Int = self.getWeek(year,month: month,day:i+1)
+                //var week:Int = self.getWeek(year,month: month,day:i+1)
                 weekday++
                 if weekday > 7 {
                     weekday = 1
@@ -460,7 +460,7 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
                 }else if indexPath.row%7 == 6{
                     cell.iconImageView?.image=UIImage(named: "pet_back_ground_gleen.png")
                 }else{
-                    cell.iconImageView?.image=UIImage(named: "pet_back_ground.png")
+                    cell.iconImageView?.image=UIImage(named: "pet_back_ground_blue.png")
                 }
             }
         }else{
@@ -505,8 +505,8 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         */
         let appDelegate:AppDelegate=UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.selectId?=indexPath.row
-        let toDetailViewController:UIViewController=DetailViewController()
-        self.navigationController?.pushViewController(toDetailViewController, animated: true)
+        //let toDetailViewController:UIViewController=DetailViewController()
+        //self.navigationController?.pushViewController(toDetailViewController, animated: true)
     }
     
 
@@ -567,13 +567,13 @@ class ViewController: UIViewController,UIScrollViewDelegate,UICollectionViewDele
         }
     }
     
-    func parser(parser: NSXMLParser, foundCharacters string: String?)
+    func parser(parser: NSXMLParser, foundCharacters string: String)
     {
         if pois.count > 0 {
             let lastPoi = pois[pois.count-1]
             if currentElementName == idElementName {
                 let tmpString : String? = lastPoi.id
-                lastPoi.id = (tmpString != nil) ? tmpString! + string! : string
+                lastPoi.id = (tmpString != nil) ? tmpString! + string : string
                  print("ID:\(lastPoi.id)")
             } else if currentElementName == dateElementName {
                 lastPoi.date = string

@@ -41,6 +41,4 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         self.contentView.addSubview(numberLabel!)
     }
     
-    
-    
 }
