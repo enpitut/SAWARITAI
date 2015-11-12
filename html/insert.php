@@ -24,10 +24,19 @@ if($user_name){
 }else{
     $user_id = 'NULL';
 }
-#POSTで受け取ったproduct_idがDBに存在すればそのまま、存在しなければNULLにする
-$product_id = (string)$_POST['product_id'];
-if(!$product_id){
-    $product_id = 'NULL';
+
+#POSTで受け取ったpoipet_idがDBに存在すればそのまま、存在しなければNULLにする
+$poipet_id = (string)$_POST['poipet_id'];
+if($poipet_id){
+    $result1 = $mysqli->query("SELECT * from poipets where poipet_id='${poipet_id}'");
+    if($row = $result1->fetch_assoc()){
+        echo $poipet_id;
+    }else{
+        $poipet_id = 'NULL';
+    }
+    $result1->close();  
+}else{
+    $poipet_id = 'NULL';
 }
 
 #日付　dateで取得
@@ -39,10 +48,10 @@ $date = date("Y-m-d H:i:s");
 $cap = (string)$_POST['cap'];
 
 echo $user_name;
-echo $product_id;
+echo $poipet_id;
 echo $date;
 echo $cap;
-if($result2 = $mysqli->query("insert into pois(user_id,product_id,date,cap) values(${user_id},${product_id},'${date}',${cap})")){
+if($result2 = $mysqli->query("insert into pois(user_id,poipet_id,date,cap) values(${user_id},${poipet_id},'${date}',${cap})")){
     echo '  insert成功';
 }else{
     echo '  insert失敗';

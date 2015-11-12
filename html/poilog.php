@@ -1,9 +1,9 @@
 <?php
+
 ini_set('display_errors',1);
 
 # GETでnameとpassを受け取る
 $name = (string)$_GET['name'];
-$pass = (string)$_GET['pass'];
 
 # MySQLに接続
 $mysqli = new mysqli("localhost", "root", "poi", "poipet");
@@ -13,25 +13,29 @@ if ($mysqli->connect_errno) {
     exit();
 }
 
-# nameとパスが存在するか確認
-$result1 = $mysqli->query("SELECT user_id from users where user_name='${name}' and pass = '${pass}'");
+# nameが存在するか確認
+$result1 = $mysqli->query("SELECT user_id from users where user_name='${name}'");
 $user_id = NULL;
 if($row = $result1->fetch_assoc()){
     $user_id = $row['user_id'];
 }else{
-    printf("user does not exist, or password is incorrect");
+    printf("user does not exist");
     exit();
 }
 $result1->close();
 
 
 # xml生成
-$rootNode = new SimpleXMLElement("<?xml version='1.0' encoding='UTF-8' standalone='yes'?><pois></pois>");
+$rootNode = new SimpleXMLElement("<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><pois></pois>");
 # ユーザのポイログを取得
 $result2 = $mysqli->query("SELECT * from pois where user_id='${user_id} order by date'");
 while($row = $result2->fetch_assoc()){
     $itemNode = $rootNode->addChild('poi');
-    $itemNode->addChild('id',$row['poi_id']);
+    $itemNode->addChild('poi_id',$row['poi_id']);
+    if($row['poipet_id'])
+        $itemNode->addChild('poipet_id',$row['poipet_id']);
+    else
+        $itemNode->addChild('poipet_id','NULL');
     $datetime = explode(' ', $row['date']);
     $date = explode('-',$datetime[0]);
     $itemNode->addChild('year',$date[0]);
@@ -49,3 +53,4 @@ $dom->formatOutput = true;
 # xmlを出力
 echo $dom->saveXML();
 
+?>
