@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		468784B21BF5950600F30644 /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468784B11BF5950600F30644 /* UserSettingViewController.swift */; };
+		468784BC1BF5A1A400F30644 /* cancelw.png in Resources */ = {isa = PBXBuildFile; fileRef = 468784B91BF5A1A400F30644 /* cancelw.png */; };
+		468784BD1BF5A1A400F30644 /* reloadw.png in Resources */ = {isa = PBXBuildFile; fileRef = 468784BA1BF5A1A400F30644 /* reloadw.png */; };
+		468784BE1BF5A1A400F30644 /* settingw.png in Resources */ = {isa = PBXBuildFile; fileRef = 468784BB1BF5A1A400F30644 /* settingw.png */; };
 		46BC27E41B881F7900385B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC27E31B881F7900385B54 /* AppDelegate.swift */; };
 		46BC27E91B881F7900385B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BC27E71B881F7900385B54 /* Main.storyboard */; };
 		46BC27EB1B881F7900385B54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BC27EA1B881F7900385B54 /* Images.xcassets */; };
@@ -24,7 +28,6 @@
 		46BC282D1B895DE800385B54 /* pet_back_ground_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28291B895DE800385B54 /* pet_back_ground_blue.png */; };
 		46BC28351B89835E00385B54 /* navLogoWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28341B89835E00385B54 /* navLogoWhite.png */; };
 		46C780E31BE7385E00629B4D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C780E21BE7385E00629B4D /* MainViewController.swift */; };
-		46C780E51BE73AB500629B4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C780E41BE73AB500629B4D /* ViewController.swift */; };
 		46DB00AF1B8996630049DC4E /* pet_back_ground_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 46DB00AE1B8996630049DC4E /* pet_back_ground_gray.png */; };
 		46DB00B11B899D6A0049DC4E /* poikun.gif in Resources */ = {isa = PBXBuildFile; fileRef = 46DB00B01B899D6A0049DC4E /* poikun.gif */; };
 		E1EA09532413455317ED6F77 /* Pods_PoiPet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96912BC2E57199658BB6AE64 /* Pods_PoiPet.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -41,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		468784B11BF5950600F30644 /* UserSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
+		468784B91BF5A1A400F30644 /* cancelw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelw.png; sourceTree = "<group>"; };
+		468784BA1BF5A1A400F30644 /* reloadw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reloadw.png; sourceTree = "<group>"; };
+		468784BB1BF5A1A400F30644 /* settingw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingw.png; sourceTree = "<group>"; };
 		46BC27DE1B881F7900385B54 /* PoiPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoiPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BC27E21B881F7900385B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46BC27E31B881F7900385B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +70,6 @@
 		46BC28291B895DE800385B54 /* pet_back_ground_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_blue.png; sourceTree = "<group>"; };
 		46BC28341B89835E00385B54 /* navLogoWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navLogoWhite.png; sourceTree = "<group>"; };
 		46C780E21BE7385E00629B4D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		46C780E41BE73AB500629B4D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		46DB00AE1B8996630049DC4E /* pet_back_ground_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_gray.png; sourceTree = "<group>"; };
 		46DB00B01B899D6A0049DC4E /* poikun.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = poikun.gif; sourceTree = "<group>"; };
 		4BD0B0F8F65A992C14473233 /* Pods-PoiPet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoiPet.release.xcconfig"; path = "Pods/Target Support Files/Pods-PoiPet/Pods-PoiPet.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,8 +133,8 @@
 				46BC27EC1B881F7900385B54 /* LaunchScreen.xib */,
 				46BC27E71B881F7900385B54 /* Main.storyboard */,
 				46BC27E31B881F7900385B54 /* AppDelegate.swift */,
-				46C780E41BE73AB500629B4D /* ViewController.swift */,
 				46C780E21BE7385E00629B4D /* MainViewController.swift */,
+				468784B11BF5950600F30644 /* UserSettingViewController.swift */,
 				46BC281E1B89557400385B54 /* PoiPet-Bridging-Header.h */,
 				468BB8621BE73380002D2F52 /* Calendar */,
 				46BC28171B88670000385B54 /* Image */,
@@ -158,6 +164,9 @@
 		46BC28171B88670000385B54 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				468784B91BF5A1A400F30644 /* cancelw.png */,
+				468784BA1BF5A1A400F30644 /* reloadw.png */,
+				468784BB1BF5A1A400F30644 /* settingw.png */,
 				46BC28191B88901E00385B54 /* logo.png */,
 				46BC28341B89835E00385B54 /* navLogoWhite.png */,
 				46BC281B1B8891BF00385B54 /* logoWhite.png */,
@@ -290,11 +299,14 @@
 				46BC282A1B895DE800385B54 /* pet_back_ground_gleen.png in Resources */,
 				46BC281C1B8891BF00385B54 /* logoWhite.png in Resources */,
 				46BC28351B89835E00385B54 /* navLogoWhite.png in Resources */,
+				468784BE1BF5A1A400F30644 /* settingw.png in Resources */,
 				46BC282B1B895DE800385B54 /* pet_back_ground_orange.png in Resources */,
 				46BC27E91B881F7900385B54 /* Main.storyboard in Resources */,
 				46BC27EE1B881F7900385B54 /* LaunchScreen.xib in Resources */,
 				46BC282C1B895DE800385B54 /* pet_back_ground_pink.png in Resources */,
 				46BC281A1B88901E00385B54 /* logo.png in Resources */,
+				468784BD1BF5A1A400F30644 /* reloadw.png in Resources */,
+				468784BC1BF5A1A400F30644 /* cancelw.png in Resources */,
 				46DB00AF1B8996630049DC4E /* pet_back_ground_gray.png in Resources */,
 				46BC282D1B895DE800385B54 /* pet_back_ground_blue.png in Resources */,
 				46BC28121B8862A900385B54 /* CalendarCollectionViewCell.xib in Resources */,
@@ -366,7 +378,7 @@
 			files = (
 				46BC28111B8862A900385B54 /* CalendarCollectionViewCell.swift in Sources */,
 				46BC27E41B881F7900385B54 /* AppDelegate.swift in Sources */,
-				46C780E51BE73AB500629B4D /* ViewController.swift in Sources */,
+				468784B21BF5950600F30644 /* UserSettingViewController.swift in Sources */,
 				46C780E31BE7385E00629B4D /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +516,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "koooootake.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PoiPet/PoiPet-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -518,6 +531,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "koooootake.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PoiPet/PoiPet-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

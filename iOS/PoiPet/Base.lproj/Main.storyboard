@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SjA-vF-0OS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SjA-vF-0OS">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--PoiPet-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="PoiPet" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,8 +19,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="yTZ-5J-kbJ" appends="YES" id="xo9-gR-wC0"/>
+                            <outletCollection property="gestureRecognizers" destination="lOX-xu-cgp" appends="YES" id="YUZ-lm-L3z"/>
+                        </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="PoiPet" id="btk-yD-1oa">
+                    <navigationItem key="navigationItem" id="btk-yD-1oa">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="IOC-zX-tPb">
+                            <connections>
+                                <segue destination="MdK-0U-o4w" kind="showDetail" id="zMY-JI-hRj"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="trJ-Jq-4db">
                             <connections>
                                 <action selector="refreshButton:" destination="BYZ-38-t0r" id="8Yq-Lt-xHU"/>
@@ -28,8 +39,71 @@
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="yTZ-5J-kbJ">
+                    <connections>
+                        <action selector="swipePrevCalendar:" destination="BYZ-38-t0r" id="SKb-WH-a0A"/>
+                        <outlet property="delegate" destination="8bC-Xf-vdC" id="tq6-oR-P2s"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="lOX-xu-cgp">
+                    <connections>
+                        <action selector="swipeNextCalendar:" destination="BYZ-38-t0r" id="AfC-dT-HRj"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="U5u-Ub-hfG"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1075" y="333"/>
+        </scene>
+        <!--User Setting View Controller-->
+        <scene sceneID="09G-r4-gyt">
+            <objects>
+                <viewController id="MdK-0U-o4w" customClass="UserSettingViewController" customModule="PoiPet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bap-SQ-QMr"/>
+                        <viewControllerLayoutGuide type="bottom" id="bop-It-UAQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ISG-Yu-I4E">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Hp-V1-Nww">
+                                <rect key="frame" x="20" y="20" width="50" height="50"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="3hg-ky-9Pd"/>
+                                    <constraint firstAttribute="height" constant="50" id="GOM-7S-YXn"/>
+                                </constraints>
+                                <state key="normal" title="cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="nD2-dM-mCc" kind="unwind" unwindAction="unwindToTop:" id="XHl-OO-Usg"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoWhite.png" translatesAutoresizingMaskIntoConstraints="NO" id="8hH-Dr-15I">
+                                <rect key="frame" x="20" y="25" width="560" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Bcr-gS-ZDa"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="0.58823529411764708" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="8Hp-V1-Nww" firstAttribute="top" secondItem="Bap-SQ-QMr" secondAttribute="bottom" id="ET9-91-hi3"/>
+                            <constraint firstItem="8hH-Dr-15I" firstAttribute="leading" secondItem="ISG-Yu-I4E" secondAttribute="leadingMargin" id="KDP-2t-IWg"/>
+                            <constraint firstItem="8hH-Dr-15I" firstAttribute="top" secondItem="Bap-SQ-QMr" secondAttribute="bottom" constant="5" id="n6t-LH-RCj"/>
+                            <constraint firstItem="8Hp-V1-Nww" firstAttribute="leading" secondItem="ISG-Yu-I4E" secondAttribute="leadingMargin" id="yo6-08-Kdf"/>
+                            <constraint firstItem="8hH-Dr-15I" firstAttribute="trailing" secondItem="ISG-Yu-I4E" secondAttribute="trailingMargin" id="zHv-0o-GkI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Iiw-2d-MDQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B8f-02-Fd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nD2-dM-mCc" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1741" y="333"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q9U-yi-ezt">
@@ -51,4 +125,7 @@
             <point key="canvasLocation" x="188" y="995"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logoWhite.png" width="2372" height="623"/>
+    </resources>
 </document>
