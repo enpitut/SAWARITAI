@@ -26,6 +26,13 @@
 		4675B09A1BF884EC00287964 /* background.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0991BF884EC00287964 /* background.JPG */; };
 		4675B09C1BF89A2B00287964 /* UserIDSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B09B1BF89A2B00287964 /* UserIDSettingViewController.swift */; };
 		4675B09E1BF89D0200287964 /* backgroundDebug.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4675B09D1BF89D0200287964 /* backgroundDebug.jpg */; };
+		4675B0A01BF8A7F000287964 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B09F1BF8A7F000287964 /* DayViewController.swift */; };
+		4675B0A81BF8B17C00287964 /* PoiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0A71BF8B17C00287964 /* PoiModel.swift */; };
+		4675B0AA1BF8B23D00287964 /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0A91BF8B23D00287964 /* DayTableViewCell.swift */; };
+		4675B0AC1BF8D99C00287964 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0AB1BF8D99C00287964 /* pin.png */; };
+		4675B0AE1BF8DCFA00287964 /* cellBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0AD1BF8DCFA00287964 /* cellBackground.png */; };
+		4675B0B21BF8FC3500287964 /* pet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0B11BF8FC3500287964 /* pet.png */; };
+		4675B0B61BF8FD3700287964 /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0B51BF8FD3700287964 /* time.png */; };
 		468784B21BF5950600F30644 /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468784B11BF5950600F30644 /* UserSettingViewController.swift */; };
 		46BC27E41B881F7900385B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC27E31B881F7900385B54 /* AppDelegate.swift */; };
 		46BC27E91B881F7900385B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BC27E71B881F7900385B54 /* Main.storyboard */; };
@@ -79,6 +86,13 @@
 		4675B0991BF884EC00287964 /* background.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.JPG; sourceTree = "<group>"; };
 		4675B09B1BF89A2B00287964 /* UserIDSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserIDSettingViewController.swift; sourceTree = "<group>"; };
 		4675B09D1BF89D0200287964 /* backgroundDebug.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backgroundDebug.jpg; sourceTree = "<group>"; };
+		4675B09F1BF8A7F000287964 /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		4675B0A71BF8B17C00287964 /* PoiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiModel.swift; sourceTree = "<group>"; };
+		4675B0A91BF8B23D00287964 /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
+		4675B0AB1BF8D99C00287964 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		4675B0AD1BF8DCFA00287964 /* cellBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellBackground.png; sourceTree = "<group>"; };
+		4675B0B11BF8FC3500287964 /* pet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet.png; sourceTree = "<group>"; };
+		4675B0B51BF8FD3700287964 /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time.png; sourceTree = "<group>"; };
 		468784B11BF5950600F30644 /* UserSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
 		46BC27DE1B881F7900385B54 /* PoiPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoiPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BC27E21B881F7900385B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -185,8 +199,11 @@
 				46BC27E71B881F7900385B54 /* Main.storyboard */,
 				46BC27E31B881F7900385B54 /* AppDelegate.swift */,
 				46C780E21BE7385E00629B4D /* MainViewController.swift */,
+				4675B09F1BF8A7F000287964 /* DayViewController.swift */,
 				468784B11BF5950600F30644 /* UserSettingViewController.swift */,
 				4675B09B1BF89A2B00287964 /* UserIDSettingViewController.swift */,
+				4675B0A71BF8B17C00287964 /* PoiModel.swift */,
+				4675B0A91BF8B23D00287964 /* DayTableViewCell.swift */,
 				46BC281E1B89557400385B54 /* PoiPet-Bridging-Header.h */,
 				468BB8621BE73380002D2F52 /* Calendar */,
 				4675B0721BF85BD300287964 /* TextFieldEffects */,
@@ -217,6 +234,10 @@
 		46BC28171B88670000385B54 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				4675B0B51BF8FD3700287964 /* time.png */,
+				4675B0B11BF8FC3500287964 /* pet.png */,
+				4675B0AD1BF8DCFA00287964 /* cellBackground.png */,
+				4675B0AB1BF8D99C00287964 /* pin.png */,
 				4675B0991BF884EC00287964 /* background.JPG */,
 				4675B09D1BF89D0200287964 /* backgroundDebug.jpg */,
 				4675B08B1BF8629700287964 /* poikun.png */,
@@ -354,7 +375,11 @@
 			files = (
 				46DB00B11B899D6A0049DC4E /* poikun.gif in Resources */,
 				4675B09A1BF884EC00287964 /* background.JPG in Resources */,
+				4675B0B61BF8FD3700287964 /* time.png in Resources */,
+				4675B0B21BF8FC3500287964 /* pet.png in Resources */,
 				46BC282A1B895DE800385B54 /* pet_back_ground_gleen.png in Resources */,
+				4675B0AE1BF8DCFA00287964 /* cellBackground.png in Resources */,
+				4675B0AC1BF8D99C00287964 /* pin.png in Resources */,
 				4675B0811BF85BD300287964 /* Info.plist in Resources */,
 				4675B0561BF7878500287964 /* cancel.png in Resources */,
 				46BC281C1B8891BF00385B54 /* logoWhite.png in Resources */,
@@ -441,17 +466,20 @@
 				46BC28111B8862A900385B54 /* CalendarCollectionViewCell.swift in Sources */,
 				4675B0801BF85BD300287964 /* HoshiTextField.swift in Sources */,
 				46BC27E41B881F7900385B54 /* AppDelegate.swift in Sources */,
+				4675B0A81BF8B17C00287964 /* PoiModel.swift in Sources */,
 				468784B21BF5950600F30644 /* UserSettingViewController.swift in Sources */,
 				4675B09C1BF89A2B00287964 /* UserIDSettingViewController.swift in Sources */,
 				4675B0841BF85BD300287964 /* KaedeTextField.swift in Sources */,
 				4675B0851BF85BD300287964 /* MadokaTextField.swift in Sources */,
 				4675B07F1BF85BD300287964 /* AkiraTextField.swift in Sources */,
+				4675B0AA1BF8B23D00287964 /* DayTableViewCell.swift in Sources */,
 				4675B0831BF85BD300287964 /* JiroTextField.swift in Sources */,
 				4675B08A1BF85BD300287964 /* YoshikoTextField.swift in Sources */,
 				4675B0881BF85BD300287964 /* TextFieldsEffects.swift in Sources */,
 				4675B0821BF85BD300287964 /* IsaoTextField.swift in Sources */,
 				46C780E31BE7385E00629B4D /* MainViewController.swift in Sources */,
 				4675B0861BF85BD300287964 /* MinoruTextField.swift in Sources */,
+				4675B0A01BF8A7F000287964 /* DayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

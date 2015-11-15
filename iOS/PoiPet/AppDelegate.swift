@@ -12,9 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var selectId: Int?
+    var selectDay: NSDate?
+    
+    var poiTime:[String] = []
+    var poiPlace:[String] = []
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        //ナビゲーションバータイトルの色
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         // Override point for customization after application launch.
 /*
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)

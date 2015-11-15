@@ -51,7 +51,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         //Navigationbar設定
         let titleImageView = UIImageView( image: UIImage(named: "logoWhite.png"))
         titleImageView.contentMode = .ScaleAspectFit
-        titleImageView.frame = CGRectMake(0, 0, self.view.frame.width, self.navigationController!.navigationBar.frame.height*0.6)
+        titleImageView.frame = CGRectMake(0, 0, self.view.frame.width, self.navigationController!.navigationBar.frame.height*0.7)
         self.navigationItem.titleView = titleImageView
         //ボタン色
         self.navigationController!.navigationBar.tintColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
@@ -59,13 +59,6 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 240.0/255.0, green: 125.0/255.0, blue: 50.0/255.0, alpha: 1.0)//オレンジ
         //Navigationbar高さ保存
         hNavigation = CGFloat(self.navigationController!.navigationBar.frame.height) + CGFloat(UIApplication.sharedApplication().statusBarFrame.height)
-        
-        //let sButton = UIButton(frame: CGRectMake(0,0,40,40))
-        //sButton.contentMode = .ScaleAspectFit
-        //sButton.setImage(UIImage(named: "setting.png"), forState: UIControlState.Normal)
-        
-        //settingButton.customView = sButton
-        //image = UIImage(named: "setting.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
         //Poiくんgif追加
         let backgroundAnimationImage=FLAnimatedImageView()
@@ -126,32 +119,34 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         super.viewDidLayoutSubviews()
         //読み込み
         
-        calendarMonth = calendarMonth + swipeCount
-        monthCount=0
+        if self.view.viewWithTag(100) == nil{
         
-        if calendarMonth > 12{
-            calendarYear++
-            calendarMonth=1
-        }else if calendarMonth < 1{
-            calendarYear--
-            calendarMonth=12
+            calendarMonth = calendarMonth + swipeCount
+            monthCount=0
+            
+            if calendarMonth > 12{
+                calendarYear++
+                calendarMonth=1
+            }else if calendarMonth < 1{
+                calendarYear--
+                calendarMonth=12
+            }
+            
+            let calendar:UIView = calendarView()
+            if swipeCount > 0{
+                calendar.layer.position = CGPointMake(wBounds*3/2, calendar.frame.height/2 + hNavigation)
+            }else if swipeCount < 0{
+                calendar.layer.position = CGPointMake(-wBounds/2, calendar.frame.height/2 + hNavigation)
+            }else{
+                calendar.alpha=0.0
+            }
+            self.view.addSubview(calendar)
+            
+            UIView.animateWithDuration(0.5, animations: {() -> Void in
+                calendar.layer.position = CGPointMake(self.wBounds/2, calendar.frame.height/2 + self.hNavigation)
+                calendar.alpha=1.0
+            })
         }
-        
-        //アニメーション
-        let calendar:UIView = calendarView()
-        if swipeCount > 0{
-            calendar.layer.position = CGPointMake(wBounds*3/2, calendar.frame.height/2 + hNavigation)
-        }else if swipeCount < 0{
-            calendar.layer.position = CGPointMake(-wBounds/2, calendar.frame.height/2 + hNavigation)
-        }else{
-            calendar.alpha=0.0
-        }
-        self.view.addSubview(calendar)
-        
-        UIView.animateWithDuration(0.5, animations: {() -> Void in
-            calendar.layer.position = CGPointMake(self.wBounds/2, calendar.frame.height/2 + self.hNavigation)
-            calendar.alpha=1.0
-        })
     }
     
     //カレンダーView
@@ -172,17 +167,17 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         //1つのcellのサイズ
         spaceCell=3
         //viewの縦横比に対応して配置を変更
-        hHeadBounds=100.0
+        hHeadBounds=80.0
         if wBounds-20 < hBounds-hHeadBounds{
             layout.itemSize=CGSizeMake(((wBounds-20)-spaceCell*8)/7, ((wBounds-20)-spaceCell*8)/7)
             layout.minimumInteritemSpacing=spaceCell
             layout.minimumLineSpacing=spaceCell
-            hHeadBounds=70.0
+            hHeadBounds=80.0
         }else{
-            layout.itemSize=CGSizeMake((hBounds-hHeadBounds-spaceCell*8)/7, (hBounds-hHeadBounds-spaceCell*8)/7)
+            layout.itemSize=CGSizeMake(((wBounds-20)-spaceCell*8)/7, ((wBounds-20)-spaceCell*8)/7-spaceCell)
             layout.minimumInteritemSpacing=spaceCell
             layout.minimumLineSpacing=spaceCell
-            hHeadBounds=40.0
+            hHeadBounds=50.0
         }
         
         wCell = layout.itemSize.width
@@ -202,8 +197,6 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         calendarCollectionView.backgroundColor=UIColor.whiteColor()
         calendarCollectionView.delegate=self
         calendarCollectionView.dataSource=self
-        
-        
         
         return calendarCollectionView
     }
@@ -302,10 +295,14 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         
         let headerReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath)
-        let todayLabel:UILabel = UILabel(frame: CGRectMake(20.0, 10.0,wBounds-40, hHeadBounds*3/4))
-        todayLabel.text="\(calendarYear)年\(calendarMonth)月 合計\(monthCount)本"
+        let todayLabel:UILabel = UILabel(frame: CGRectMake(20.0, 10.0,wBounds-40, hHeadBounds*3/4-10.0))
+        todayLabel.text="\(calendarYear)年\(calendarMonth)月 \(monthCount)Poi"
         todayLabel.textColor=UIColor.grayColor()
-        todayLabel.font=UIFont.systemFontOfSize(24)
+        if hHeadBounds == 50{
+            todayLabel.font=UIFont.systemFontOfSize(18)
+        }else{
+            todayLabel.font=UIFont.systemFontOfSize(24)
+        }
         todayLabel.textAlignment = .Center
         headerReusableView.addSubview(todayLabel)
         
@@ -316,7 +313,11 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             weekLabel.layer.masksToBounds = true
             weekLabel.layer.cornerRadius = 5.0
             weekLabel.textAlignment = .Center
-            weekLabel.font=UIFont.systemFontOfSize(12)
+            if hHeadBounds == 50{
+                weekLabel.font=UIFont.systemFontOfSize(8)
+            }else{
+                weekLabel.font=UIFont.systemFontOfSize(12)
+            }
             weekLabel.textColor=UIColor(red: 85/255.0, green: 142/255.0, blue: 213/255.0, alpha: 1.0)//あお
             
             switch i{
@@ -348,7 +349,33 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     //Cellが選択
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("Num: \(indexPath.row)")
+        
+        if 1 > indexPath.row-nowMonthFirstWeek || indexPath.row-nowMonthFirstWeek > nowMonthLastDay{
+            
+        }else{
+        
+            let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy/MM/dd";
+            let date:NSDate = dateFormatter.dateFromString("\(calendarYear)/\(calendarMonth)/\(indexPath.row-nowMonthFirstWeek)")!
+            appDelegate.selectDay = date
+            
+            for var n:Int = 0; n<pois.count; n++ {
+                
+                let poi = pois[n]
+                if Int(poi.year) == calendarYear && Int(poi.month) == calendarMonth && Int(poi.date)==indexPath.row-nowMonthFirstWeek{
+                    //print("\(poi.time):\(poi.location)")
+                    appDelegate.poiTime.append("\(poi.time)")
+                    appDelegate.poiPlace.append("\(poi.location)")
+
+                }
+            }
+            
+            if appDelegate.poiTime != []{
+                //画面遷移
+                performSegueWithIdentifier("showDay",sender: nil)
+            }
+        }
     }
     
     //Cellの総数を返す
@@ -392,6 +419,8 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         var date:String!
         var month:String!
         var year:String!
+        var time:String!
+        var location:String!
     }
     
     var currentElementName : String?
@@ -401,6 +430,8 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     let dateElementName="day"
     let monthEleementName="month"
     let yearEleementName="year"
+    let timeEleementName="time"
+    let locationEleementName="location"
     
     func parserDidStartDocument(parser: NSXMLParser) {
         print("解析開始")
@@ -438,6 +469,12 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
                 lastPoi.year = string
                 //print("month:\(lastPoi.year)")
                 
+            } else if currentElementName == timeEleementName{
+                lastPoi.time = string
+                //print("month:\(lastPoi.year)")
+            } else if currentElementName == locationEleementName{
+                lastPoi.location = string
+                //print("month:\(lastPoi.year)")
             }
         }
     }

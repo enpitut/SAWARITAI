@@ -34,7 +34,8 @@ class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSess
     
     //UITextFieldが編集された直後に呼ばれるデリゲートメソッド.
     func textFieldDidBeginEditing(textField: UITextField){
-        //print("textFieldDidBeginEditing:" + textField.text!)
+        RegistrationButton.enabled=false
+        RegistrationButton.alpha=0.5
     }
     
     //UITextFieldが編集終了する直前に呼ばれるデリゲートメソッド.
@@ -108,7 +109,7 @@ class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSess
                 
                 print("Registration Finish")
                 
-                let alert:UIAlertController = UIAlertController(title: "登録完了！", message: "UserID : \(userID)\n\(self.registrationID)->\(self.userName)", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert:UIAlertController = UIAlertController(title: "登録完了！", message: "\(userID)\n\(self.registrationID)->\(self.userName)", preferredStyle: UIAlertControllerStyle.Alert)
                 let okAction = UIAlertAction(title: "OK", style: .Default) {
                     action in
                         self.dismissViewControllerAnimated(true, completion: nil)
@@ -120,7 +121,7 @@ class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSess
             }else{
                 print("Error:\(userID)")
                 
-                let alert:UIAlertController = UIAlertController(title: "登録失敗！", message: "Error : \(userID)\n\(self.registrationID)->\(self.userName)", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert:UIAlertController = UIAlertController(title: "登録失敗！", message: "\(userID)\n\(self.registrationID)->\(self.userName)", preferredStyle: UIAlertControllerStyle.Alert)
                 let okAction = UIAlertAction(title: "OK", style: .Default) {
                 action in
                 

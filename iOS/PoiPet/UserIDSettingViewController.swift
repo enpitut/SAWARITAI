@@ -25,14 +25,19 @@ class UserIDSettingViewController: UIViewController, UITextFieldDelegate,NSURLSe
         RegistrationButton.alpha=0.5
         
         let userDefault = NSUserDefaults.standardUserDefaults()
-        let userIDNow:String = userDefault.objectForKey("ID") as! String
-        UserIDLabel.text = "Now : \(userIDNow)"
+        if userDefault.objectForKey("ID") == nil{
+            UserIDLabel.text = "NO UserID"
+        }else{
+            let userIDNow:String = userDefault.objectForKey("ID") as! String
+            UserIDLabel.text = "NowID : \(userIDNow)"
+        }
         
     }
     
     //UITextFieldが編集された直後に呼ばれるデリゲートメソッド.
     func textFieldDidBeginEditing(textField: UITextField){
-        //print("textFieldDidBeginEditing:" + textField.text!)
+        RegistrationButton.enabled=false
+        RegistrationButton.alpha=0.5
     }
     
     //UITextFieldが編集終了する直前に呼ばれるデリゲートメソッド.
@@ -41,7 +46,7 @@ class UserIDSettingViewController: UIViewController, UITextFieldDelegate,NSURLSe
         userID=textField.text!
         print("UserID:\(textField.text!)")
         
-        if userID != ""{
+        if Int(userID) != nil{
             RegistrationButton.enabled=true
             RegistrationButton.alpha=1.0
         }else{
@@ -64,10 +69,14 @@ class UserIDSettingViewController: UIViewController, UITextFieldDelegate,NSURLSe
         
         let userDefault = NSUserDefaults.standardUserDefaults()
         
-        userDefault.setObject("\(Int(userID)!)", forKey: "ID")
+        if Int(userID) == 0{
+            userDefault.setObject(nil, forKey: "ID")
+        }else{
+            userDefault.setObject("\(Int(userID)!)", forKey: "ID")
+        }
         userDefault.synchronize()
         
-        UserIDLabel.text = "\(Int(userID)!)"
+        UserIDLabel.text = "NowID : \(Int(userID)!)"
         
     }
     
