@@ -7,10 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4675B0551BF7878500287964 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0521BF7878500287964 /* setting.png */; };
+		4675B0561BF7878500287964 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0531BF7878500287964 /* cancel.png */; };
+		4675B0571BF7878500287964 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0541BF7878500287964 /* reload.png */; };
+		4675B07F1BF85BD300287964 /* AkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0731BF85BD300287964 /* AkiraTextField.swift */; };
+		4675B0801BF85BD300287964 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0741BF85BD300287964 /* HoshiTextField.swift */; };
+		4675B0811BF85BD300287964 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0751BF85BD300287964 /* Info.plist */; };
+		4675B0821BF85BD300287964 /* IsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0761BF85BD300287964 /* IsaoTextField.swift */; };
+		4675B0831BF85BD300287964 /* JiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0771BF85BD300287964 /* JiroTextField.swift */; };
+		4675B0841BF85BD300287964 /* KaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0781BF85BD300287964 /* KaedeTextField.swift */; };
+		4675B0851BF85BD300287964 /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0791BF85BD300287964 /* MadokaTextField.swift */; };
+		4675B0861BF85BD300287964 /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B07A1BF85BD300287964 /* MinoruTextField.swift */; };
+		4675B0871BF85BD300287964 /* TextFieldEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 4675B07B1BF85BD300287964 /* TextFieldEffects.h */; };
+		4675B0881BF85BD300287964 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B07C1BF85BD300287964 /* TextFieldsEffects.swift */; };
+		4675B0891BF85BD300287964 /* YokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B07D1BF85BD300287964 /* YokoTextField.swift */; };
+		4675B08A1BF85BD300287964 /* YoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B07E1BF85BD300287964 /* YoshikoTextField.swift */; };
+		4675B08C1BF8629700287964 /* poikun.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B08B1BF8629700287964 /* poikun.png */; };
+		4675B09A1BF884EC00287964 /* background.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0991BF884EC00287964 /* background.JPG */; };
+		4675B09C1BF89A2B00287964 /* UserIDSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B09B1BF89A2B00287964 /* UserIDSettingViewController.swift */; };
+		4675B09E1BF89D0200287964 /* backgroundDebug.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4675B09D1BF89D0200287964 /* backgroundDebug.jpg */; };
 		468784B21BF5950600F30644 /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468784B11BF5950600F30644 /* UserSettingViewController.swift */; };
-		468784BC1BF5A1A400F30644 /* cancelw.png in Resources */ = {isa = PBXBuildFile; fileRef = 468784B91BF5A1A400F30644 /* cancelw.png */; };
-		468784BD1BF5A1A400F30644 /* reloadw.png in Resources */ = {isa = PBXBuildFile; fileRef = 468784BA1BF5A1A400F30644 /* reloadw.png */; };
-		468784BE1BF5A1A400F30644 /* settingw.png in Resources */ = {isa = PBXBuildFile; fileRef = 468784BB1BF5A1A400F30644 /* settingw.png */; };
 		46BC27E41B881F7900385B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC27E31B881F7900385B54 /* AppDelegate.swift */; };
 		46BC27E91B881F7900385B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BC27E71B881F7900385B54 /* Main.storyboard */; };
 		46BC27EB1B881F7900385B54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BC27EA1B881F7900385B54 /* Images.xcassets */; };
@@ -44,10 +60,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4675B0521BF7878500287964 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
+		4675B0531BF7878500287964 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
+		4675B0541BF7878500287964 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
+		4675B0731BF85BD300287964 /* AkiraTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AkiraTextField.swift; sourceTree = "<group>"; };
+		4675B0741BF85BD300287964 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
+		4675B0751BF85BD300287964 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4675B0761BF85BD300287964 /* IsaoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsaoTextField.swift; sourceTree = "<group>"; };
+		4675B0771BF85BD300287964 /* JiroTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JiroTextField.swift; sourceTree = "<group>"; };
+		4675B0781BF85BD300287964 /* KaedeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaedeTextField.swift; sourceTree = "<group>"; };
+		4675B0791BF85BD300287964 /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
+		4675B07A1BF85BD300287964 /* MinoruTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinoruTextField.swift; sourceTree = "<group>"; };
+		4675B07B1BF85BD300287964 /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
+		4675B07C1BF85BD300287964 /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldsEffects.swift; sourceTree = "<group>"; };
+		4675B07D1BF85BD300287964 /* YokoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YokoTextField.swift; sourceTree = "<group>"; };
+		4675B07E1BF85BD300287964 /* YoshikoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoshikoTextField.swift; sourceTree = "<group>"; };
+		4675B08B1BF8629700287964 /* poikun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poikun.png; sourceTree = "<group>"; };
+		4675B0991BF884EC00287964 /* background.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.JPG; sourceTree = "<group>"; };
+		4675B09B1BF89A2B00287964 /* UserIDSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserIDSettingViewController.swift; sourceTree = "<group>"; };
+		4675B09D1BF89D0200287964 /* backgroundDebug.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backgroundDebug.jpg; sourceTree = "<group>"; };
 		468784B11BF5950600F30644 /* UserSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
-		468784B91BF5A1A400F30644 /* cancelw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancelw.png; sourceTree = "<group>"; };
-		468784BA1BF5A1A400F30644 /* reloadw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reloadw.png; sourceTree = "<group>"; };
-		468784BB1BF5A1A400F30644 /* settingw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingw.png; sourceTree = "<group>"; };
 		46BC27DE1B881F7900385B54 /* PoiPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoiPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BC27E21B881F7900385B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46BC27E31B881F7900385B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +128,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4675B0721BF85BD300287964 /* TextFieldEffects */ = {
+			isa = PBXGroup;
+			children = (
+				4675B0731BF85BD300287964 /* AkiraTextField.swift */,
+				4675B0741BF85BD300287964 /* HoshiTextField.swift */,
+				4675B0751BF85BD300287964 /* Info.plist */,
+				4675B0761BF85BD300287964 /* IsaoTextField.swift */,
+				4675B0771BF85BD300287964 /* JiroTextField.swift */,
+				4675B0781BF85BD300287964 /* KaedeTextField.swift */,
+				4675B0791BF85BD300287964 /* MadokaTextField.swift */,
+				4675B07A1BF85BD300287964 /* MinoruTextField.swift */,
+				4675B07B1BF85BD300287964 /* TextFieldEffects.h */,
+				4675B07C1BF85BD300287964 /* TextFieldsEffects.swift */,
+				4675B07D1BF85BD300287964 /* YokoTextField.swift */,
+				4675B07E1BF85BD300287964 /* YoshikoTextField.swift */,
+			);
+			path = TextFieldEffects;
+			sourceTree = "<group>";
+		};
 		468BB8621BE73380002D2F52 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,8 +186,10 @@
 				46BC27E31B881F7900385B54 /* AppDelegate.swift */,
 				46C780E21BE7385E00629B4D /* MainViewController.swift */,
 				468784B11BF5950600F30644 /* UserSettingViewController.swift */,
+				4675B09B1BF89A2B00287964 /* UserIDSettingViewController.swift */,
 				46BC281E1B89557400385B54 /* PoiPet-Bridging-Header.h */,
 				468BB8621BE73380002D2F52 /* Calendar */,
+				4675B0721BF85BD300287964 /* TextFieldEffects */,
 				46BC28171B88670000385B54 /* Image */,
 				46BC27EA1B881F7900385B54 /* Images.xcassets */,
 				46BC27E21B881F7900385B54 /* Info.plist */,
@@ -164,9 +217,12 @@
 		46BC28171B88670000385B54 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				468784B91BF5A1A400F30644 /* cancelw.png */,
-				468784BA1BF5A1A400F30644 /* reloadw.png */,
-				468784BB1BF5A1A400F30644 /* settingw.png */,
+				4675B0991BF884EC00287964 /* background.JPG */,
+				4675B09D1BF89D0200287964 /* backgroundDebug.jpg */,
+				4675B08B1BF8629700287964 /* poikun.png */,
+				4675B0521BF7878500287964 /* setting.png */,
+				4675B0531BF7878500287964 /* cancel.png */,
+				4675B0541BF7878500287964 /* reload.png */,
 				46BC28191B88901E00385B54 /* logo.png */,
 				46BC28341B89835E00385B54 /* navLogoWhite.png */,
 				46BC281B1B8891BF00385B54 /* logoWhite.png */,
@@ -204,6 +260,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4675B0871BF85BD300287964 /* TextFieldEffects.h in Headers */,
 				46BC28231B895B0F00385B54 /* FLAnimatedImage.h in Headers */,
 				46BC28251B895B1400385B54 /* FLAnimatedImageView.h in Headers */,
 			);
@@ -296,21 +353,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				46DB00B11B899D6A0049DC4E /* poikun.gif in Resources */,
+				4675B09A1BF884EC00287964 /* background.JPG in Resources */,
 				46BC282A1B895DE800385B54 /* pet_back_ground_gleen.png in Resources */,
+				4675B0811BF85BD300287964 /* Info.plist in Resources */,
+				4675B0561BF7878500287964 /* cancel.png in Resources */,
 				46BC281C1B8891BF00385B54 /* logoWhite.png in Resources */,
+				4675B08C1BF8629700287964 /* poikun.png in Resources */,
 				46BC28351B89835E00385B54 /* navLogoWhite.png in Resources */,
-				468784BE1BF5A1A400F30644 /* settingw.png in Resources */,
 				46BC282B1B895DE800385B54 /* pet_back_ground_orange.png in Resources */,
 				46BC27E91B881F7900385B54 /* Main.storyboard in Resources */,
 				46BC27EE1B881F7900385B54 /* LaunchScreen.xib in Resources */,
+				4675B0551BF7878500287964 /* setting.png in Resources */,
 				46BC282C1B895DE800385B54 /* pet_back_ground_pink.png in Resources */,
+				4675B09E1BF89D0200287964 /* backgroundDebug.jpg in Resources */,
 				46BC281A1B88901E00385B54 /* logo.png in Resources */,
-				468784BD1BF5A1A400F30644 /* reloadw.png in Resources */,
-				468784BC1BF5A1A400F30644 /* cancelw.png in Resources */,
 				46DB00AF1B8996630049DC4E /* pet_back_ground_gray.png in Resources */,
 				46BC282D1B895DE800385B54 /* pet_back_ground_blue.png in Resources */,
 				46BC28121B8862A900385B54 /* CalendarCollectionViewCell.xib in Resources */,
 				46BC27EB1B881F7900385B54 /* Images.xcassets in Resources */,
+				4675B0571BF7878500287964 /* reload.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,10 +437,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4675B0891BF85BD300287964 /* YokoTextField.swift in Sources */,
 				46BC28111B8862A900385B54 /* CalendarCollectionViewCell.swift in Sources */,
+				4675B0801BF85BD300287964 /* HoshiTextField.swift in Sources */,
 				46BC27E41B881F7900385B54 /* AppDelegate.swift in Sources */,
 				468784B21BF5950600F30644 /* UserSettingViewController.swift in Sources */,
+				4675B09C1BF89A2B00287964 /* UserIDSettingViewController.swift in Sources */,
+				4675B0841BF85BD300287964 /* KaedeTextField.swift in Sources */,
+				4675B0851BF85BD300287964 /* MadokaTextField.swift in Sources */,
+				4675B07F1BF85BD300287964 /* AkiraTextField.swift in Sources */,
+				4675B0831BF85BD300287964 /* JiroTextField.swift in Sources */,
+				4675B08A1BF85BD300287964 /* YoshikoTextField.swift in Sources */,
+				4675B0881BF85BD300287964 /* TextFieldsEffects.swift in Sources */,
+				4675B0821BF85BD300287964 /* IsaoTextField.swift in Sources */,
 				46C780E31BE7385E00629B4D /* MainViewController.swift in Sources */,
+				4675B0861BF85BD300287964 /* MinoruTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +582,7 @@
 			baseConfigurationReference = A2334CD19E9FF8DE5B2773F6 /* Pods-PoiPet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PoiPet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -525,6 +598,7 @@
 			baseConfigurationReference = 4BD0B0F8F65A992C14473233 /* Pods-PoiPet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PoiPet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

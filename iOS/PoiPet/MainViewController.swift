@@ -10,6 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,NSXMLParserDelegate {
     
+
+    @IBOutlet weak var settingButton: UIBarButtonItem!
     var calendarCollectionView : UICollectionView!
     
     //現在の日時年
@@ -27,7 +29,6 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     var swipeCount=0
     
-    var todayPoi:Int=0
     var monthCount:Int=0
     
     //レイアウト
@@ -50,7 +51,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         //Navigationbar設定
         let titleImageView = UIImageView( image: UIImage(named: "logoWhite.png"))
         titleImageView.contentMode = .ScaleAspectFit
-        titleImageView.frame = CGRectMake(0, 0, self.view.frame.width, self.navigationController!.navigationBar.frame.height*0.8)
+        titleImageView.frame = CGRectMake(0, 0, self.view.frame.width, self.navigationController!.navigationBar.frame.height*0.6)
         self.navigationItem.titleView = titleImageView
         //ボタン色
         self.navigationController!.navigationBar.tintColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
@@ -58,6 +59,13 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 240.0/255.0, green: 125.0/255.0, blue: 50.0/255.0, alpha: 1.0)//オレンジ
         //Navigationbar高さ保存
         hNavigation = CGFloat(self.navigationController!.navigationBar.frame.height) + CGFloat(UIApplication.sharedApplication().statusBarFrame.height)
+        
+        //let sButton = UIButton(frame: CGRectMake(0,0,40,40))
+        //sButton.contentMode = .ScaleAspectFit
+        //sButton.setImage(UIImage(named: "setting.png"), forState: UIControlState.Normal)
+        
+        //settingButton.customView = sButton
+        //image = UIImage(named: "setting.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
         //Poiくんgif追加
         let backgroundAnimationImage=FLAnimatedImageView()
@@ -84,6 +92,34 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         calendarMonth = comps.month
         calendarDay = comps.day
         
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        if userDefault.objectForKey("ID") == nil{
+            
+            print("UserID:nil")
+            
+            //登録されていなければ登録画面を表示
+            let settingViweController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingViewController")
+            self.navigationController?.showDetailViewController(settingViweController!, sender: nil)
+            
+        }else{
+            
+            let userID:String = userDefault.objectForKey("ID") as! String
+            print("UserID:\(userID)")
+            
+            //サーバーURL
+            let data:NSData? = NSData(contentsOfURL: NSURL(string: "http://poipet.ml/poilog?id=\(userID)")!)
+            //パーサー用意、接続開始
+            let parser : NSXMLParser! = NSXMLParser(data: data!)
+            print("通信開始")
+            if parser != nil{
+                parser!.delegate=self
+                parser!.parse()
+            }else{
+                print("false")
+            }
+            print("通信完了")
+        }
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -91,6 +127,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         //読み込み
         
         calendarMonth = calendarMonth + swipeCount
+        monthCount=0
         
         if calendarMonth > 12{
             calendarYear++
@@ -106,11 +143,14 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             calendar.layer.position = CGPointMake(wBounds*3/2, calendar.frame.height/2 + hNavigation)
         }else if swipeCount < 0{
             calendar.layer.position = CGPointMake(-wBounds/2, calendar.frame.height/2 + hNavigation)
+        }else{
+            calendar.alpha=0.0
         }
         self.view.addSubview(calendar)
         
         UIView.animateWithDuration(0.5, animations: {() -> Void in
             calendar.layer.position = CGPointMake(self.wBounds/2, calendar.frame.height/2 + self.hNavigation)
+            calendar.alpha=1.0
         })
     }
     
@@ -237,7 +277,6 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             
             //今日
             if calendarYear==nowYear && calendarMonth==nowMonth && cellPath==nowDay {
-                todayPoi = number
                 cell.iconImageView?.image=UIImage(named: "pet_back_ground_orange.png")
             }else{
                 //曜日ごとに色分け
@@ -264,7 +303,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         let headerReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath)
         let todayLabel:UILabel = UILabel(frame: CGRectMake(20.0, 10.0,wBounds-40, hHeadBounds*3/4))
-        todayLabel.text="\(calendarYear)年\(calendarMonth)月"
+        todayLabel.text="\(calendarYear)年\(calendarMonth)月 合計\(monthCount)本"
         todayLabel.textColor=UIColor.grayColor()
         todayLabel.font=UIFont.systemFontOfSize(24)
         todayLabel.textAlignment = .Center
@@ -278,12 +317,12 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             weekLabel.layer.cornerRadius = 5.0
             weekLabel.textAlignment = .Center
             weekLabel.font=UIFont.systemFontOfSize(12)
-            weekLabel.textColor=UIColor.grayColor()
+            weekLabel.textColor=UIColor(red: 85/255.0, green: 142/255.0, blue: 213/255.0, alpha: 1.0)//あお
             
             switch i{
             case 0:
                 weekLabel.text="Sun"
-                //weekLabel.textColor=UIColor.grayColor()
+                weekLabel.textColor=UIColor(red: 208/255.0, green: 124/255.0, blue: 122/255.0, alpha: 1.0)//ピンク
             case 1:
                 weekLabel.text="Mon"
             case 2:
@@ -296,6 +335,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
                 weekLabel.text="Fri"
             case 6:
                 weekLabel.text="Sat"
+                weekLabel.textColor=UIColor(red: 155/255.0, green: 187/255.0, blue: 89/255.0, alpha: 1.0)//みどり
                 
             default:
                 break
@@ -318,8 +358,6 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     //左スワイプで前月を表示
     @IBAction func swipePrevCalendar(sender: UISwipeGestureRecognizer) {
-        //prevCalendarSettings()
-        print("swwwL")
         //カレンダービュー消去・追加
         
         let remove:UIView = self.view.viewWithTag(100)!
@@ -334,8 +372,6 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     //右スワイプで次月を表示
     @IBAction func swipeNextCalendar(sender: UISwipeGestureRecognizer) {
-        //nextCalendarSettings()
-        print("swwwR")
         
         let remove:UIView = self.view.viewWithTag(100)!
         UIView.animateWithDuration(0.5, animations:{
@@ -391,16 +427,16 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             if currentElementName == idElementName {
                 let tmpString : String? = lastPoi.id
                 lastPoi.id = (tmpString != nil) ? tmpString! + string : string
-                print("ID:\(lastPoi.id)")
+                //print("ID:\(lastPoi.id)")
             } else if currentElementName == dateElementName {
                 lastPoi.date = string
-                print("DATE:\(lastPoi.date)")
+                //print("DATE:\(lastPoi.date)")
             } else if currentElementName == monthEleementName{
                 lastPoi.month = string
-                print("month:\(lastPoi.month)")
+                //print("month:\(lastPoi.month)")
             } else if currentElementName == yearEleementName{
                 lastPoi.year = string
-                print("month:\(lastPoi.year)")
+                //print("month:\(lastPoi.year)")
                 
             }
         }
@@ -421,17 +457,35 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         pois=[]
         
-        //サーバーURL
-        let data:NSData? = NSData(contentsOfURL: NSURL(string: "http://poipet.ml/poilog?id=1")!)
-        //パーサー用意、接続開始
-        let parser : NSXMLParser! = NSXMLParser(data: data!)
-        print("通信開始")
-        if parser != nil{
-            parser!.delegate=self
-            parser!.parse()
+        //userID
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        
+        if userDefault.objectForKey("ID") == nil{
+            
+            print("UserID:nil")
+            
+            //登録されていなければ登録画面を表示
+            let settingViweController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingViewController")
+            self.navigationController?.showDetailViewController(settingViweController!, sender: nil)
+            
         }else{
-            print("false")
-        }
+        
+            let userID:String = userDefault.objectForKey("ID") as! String
+            print("UserID:\(userID)")
+            
+            //サーバーURL
+            let data:NSData? = NSData(contentsOfURL: NSURL(string: "http://poipet.ml/poilog?id=\(userID)")!)
+            //パーサー用意、接続開始
+            let parser : NSXMLParser! = NSXMLParser(data: data!)
+            print("通信開始")
+            if parser != nil{
+                parser!.delegate=self
+                parser!.parse()
+            }else{
+                print("false")
+            }
+            print("通信完了")
+        
         
         swipeCount=0
         
@@ -446,58 +500,15 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         nowMonth = comps.month
         nowDay = comps.day
         
-        //カレンダービュー消去・追加
-        let remove = self.view.viewWithTag(100)
-        remove!.removeFromSuperview()
+        let remove:UIView = self.view.viewWithTag(100)!
+        UIView.animateWithDuration(0.1, animations:{
+            remove.alpha=0.0
+            }, completion: { finished in
+                remove.removeFromSuperview()
+        })
+        }
         
         
-    }
-    
-    //今日のんだ本数View
-    private func todayView()->UIView{
-        let todayView=UIView(frame: CGRectMake(0, hNavigation,wBounds,hBounds-hNavigation))
-        
-        let todayLabel:UILabel = UILabel(frame: CGRectMake(20, 0,wBounds-40, hBounds/2-10))
-        todayLabel.text="- TOTAL -"
-        todayLabel.textColor=UIColor.grayColor()
-        todayLabel.font=UIFont.systemFontOfSize(30)
-        todayLabel.textAlignment=NSTextAlignment.Center
-        
-        //背景
-        let petImage:UIImage = UIImage(named: "pet_back_ground_pink.png")!
-        let petImageView:UIImageView = UIImageView(frame:  CGRectMake(35, 55, wBounds-70, hBounds))
-        petImageView.contentMode=UIViewContentMode.ScaleAspectFit
-        petImageView.image=petImage
-        //本数のラベル
-        let todayNumberLabel:UILabel = UILabel(frame: CGRectMake(20, 80,wBounds-40, hBounds))
-        todayNumberLabel.text=pois.count.description
-        todayNumberLabel.textColor=UIColor.whiteColor()
-        todayNumberLabel.font=UIFont.systemFontOfSize(100)
-        //todayNumberLabel.font=UIFont.boldSystemFontOfSize(UIFont.labelFontSize())
-        todayNumberLabel.textAlignment=NSTextAlignment.Center
-        //ぽい
-        let poiLabel:UILabel = UILabel(frame: CGRectMake(90, 110,wBounds-40, hBounds))
-        poiLabel.text="Poi"
-        poiLabel.textColor=UIColor.whiteColor()
-        poiLabel.font=UIFont.systemFontOfSize(20)
-        poiLabel.font=UIFont.boldSystemFontOfSize(UIFont.labelFontSize())
-        poiLabel.textAlignment=NSTextAlignment.Center
-        
-        //値段
-        let priceLabel:UILabel = UILabel(frame: CGRectMake(20, 160,wBounds-40, hBounds))
-        let price:Int = pois.count*150
-        priceLabel.text="x 150 = \(price) yen"
-        priceLabel.textColor=UIColor.whiteColor()
-        priceLabel.font=UIFont.systemFontOfSize(20)
-        priceLabel.textAlignment=NSTextAlignment.Center
-        
-        todayView.addSubview(todayLabel)
-        todayView.addSubview(petImageView)
-        todayView.addSubview(todayNumberLabel)
-        todayView.addSubview(poiLabel)
-        todayView.addSubview(priceLabel)
-        todayView.backgroundColor=UIColor.whiteColor()
-        return todayView
     }
     
     @IBAction func unwindToTop(segue: UIStoryboardSegue) {
