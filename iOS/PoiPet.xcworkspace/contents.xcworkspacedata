@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:DayTableViewCell.swift">
+   </FileRef>
+   <FileRef
       location = "group:PoiPet.xcodeproj">
    </FileRef>
    <FileRef
