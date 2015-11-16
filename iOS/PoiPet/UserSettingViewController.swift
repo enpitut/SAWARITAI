@@ -53,7 +53,7 @@ class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSess
             break
         }
         
-        if Int(registrationID) != nil && userName != ""{
+        if Int(registrationID) != nil && registrationID.characters.count == 4 && userName != ""{
             RegistrationButton.enabled=true
             RegistrationButton.alpha=1.0
         }else{
