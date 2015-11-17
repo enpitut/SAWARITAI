@@ -1,0 +1,325 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+/* Common Styles ------------------------------------------ */
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-rendering: optimizelegibility; }
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #333;
+	background-color: #fff;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	text-decoration: none;
+
+	-webkit-transition: color 0.1s linear, border 0.1s linear, opacity 0.1s linear, background-color 0.1s linear;
+	-moz-transition: color 0.1s linear, border 0.1s linear, opacity 0.1s linear, background-color 0.1s linear;
+	-ms-transition: color 0.1s linear, border 0.1s linear, opacity 0.1s linear, background-color 0.1s linear;
+	-o-transition: color 0.1s linear, border 0.1s linear, opacity 0.1s linear, background-color 0.1s linear;
+	transition: color 0.1s linear, border 0.1s linear, opacity 0.1s linear, background-color 0.1s linear;
+}
+a:hover, a:focus { text-decoration: none; border: none; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0px 0 10px 0px;
+	font-weight: normal;
+	line-height: 1.3;
+	color: inherit;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+}
+
+h1,
+h2 {
+	line-height: 1.4;
+	letter-spacing: 3px;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+h2 {
+	font-size: 32px;
+}
+
+h3 {
+	font-size: 24px;
+	letter-spacing: 2px;
+}
+
+h4 {
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+
+h5 {
+	font-size: 14px;
+	letter-spacing: 1px;
+}
+
+h6 {
+	font-size: 12px;
+}
+
+p {
+	color: #666;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+img {
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	vertical-align: middle;
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+/* Colors ------------------------------------------ */
+
+body.color::-moz-selection {background: #f79646; color: #fff; }
+body.color::selection {background: #f79646; color: #fff; }
+body.color a{
+	color: #f79646;
+	text-decoration: none;
+	border-bottom: 1px solid #f79646;
+}
+body.color div#top-nav #fixed-nav li a:hover {
+	color: #f79646;
+}
+body.color div#top-nav #fixed-nav li.current a {
+	border-bottom: 3px solid #f79646;
+}
+body.color .bg-color{
+	background: #f79646;
+}
+body.color hr {
+	border-bottom: 1px solid #f79646;
+}
+body.color span.highlight{
+	color: #f79646;
+}
+body.color #footer {
+	font-weight: bold;
+	background: #f79646;
+	color: #fff;
+	text-align: center;
+	font-size: 13px;
+	padding: 20px 0 20px 0;
+}
+
+/* Navigation & Logo ------------------------------------------ */
+#header{
+	top:0px;
+	border-bottom: 1px solid #D6D6D6;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.9);
+	-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4Cffffff, endColorstr=#4Cffffff);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4Cffffff, endColorstr=#4Cffffff);
+	/*position: fixed;*/
+	height: 80px;
+}
+#nav-button{
+	display: none;
+}
+#logo{
+	display: block;
+	border: none;
+	margin-top: 6px;
+	margin-bottom: 0px;
+	margin-left: 20px;
+	float: left;
+}
+#logo a{
+	color: #333;
+	text-decoration: none;
+	border: none;
+}
+#logo span{
+	margin-left: -12px;
+}
+div#top-nav{
+	margin-top: 13px;
+}
+div#top-nav ul {
+
+	font-family: 'Montserrat',  sans-serif;
+	float: right;
+	margin-bottom: 0px;
+}
+div#top-nav #fluid-nav li, div#top-nav #fixed-nav li {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+div#top-nav #fluid-nav li:first-child, div#top-nav #fixed-nav li:first-child  {
+	margin-left: 0;
+}
+div#top-nav #fluid-nav li a, div#top-nav #fixed-nav li a {
+	color: #333;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 12px;
+	border: none;
+}
+div#top-nav #fluid-nav li a:hover {
+	color: #333;
+	text-decoration: none;
+
+}
+div#top-nav #fluid-nav li.current a {
+	color: #faa3a5;
+}
+div#top-nav #fixed-nav li a:hover {
+	text-decoration: none;
+}
+div#top-nav #fixed-nav li.current a {
+	color: #333;
+	padding-bottom: 5px;
+}
+/* Backgrounds ------------------------------------------ */
+.bg-fixed {
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+/* Dividers ------------------------------------------ */
+.hr-small {
+	float: none;
+}
+.hr {
+	clear: both;
+	display: block;
+	width: 100%;
+	height: 20px;
+	line-height: 20px;
+	position: relative;
+	margin: 10px 0;
+	float: left;
+}
+.hr-center.hr-small .hr-inner {
+	left: 50%;
+}
+.hr-small .hr-inner {
+	width: 32%;
+	margin-left: -16%;
+}
+.hr-inner {
+	border-color: #e1e1e1;
+	width: 100%;
+	position: absolute;
+	height: 1px;
+	top: 50%;
+	width: 100%;
+	margin-top: -1px;
+	border-top-width: 1px;
+	border-top-style: solid;
+}
+.hr-invisible {
+	margin-bottom: 0;
+}
+hr {
+	border: 0;
+	margin: 10px 0;
+}
+#contact hr.grey {
+	margin: 17px 0 10px 0;
+	padding-top: 10px;
+}
+hr.grey {
+	border: 0;
+	border-bottom: 1px solid #e5e5e5;
+	margin: 10px 0;
+	clear: both;
+}
+
+/* Contact us block ------------------------------------------ */
+#contact .social a{
+	margin-right: 10px;
+	font-size: 30px;
+	float: left;
+	border: none;
+}
+
+/* Section, Footer & Misc ------------------------------------------ */
+.content{
+	padding-top: 15px;
+	padding-bottom: 50px;
+}
+.section{
+	border-bottom: 1px solid #e1e1e1;
+}
+.section-alt{
+	background: #fcfcfc;
+}
+
+.title{
+	text-align: center;
+	margin-bottom: 40px;
+}
+.title h2{
+	font-weight: bold;
+	font-size: 2.2em;
+	margin: 0px;
+	text-align: center;
+}
+.title p{
+	letter-spacing: 1px;
+line-height: 1.6em;
+font-size: 20px;
+margin: 0px;
+}
+.text-center{
+	text-align: center;
+}
+.clear{
+	clear: both;
+}
+.span4{
+	height: 500px;
+	overflow-y: auto;
+}
+.span4 max{
+	color: red;
+	font-size: 14px;
+	letter-spacing: 0px;
+}
+.span4 max2{
+	background-color: #FFE7C1;
+}
+#span4-left{
+	float: left;
+	margin-right: 15px;
+}
+#span4-right{
+	float: left;
+	margin-top: 5px;
+}
+#span4-button{
+	clear: both;
+	padding-top: 30px;
+	text-align: right;
+}
+#footer {
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+	font-size: 13px;
+	padding: 20px 0 20px 0;
+}
+#footer a{
+	color: #fff;
+	text-decoration: underline;
+}
