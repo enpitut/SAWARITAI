@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		463F4DEE1BFAE22200128F05 /* SpringIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F4DED1BFAE22200128F05 /* SpringIndicator.swift */; };
 		463F4DF11BFB2C9900128F05 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 463F4DF01BFB2C9900128F05 /* pin.png */; };
+		463F4DF71BFB529A00128F05 /* petHart.png in Resources */ = {isa = PBXBuildFile; fileRef = 463F4DF61BFB529A00128F05 /* petHart.png */; };
+		463F4DFB1BFB646A00128F05 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 463F4DF91BFB646A00128F05 /* Info.plist */; };
+		463F4DFC1BFB646A00128F05 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F4DFA1BFB646A00128F05 /* SCLAlertView.swift */; };
 		4675B0551BF7878500287964 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0521BF7878500287964 /* setting.png */; };
 		4675B0561BF7878500287964 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0531BF7878500287964 /* cancel.png */; };
 		4675B0571BF7878500287964 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0541BF7878500287964 /* reload.png */; };
@@ -70,6 +73,9 @@
 /* Begin PBXFileReference section */
 		463F4DED1BFAE22200128F05 /* SpringIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringIndicator.swift; sourceTree = "<group>"; };
 		463F4DF01BFB2C9900128F05 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		463F4DF61BFB529A00128F05 /* petHart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petHart.png; sourceTree = "<group>"; };
+		463F4DF91BFB646A00128F05 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		463F4DFA1BFB646A00128F05 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		4675B0521BF7878500287964 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 		4675B0531BF7878500287964 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		4675B0541BF7878500287964 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
@@ -154,6 +160,15 @@
 			name = AnimatedImage;
 			sourceTree = "<group>";
 		};
+		463F4DF81BFB646A00128F05 /* SCLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				463F4DF91BFB646A00128F05 /* Info.plist */,
+				463F4DFA1BFB646A00128F05 /* SCLAlertView.swift */,
+			);
+			path = SCLAlertView;
+			sourceTree = "<group>";
+		};
 		4675B0721BF85BD300287964 /* TextFieldEffects */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +232,7 @@
 				468BB8621BE73380002D2F52 /* CellCustom */,
 				463F4DE31BFACECB00128F05 /* AnimatedImage */,
 				4675B0721BF85BD300287964 /* TextFieldEffects */,
+				463F4DF81BFB646A00128F05 /* SCLAlertView */,
 				46BC28171B88670000385B54 /* Image */,
 				46BC27EA1B881F7900385B54 /* Images.xcassets */,
 				46BC27E21B881F7900385B54 /* Info.plist */,
@@ -248,6 +264,7 @@
 				4675B0B51BF8FD3700287964 /* time.png */,
 				463F4DF01BFB2C9900128F05 /* pin.png */,
 				4675B0B11BF8FC3500287964 /* pet.png */,
+				463F4DF61BFB529A00128F05 /* petHart.png */,
 				4675B0AD1BF8DCFA00287964 /* cellBackground.png */,
 				4675B0991BF884EC00287964 /* background.JPG */,
 				4675B09D1BF89D0200287964 /* backgroundDebug.jpg */,
@@ -396,11 +413,13 @@
 				463F4DF11BFB2C9900128F05 /* pin.png in Resources */,
 				4675B08C1BF8629700287964 /* poikun.png in Resources */,
 				46BC28351B89835E00385B54 /* navLogoWhite.png in Resources */,
+				463F4DFB1BFB646A00128F05 /* Info.plist in Resources */,
 				46BC282B1B895DE800385B54 /* pet_back_ground_orange.png in Resources */,
 				46BC27E91B881F7900385B54 /* Main.storyboard in Resources */,
 				46BC27EE1B881F7900385B54 /* LaunchScreen.xib in Resources */,
 				4675B0551BF7878500287964 /* setting.png in Resources */,
 				46BC282C1B895DE800385B54 /* pet_back_ground_pink.png in Resources */,
+				463F4DF71BFB529A00128F05 /* petHart.png in Resources */,
 				4675B09E1BF89D0200287964 /* backgroundDebug.jpg in Resources */,
 				46BC281A1B88901E00385B54 /* logo.png in Resources */,
 				46DB00AF1B8996630049DC4E /* pet_back_ground_gray.png in Resources */,
@@ -475,6 +494,7 @@
 			files = (
 				4675B0891BF85BD300287964 /* YokoTextField.swift in Sources */,
 				46BC28111B8862A900385B54 /* CalendarCollectionViewCell.swift in Sources */,
+				463F4DFC1BFB646A00128F05 /* SCLAlertView.swift in Sources */,
 				4675B0801BF85BD300287964 /* HoshiTextField.swift in Sources */,
 				46BC27E41B881F7900385B54 /* AppDelegate.swift in Sources */,
 				4675B0A81BF8B17C00287964 /* PoiModel.swift in Sources */,

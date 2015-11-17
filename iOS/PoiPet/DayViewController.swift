@@ -50,6 +50,7 @@ class DayViewController: UIViewController,NSXMLParserDelegate,UITableViewDelegat
             poikunView.backgroundColor = UIColor(red: 155/255.0, green: 187/255.0, blue: 89/255.0, alpha: 1.0)
         case 7:
              self.title = "\(dateFormatter.stringFromDate(appDelegate.selectDay!)) 今日"
+             poikunView.backgroundColor = UIColor(red: 247.0/255.0, green: 150.0/255.0, blue: 70.0/255.0, alpha: 1.0)
         default:
             
             break
@@ -72,6 +73,9 @@ class DayViewController: UIViewController,NSXMLParserDelegate,UITableViewDelegat
         var time:String!
         var location:String!
         var cap:String!
+        var bottle:String!
+        var label:String!
+        var poipetID:String!
     }
     
     func setDay(){
@@ -80,16 +84,32 @@ class DayViewController: UIViewController,NSXMLParserDelegate,UITableViewDelegat
             
             var poi:PoiModel
             
-            
-            
             //キャップがはずれているか
-            if Int(appDelegate.poiCap[i]) == 0{
+            if Int(appDelegate.poiCap[i]) == 1 && Int(appDelegate.poiBottle[i])==1 && Int(appDelegate.poiLabel[i])==1{
                 
-                poi = PoiModel(time: "\(appDelegate.poiTime[i])", place: "\(appDelegate.poiPlace[i])" , color: UIColor(red: 155/255.0, green: 187/255.0, blue: 89/255.0, alpha: 1.0))//みどり
+                switch Int(appDelegate.poipetID[i])!{
+                case 1:
+                    poi = PoiModel(time: "\(appDelegate.poiTime[i])", place: "\(appDelegate.poiPlace[i])" , color: UIColor(red: 217/255.0, green: 150/255.0, blue: 148/255.0, alpha: 1.0), image:UIImage(named: "petHart.png")!)//ぴんく
+                case 2:
+                    poi = PoiModel(time: "\(appDelegate.poiTime[i])", place: "\(appDelegate.poiPlace[i])" , color: UIColor(red: 155/255.0, green: 187/255.0, blue: 89/255.0, alpha: 1.0), image:UIImage(named: "petHart.png")!)//みどり
+                default:
+                    poi = PoiModel(time: "\(appDelegate.poiTime[i])", place: "\(appDelegate.poiPlace[i])" , color: UIColor(red: 247.0/255.0, green: 150.0/255.0, blue: 70.0/255.0, alpha: 1.0), image:UIImage(named: "petHart.png")!)//オレンジ
+                    break
+                }
+                
                 
             }else{
             
-                poi = PoiModel(time: "\(appDelegate.poiTime[i])", place: "\(appDelegate.poiPlace[i])" , color: UIColor(red: 217/255.0, green: 150/255.0, blue: 148/255.0, alpha: 1.0))//ピンク
+                
+                switch Int(appDelegate.poipetID[i])!{
+                case 1:
+                    poi = PoiModel(time: "\(appDelegate.poiTime[i])", place: "\(appDelegate.poiPlace[i])" , color: UIColor(red: 217/255.0, green: 150/255.0, blue: 148/255.0, alpha: 1.0), image:UIImage(named: "pet.png")!)//ぴんく
+                case 2:
+                    poi = PoiModel(time: "\(appDelegate.poiTime[i])", place: "\(appDelegate.poiPlace[i])" , color: UIColor(red: 155/255.0, green: 187/255.0, blue: 89/255.0, alpha: 1.0), image:UIImage(named: "pet.png")!)//みどり
+                default:
+                    poi = PoiModel(time: "\(appDelegate.poiTime[i])", place: "\(appDelegate.poiPlace[i])" , color: UIColor(red: 247.0/255.0, green: 150.0/255.0, blue: 70.0/255.0, alpha: 1.0), image:UIImage(named: "pet.png")!)//オレンジ
+                    break
+                }
             }
             pois.append(poi)
         }
@@ -97,6 +117,9 @@ class DayViewController: UIViewController,NSXMLParserDelegate,UITableViewDelegat
         appDelegate.poiTime = []
         appDelegate.poiPlace = []
         appDelegate.poiCap = []
+        appDelegate.poiBottle = []
+        appDelegate.poiLabel = []
+        appDelegate.poipetID = []
         
     }
     
@@ -122,7 +145,7 @@ class DayViewController: UIViewController,NSXMLParserDelegate,UITableViewDelegat
     
     override func viewWillDisappear(animated: Bool) {
         //ナビゲーションバー色
-        self.navigationController!.navigationBar.barTintColor = UIColor(red: 240.0/255.0, green: 125.0/255.0, blue: 50.0/255.0, alpha: 1.0)//オレンジ
+        self.navigationController!.navigationBar.barTintColor = UIColor(red: 247.0/255.0, green: 150.0/255.0, blue: 70.0/255.0, alpha: 1.0)//オレンジ
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -135,7 +158,7 @@ class DayViewController: UIViewController,NSXMLParserDelegate,UITableViewDelegat
         case 6:
             self.navigationController!.navigationBar.barTintColor = UIColor(red: 155/255.0, green: 187/255.0, blue: 89/255.0, alpha: 1.0)//みどり
         case 7:
-            self.navigationController!.navigationBar.barTintColor = UIColor(red: 240.0/255.0, green: 125.0/255.0, blue: 50.0/255.0, alpha: 1.0)//オレンジ
+            self.navigationController!.navigationBar.barTintColor = UIColor(red: 247.0/255.0, green: 150.0/255.0, blue: 70.0/255.0, alpha: 1.0)//オレンジ
             
         default:
             

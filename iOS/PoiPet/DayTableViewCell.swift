@@ -37,9 +37,23 @@ class DayTableViewCell: UITableViewCell {
     func setCell(poiModel:PoiModel){
         self.timeLabel.text = poiModel.time
         self.placeLabel.text = poiModel.place
+        
+        if poiModel.place.characters.count > 9{
+            //改行
+            self.placeLabel.text = "\(poiModel.place.stringByReplacingOccurrencesOfString(" ", withString: "\n"))"
+            self.placeLabel.numberOfLines=2
+            
+            self.placeLabel.font=UIFont.systemFontOfSize(11)
+        }
+        
+        //placeLabel.frame = CGRectMake(placeLabel.frame.origin.x, placeLabel.frame.origin.y, placeLabel.frame.width, 0)
+        //placeLabel.numberOfLines = 0
+        //placeLabel.sizeToFit()
+        
         self.backView.layer.borderColor = poiModel.color.CGColor
         
         self.petImageView.backgroundColor = poiModel.color
+        self.petImageView.image = poiModel.image
         
     }
 

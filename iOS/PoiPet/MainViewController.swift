@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,NSXMLParserDelegate {
     
-
+    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     @IBOutlet weak var settingButton: UIBarButtonItem!
     var calendarCollectionView : UICollectionView!
     
@@ -61,7 +61,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         //ボタン色
         self.navigationController!.navigationBar.tintColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         //背景色
-        self.navigationController!.navigationBar.barTintColor = UIColor(red: 240.0/255.0, green: 125.0/255.0, blue: 50.0/255.0, alpha: 1.0)//オレンジ
+        self.navigationController!.navigationBar.barTintColor = UIColor(red: 247.0/255.0, green: 150.0/255.0, blue: 70.0/255.0, alpha: 1.0)//オレンジ
         //Navigationbar高さ保存
         hNavigation = CGFloat(self.navigationController!.navigationBar.frame.height) + CGFloat(UIApplication.sharedApplication().statusBarFrame.height)
         
@@ -94,26 +94,30 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         indicator.frame = CGRectMake(wBounds/2-wBounds/8, hBounds/2-wBounds/8+hNavigation, wBounds/4, wBounds/4)
         indicator.lineWidth = 3
         
-        refresh()
+        refreshCalendar()
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if appDelegate.isSetting == true{
+            refreshCalendar()
+            appDelegate.isSetting=false
+        }
         
     }
+    
     
     //更新
     @IBAction func refreshButton(sender: AnyObject) {
         
         self.view.addSubview(indicator)
         self.indicator.startAnimation()
-        refresh()
+        refreshCalendar()
         
     }
     
-    func refresh(){
+    func refreshCalendar(){
         
         pois=[]
         
@@ -156,12 +160,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
                 
             } catch {
 
-                let alert:UIAlertController = UIAlertController(title: "Acsess False", message: "\(error)", preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "OK", style: .Default) {
-                    action in
-                }
-                alert.addAction(okAction)
-                self.presentViewController(alert, animated: true, completion: nil)
+                 SCLAlertView().showError("通信失敗しました", subTitle: "")
             }
             
             let parser : NSXMLParser! = NSXMLParser(data: data)
@@ -172,12 +171,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             }else{
             print("false")
             
-            let alert:UIAlertController = UIAlertController(title: "No Data", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
-            let okAction = UIAlertAction(title: "OK", style: .Default) {
-            action in
-            }
-            alert.addAction(okAction)
-            self.presentViewController(alert, animated: true, completion: nil)
+            SCLAlertView().showWarning("データがありません", subTitle: "")
             
             }
             
@@ -209,19 +203,61 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         if self.view.viewWithTag(100) == nil{
         
-            calendarMonth = calendarMonth + swipeCount
-            monthCount=0
+            var month = calendarMonth + swipeCount
+            var year = calendarYear
             
-            if calendarMonth > 12{
-                calendarYear++
-                calendarMonth=1
-            }else if calendarMonth < 1{
-                calendarYear--
-                calendarMonth=12
+            if month > 12{
+                year++
+                month = 1
+            }else if month < 1{
+                year--
+                month=12
             }
             
+            var rightMonth = month + 1
+            var rightYear = year
+            
+            if rightMonth > 12{
+                rightYear++
+                rightMonth = 1
+            }else if rightMonth < 1{
+                rightYear--
+                rightMonth=12
+            }
+            
+            var leftMonth = month + 1
+            var leftYear = year
+            
+            if leftMonth > 12{
+                leftYear++
+                leftMonth = 1
+            }else if leftMonth < 1{
+                leftYear--
+                leftMonth=12
+            }
+            
+            monthCount=0
+            
             print("Calendar generate")
-            let calendarViews = calendarView()
+            
+            
+            /*let rightCalendarViews = calendarView(rightYear,saveMonth: rightMonth)
+            rightCalendarViews.layer.position = CGPointMake(wBounds*3/2, calendarViews.frame.height/2 + hNavigation)
+            rightCalendarViews.tag = 200
+            
+            let leftCalendarViews = calendarView(leftYear,saveMonth: leftMonth)
+            leftCalendarViews.layer.position = CGPointMake(-wBounds/2, calendarViews.frame.height/2 + hNavigation)
+            leftCalendarViews.tag = 300
+            */
+            
+            let calendarViews = calendarView(year,saveMonth: month)
+            
+            self.view.addSubview(calendarViews)
+            //self.view.addSubview(rightCalendarViews)
+            //self.view.addSubview(leftCalendarViews)
+            
+            
+            //let rightCalendarViews = calendarView(calendarYear,saveMonth: calendarMonth)
             
             if swipeCount > 0{
                 calendarViews.layer.position = CGPointMake(wBounds*3/2, calendarViews.frame.height/2 + hNavigation)
@@ -230,20 +266,62 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             }else{
                 calendarViews.alpha=0.0
             }
-            self.view.addSubview(calendarViews)
-            //self.view.sendSubviewToBack(calendarViews)
             
-            UIView.animateWithDuration(0.5, animations: {
-                calendarViews.layer.position = CGPointMake(self.wBounds/2, calendarViews.frame.height/2 + self.hNavigation)
-                calendarViews.alpha=1.0
+            
+            UIView.animateWithDuration(0.2, animations: {
+               /* if self.swipeCount > 0{
+                    //calendarViews.layer.position = CGPointMake(self.wBounds*3/2, calendarViews.frame.height/2 + self.hNavigation)
+                    rightCalendarViews.layer.position = CGPointMake(self.wBounds/2, calendarViews.frame.height/2 + self.hNavigation)
+                    
+                }else if self.swipeCount < 0{
+                    //calendarViews.layer.position = CGPointMake(-self.wBounds/2, calendarViews.frame.height/2 + self.hNavigation)
+                    leftCalendarViews.layer.position = CGPointMake(self.wBounds/2, calendarViews.frame.height/2 + self.hNavigation)
+                }else{*/
+                    calendarViews.layer.position = CGPointMake(self.wBounds/2, calendarViews.frame.height/2 + self.hNavigation)
+                    calendarViews.alpha=1.0
+                //}
+                
                 
             })
             
         }
     }
     
+    //左スワイプで前月を表示
+    @IBAction func swipePrevCalendar(sender: UISwipeGestureRecognizer) {
+        //カレンダービュー消去・追加
+        
+        let remove:UIView = self.view.viewWithTag(100)!
+        UIView.animateWithDuration(0.2, animations:{
+        remove.layer.position = CGPointMake(-self.wBounds/2, remove.frame.height/2 + self.hNavigation)
+        }, completion: { finished in
+        remove.removeFromSuperview()
+        })
+        
+        swipeCount = 1
+        
+        
+    }
+    
+    //右スワイプで次月を表示
+    @IBAction func swipeNextCalendar(sender: UISwipeGestureRecognizer) {
+        
+        let remove:UIView = self.view.viewWithTag(100)!
+        UIView.animateWithDuration(0.2, animations:{
+        remove.layer.position = CGPointMake(self.wBounds*3/2, remove.frame.height/2 + self.hNavigation)
+        }, completion: { finished in
+        remove.removeFromSuperview()
+        })
+        
+        swipeCount = -1
+        
+    }
+    
     //カレンダーView
-    private func calendarView() -> UIView{
+    private func calendarView(saveYear:Int,saveMonth:Int) -> UIView{
+        
+        calendarYear = saveYear
+        calendarMonth = saveMonth
         
         nowMonthLastDay=getLastDay(calendarYear, month: calendarMonth)
         if calendarMonth == 12{
@@ -447,7 +525,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             
         }else{
         
-            let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy/MM/dd";
             let date:NSDate = dateFormatter.dateFromString("\(calendarYear)/\(calendarMonth)/\(indexPath.row-nowMonthFirstWeek)")!
@@ -461,6 +539,10 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
                     appDelegate.poiTime.append("\(poi.time)")
                     appDelegate.poiPlace.append("\(poi.location)")
                     appDelegate.poiCap.append("\(poi.cap)")
+                    appDelegate.poiBottle.append("\(poi.bottle)")
+                    appDelegate.poiLabel.append("\(poi.label)")
+
+                    appDelegate.poipetID.append("\(poi.poipetID)")
                     
                     if calendarYear==nowYear && calendarMonth==nowMonth && indexPath.row-nowMonthFirstWeek==nowDay {
                         appDelegate.poiWeek = 7
@@ -484,33 +566,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         return 42
     }
     
-    //左スワイプで前月を表示
-    @IBAction func swipePrevCalendar(sender: UISwipeGestureRecognizer) {
-        //カレンダービュー消去・追加
-        
-        let remove:UIView = self.view.viewWithTag(100)!
-        UIView.animateWithDuration(0.5, animations:{
-            remove.layer.position = CGPointMake(-self.wBounds/2, remove.frame.height/2 + self.hNavigation)
-        }, completion: { finished in
-            remove.removeFromSuperview()
-        })
-        
-        swipeCount = 1
-    }
-    
-    //右スワイプで次月を表示
-    @IBAction func swipeNextCalendar(sender: UISwipeGestureRecognizer) {
-        
-        let remove:UIView = self.view.viewWithTag(100)!
-        UIView.animateWithDuration(0.5, animations:{
-            remove.layer.position = CGPointMake(self.wBounds*3/2, remove.frame.height/2 + self.hNavigation)
-            }, completion: { finished in
-                remove.removeFromSuperview()
-        })
-        
-        swipeCount = -1
-        
-    }
+ 
     
     //XML解析
     var pois : [Poi]=[Poi]()
@@ -522,7 +578,10 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         var year:String!
         var time:String!
         var location:String!
+        var bottle:String!
         var cap:String!
+        var label:String!
+        var poipetID:String!
     }
     
     var currentElementName : String?
@@ -535,6 +594,9 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     let timeEleementName="time"
     let locationEleementName="location"
     let capEleementName="cap"
+    let poipetIDEleementName="poipet_id"
+    let bottleEleementName="bottle"
+    let labelEleementName="label"
     
     func parserDidStartDocument(parser: NSXMLParser) {
         print("解析開始")
@@ -558,29 +620,29 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     {
         if pois.count > 0 {
             let lastPoi = pois[pois.count-1]
+            
+            
             if currentElementName == idElementName {
                 let tmpString : String? = lastPoi.id
                 lastPoi.id = (tmpString != nil) ? tmpString! + string : string
-                //print("ID:\(lastPoi.id)")
             } else if currentElementName == dateElementName {
                 lastPoi.date = string
-                //print("DATE:\(lastPoi.date)")
             } else if currentElementName == monthEleementName{
                 lastPoi.month = string
-                //print("month:\(lastPoi.month)")
             } else if currentElementName == yearEleementName{
                 lastPoi.year = string
-                //print("month:\(lastPoi.year)")
-                
             } else if currentElementName == timeEleementName{
                 lastPoi.time = string
-                //print("month:\(lastPoi.year)")
             } else if currentElementName == locationEleementName{
                 lastPoi.location = string
-                //print("month:\(lastPoi.year)")
             } else if currentElementName == capEleementName{
                 lastPoi.cap = string
-                //print("month:\(lastPoi.year)")
+            } else if currentElementName == poipetIDEleementName{
+                lastPoi.poipetID = string
+            } else if currentElementName == labelEleementName{
+                lastPoi.label = string
+            } else if currentElementName == bottleEleementName{
+                lastPoi.bottle = string
             }
         }
     }

@@ -10,6 +10,8 @@ import UIKit
 
 class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSessionDelegate,NSURLSessionDataDelegate {
     
+    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     @IBOutlet weak var RegistrationIDTextField: AkiraTextField!
     @IBOutlet weak var UserNameTextField: AkiraTextField!
     
@@ -106,39 +108,33 @@ class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSess
         dispatch_async(dispatch_get_main_queue(), {
             
             self.indicator.removeFromSuperview()
+            print(userID.characters.count)
             
             //成功
-            if Int(userID) != nil {
-                print("UserID:\(Int(userID)!)")
+            if userID.characters.count == 16 {
+                print("UserID:\(userID)")
                 
                 let userDefault = NSUserDefaults.standardUserDefaults()
                 
-                userDefault.setObject("\(Int(userID)!)", forKey: "ID")
+                userDefault.setObject("\(userID)", forKey: "ID")
                 userDefault.synchronize()
                 
                 print("Registration Finish")
                 
-                let alert:UIAlertController = UIAlertController(title: "Sucsess", message: "\(userID)\n登録ID : \(self.registrationID)\nユーザ名 : \(self.userName)", preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "OK", style: .Default) {
-                    action in
-                        self.dismissViewControllerAnimated(true, completion: nil)
+                let alertView = SCLAlertView()
+                alertView.addButton("OK") {
+                    self.appDelegate.isSetting = true
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
-                alert.addAction(okAction)
-                self.presentViewController(alert, animated: true, completion: nil)
+                alertView.showCloseButton = false
+                alertView.showSuccess("登録完了しました", subTitle: "登録ID : \(self.registrationID)\nユーザ名 : \(self.userName)")
                 
                 //失敗
             }else{
                 print("Error:\(userID)")
                 
-                let alert:UIAlertController = UIAlertController(title: "false", message: "\(userID)\n登録ID : \(self.registrationID)\nユーザ名 : \(self.userName)", preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "OK", style: .Default) {
-                action in
+                SCLAlertView().showError("登録失敗しました", subTitle: "登録ID : \(self.registrationID)\nユーザ名 : \(self.userName)")
                 
-                }
-                //alert.view.tintColor = UIColor(red: 240.0/255.0, green: 125.0/255.0, blue: 50.0/255.0, alpha: 1.0)//オレンジ
-                alert.addAction(okAction)
-                
-                self.presentViewController(alert, animated: true, completion: nil)
             }
             
         })
@@ -146,6 +142,7 @@ class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSess
     }
     
     @IBAction func unwindToTop(segue: UIStoryboardSegue) {
+        
     }
     
 }

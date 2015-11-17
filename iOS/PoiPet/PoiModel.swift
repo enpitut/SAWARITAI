@@ -13,13 +13,15 @@ class PoiModel : NSObject {
     var place:String
     
     var color:UIColor
+    var image:UIImage
 
     
-    init(time: String, place:String, color:UIColor) {
+    init(time: String, place:String, color:UIColor, image:UIImage) {
         
         self.time = time
         self.place = place
         self.color = color
+        self.image = image
         
     }
     
