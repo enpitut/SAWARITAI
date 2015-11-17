@@ -99,6 +99,27 @@ function initialize() {
   // createMarker(map, markerPos2, 2, "<b>明治神宮野球場</b><p>現在のペットボトル本数：3本<br>最終回収日時：11/18 15:48</p>");
   // var markerPos3 = new google.maps.LatLng(35.6591041,139.7015533);
   // createMarker(map, markerPos3, 3, "<b>渋谷ヒカリエ</b><p>現在のペットボトル本数：12本<br>最終回収日時：11/18 12:23</p>");
+  $(function() {
+    $(".span4 a").click(function() {
+      for(var i = 0; i < markers.length; i++) {
+        if(i == $(this).attr("data-id")) {
+          infoWindows[i].open(map, markers[i]);
+        } else {
+          infoWindows[i].close();
+        }
+      }
+      return false;
+    });
+    for(var i = 0; i < markers.length; i++) {
+      if(locations[i][2] = 80){
+        if($(".span4 a").attr("data-id") == i){
+          $("#span4-right").css("background-color", "#FFE7C1");
+          // $("#span4-right h4").append("<max>もうすぐ回収！</max>");
+        }
+      }
+      return false;
+    };
+  });
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 google.maps.event.addDomListener(window, 'resize',function(){ map.panTo(mapOptions.center); });
@@ -159,17 +180,3 @@ google.maps.event.addDomListener(window, 'resize',function(){ map.panTo(mapOptio
 // }
 // google.maps.event.addDomListener(window, 'load', initialize);
 // google.maps.event.addDomListener(window, 'resize',function(){ map.panTo(mapOptions.center); });
-
-
-$(function() {
-  $(".span4 a").click(function() {
-    for(var i = 0; i < markers.length; i++) {
-      if(i == $(this).attr("data-id")) {
-        infoWindows[i].open(map, markers[i]);
-      } else {
-        infoWindows[i].close();
-      }
-    }
-    return false;
-  });
-});
