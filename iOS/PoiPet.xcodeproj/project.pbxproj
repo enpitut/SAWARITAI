@@ -108,8 +108,8 @@
 		46BC28191B88901E00385B54 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		46BC281B1B8891BF00385B54 /* logoWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoWhite.png; sourceTree = "<group>"; };
 		46BC281E1B89557400385B54 /* PoiPet-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PoiPet-Bridging-Header.h"; sourceTree = "<group>"; };
-		46BC28221B895B0F00385B54 /* FLAnimatedImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FLAnimatedImage.h; path = Pods/FLAnimatedImage/FLAnimatedImageDemo/FLAnimatedImage/FLAnimatedImage.h; sourceTree = "<group>"; };
-		46BC28241B895B1400385B54 /* FLAnimatedImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FLAnimatedImageView.h; path = Pods/FLAnimatedImage/FLAnimatedImageDemo/FLAnimatedImage/FLAnimatedImageView.h; sourceTree = "<group>"; };
+		46BC28221B895B0F00385B54 /* FLAnimatedImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FLAnimatedImage.h; path = ../Pods/FLAnimatedImage/FLAnimatedImageDemo/FLAnimatedImage/FLAnimatedImage.h; sourceTree = "<group>"; };
+		46BC28241B895B1400385B54 /* FLAnimatedImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FLAnimatedImageView.h; path = ../Pods/FLAnimatedImage/FLAnimatedImageDemo/FLAnimatedImage/FLAnimatedImageView.h; sourceTree = "<group>"; };
 		46BC28261B895DE800385B54 /* pet_back_ground_gleen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_gleen.png; sourceTree = "<group>"; };
 		46BC28271B895DE800385B54 /* pet_back_ground_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_orange.png; sourceTree = "<group>"; };
 		46BC28281B895DE800385B54 /* pet_back_ground_pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_pink.png; sourceTree = "<group>"; };
@@ -142,6 +142,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		463F4DE31BFACECB00128F05 /* AnimatedImage */ = {
+			isa = PBXGroup;
+			children = (
+				46BC28241B895B1400385B54 /* FLAnimatedImageView.h */,
+				46BC28221B895B0F00385B54 /* FLAnimatedImage.h */,
+			);
+			name = AnimatedImage;
+			sourceTree = "<group>";
+		};
 		4675B0721BF85BD300287964 /* TextFieldEffects */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,20 +170,20 @@
 			path = TextFieldEffects;
 			sourceTree = "<group>";
 		};
-		468BB8621BE73380002D2F52 /* Calendar */ = {
+		468BB8621BE73380002D2F52 /* CellCustom */ = {
 			isa = PBXGroup;
 			children = (
+				4675B0A71BF8B17C00287964 /* PoiModel.swift */,
+				4675B0A91BF8B23D00287964 /* DayTableViewCell.swift */,
 				46BC280F1B8862A900385B54 /* CalendarCollectionViewCell.swift */,
 				46BC28101B8862A900385B54 /* CalendarCollectionViewCell.xib */,
 			);
-			name = Calendar;
+			name = CellCustom;
 			sourceTree = "<group>";
 		};
 		46BC27D51B881F7900385B54 = {
 			isa = PBXGroup;
 			children = (
-				46BC28241B895B1400385B54 /* FLAnimatedImageView.h */,
-				46BC28221B895B0F00385B54 /* FLAnimatedImage.h */,
 				46BC27E01B881F7900385B54 /* PoiPet */,
 				46BC27F61B881F7900385B54 /* PoiPetTests */,
 				46BC27DF1B881F7900385B54 /* Products */,
@@ -202,14 +211,13 @@
 				4675B09F1BF8A7F000287964 /* DayViewController.swift */,
 				468784B11BF5950600F30644 /* UserSettingViewController.swift */,
 				4675B09B1BF89A2B00287964 /* UserIDSettingViewController.swift */,
-				4675B0A71BF8B17C00287964 /* PoiModel.swift */,
-				4675B0A91BF8B23D00287964 /* DayTableViewCell.swift */,
-				46BC281E1B89557400385B54 /* PoiPet-Bridging-Header.h */,
-				468BB8621BE73380002D2F52 /* Calendar */,
+				468BB8621BE73380002D2F52 /* CellCustom */,
+				463F4DE31BFACECB00128F05 /* AnimatedImage */,
 				4675B0721BF85BD300287964 /* TextFieldEffects */,
 				46BC28171B88670000385B54 /* Image */,
 				46BC27EA1B881F7900385B54 /* Images.xcassets */,
 				46BC27E21B881F7900385B54 /* Info.plist */,
+				46BC281E1B89557400385B54 /* PoiPet-Bridging-Header.h */,
 			);
 			path = PoiPet;
 			sourceTree = "<group>";

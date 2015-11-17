@@ -61,8 +61,6 @@
         <!--User Setting View Controller-->
         <scene sceneID="09G-r4-gyt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B8f-02-Fd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="nD2-dM-mCc" userLabel="Exit" sceneMemberID="exit"/>
                 <viewController storyboardIdentifier="SettingViewController" id="MdK-0U-o4w" customClass="UserSettingViewController" customModule="PoiPet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bap-SQ-QMr"/>
@@ -255,6 +253,8 @@
                         <outlet property="UserNameTextField" destination="pGq-pg-NWd" id="ZIq-9y-FAt"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B8f-02-Fd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nD2-dM-mCc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1741" y="333"/>
         </scene>
@@ -454,8 +454,6 @@
         <!--UserID Setting View Controller-->
         <scene sceneID="dfV-zp-IhL">
             <objects>
-                <exit id="6ZW-RM-HNO" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gXg-KD-S8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="WZW-HL-lp4" customClass="UserIDSettingViewController" customModule="PoiPet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sjq-X9-HYa"/>
@@ -581,6 +579,8 @@
                         <outlet property="UserIDTextField" destination="Xws-fa-xUl" id="Qa2-ac-yMs"/>
                     </connections>
                 </viewController>
+                <exit id="6ZW-RM-HNO" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gXg-KD-S8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2430" y="333"/>
         </scene>
