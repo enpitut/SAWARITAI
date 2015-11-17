@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var poiTime:[String] = []
     var poiPlace:[String] = []
+    var poiCap:[String] = []
+    var poiWeek:Int?
     
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

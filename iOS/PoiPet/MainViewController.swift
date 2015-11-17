@@ -101,7 +101,6 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        //refresh()
         
     }
     
@@ -390,7 +389,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         let headerReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath)
         let todayLabel:UILabel = UILabel(frame: CGRectMake(20.0, 10.0,wBounds-40, hHeadBounds*3/4-10.0))
-        todayLabel.text="\(calendarYear)年\(calendarMonth)月 \(monthCount)Poi"
+        todayLabel.text="\(calendarYear)年\(calendarMonth)月 \(monthCount) Poi"
         todayLabel.textColor=UIColor.grayColor()
         if hHeadBounds == 50{
             todayLabel.font=UIFont.systemFontOfSize(18)
@@ -461,6 +460,14 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
                     //print("\(poi.time):\(poi.location)")
                     appDelegate.poiTime.append("\(poi.time)")
                     appDelegate.poiPlace.append("\(poi.location)")
+                    appDelegate.poiCap.append("\(poi.cap)")
+                    
+                    if calendarYear==nowYear && calendarMonth==nowMonth && indexPath.row-nowMonthFirstWeek==nowDay {
+                        appDelegate.poiWeek = 7
+                    }else{
+                        appDelegate.poiWeek = Int(indexPath.row)%7
+                    }
+                    
 
                 }
             }
@@ -515,6 +522,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         var year:String!
         var time:String!
         var location:String!
+        var cap:String!
     }
     
     var currentElementName : String?
@@ -526,6 +534,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     let yearEleementName="year"
     let timeEleementName="time"
     let locationEleementName="location"
+    let capEleementName="cap"
     
     func parserDidStartDocument(parser: NSXMLParser) {
         print("解析開始")
@@ -568,6 +577,9 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
                 //print("month:\(lastPoi.year)")
             } else if currentElementName == locationEleementName{
                 lastPoi.location = string
+                //print("month:\(lastPoi.year)")
+            } else if currentElementName == capEleementName{
+                lastPoi.cap = string
                 //print("month:\(lastPoi.year)")
             }
         }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		463F4DEE1BFAE22200128F05 /* SpringIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F4DED1BFAE22200128F05 /* SpringIndicator.swift */; };
+		463F4DF11BFB2C9900128F05 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 463F4DF01BFB2C9900128F05 /* pin.png */; };
 		4675B0551BF7878500287964 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0521BF7878500287964 /* setting.png */; };
 		4675B0561BF7878500287964 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0531BF7878500287964 /* cancel.png */; };
 		4675B0571BF7878500287964 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0541BF7878500287964 /* reload.png */; };
@@ -30,7 +31,6 @@
 		4675B0A01BF8A7F000287964 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B09F1BF8A7F000287964 /* DayViewController.swift */; };
 		4675B0A81BF8B17C00287964 /* PoiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0A71BF8B17C00287964 /* PoiModel.swift */; };
 		4675B0AA1BF8B23D00287964 /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0A91BF8B23D00287964 /* DayTableViewCell.swift */; };
-		4675B0AC1BF8D99C00287964 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0AB1BF8D99C00287964 /* pin.png */; };
 		4675B0AE1BF8DCFA00287964 /* cellBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0AD1BF8DCFA00287964 /* cellBackground.png */; };
 		4675B0B21BF8FC3500287964 /* pet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0B11BF8FC3500287964 /* pet.png */; };
 		4675B0B61BF8FD3700287964 /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0B51BF8FD3700287964 /* time.png */; };
@@ -69,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		463F4DED1BFAE22200128F05 /* SpringIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringIndicator.swift; sourceTree = "<group>"; };
+		463F4DF01BFB2C9900128F05 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		4675B0521BF7878500287964 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 		4675B0531BF7878500287964 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		4675B0541BF7878500287964 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		4675B09F1BF8A7F000287964 /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		4675B0A71BF8B17C00287964 /* PoiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiModel.swift; sourceTree = "<group>"; };
 		4675B0A91BF8B23D00287964 /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
-		4675B0AB1BF8D99C00287964 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		4675B0AD1BF8DCFA00287964 /* cellBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellBackground.png; sourceTree = "<group>"; };
 		4675B0B11BF8FC3500287964 /* pet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet.png; sourceTree = "<group>"; };
 		4675B0B51BF8FD3700287964 /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time.png; sourceTree = "<group>"; };
@@ -246,9 +246,9 @@
 			isa = PBXGroup;
 			children = (
 				4675B0B51BF8FD3700287964 /* time.png */,
+				463F4DF01BFB2C9900128F05 /* pin.png */,
 				4675B0B11BF8FC3500287964 /* pet.png */,
 				4675B0AD1BF8DCFA00287964 /* cellBackground.png */,
-				4675B0AB1BF8D99C00287964 /* pin.png */,
 				4675B0991BF884EC00287964 /* background.JPG */,
 				4675B09D1BF89D0200287964 /* backgroundDebug.jpg */,
 				4675B08B1BF8629700287964 /* poikun.png */,
@@ -390,10 +390,10 @@
 				4675B0B21BF8FC3500287964 /* pet.png in Resources */,
 				46BC282A1B895DE800385B54 /* pet_back_ground_gleen.png in Resources */,
 				4675B0AE1BF8DCFA00287964 /* cellBackground.png in Resources */,
-				4675B0AC1BF8D99C00287964 /* pin.png in Resources */,
 				4675B0811BF85BD300287964 /* Info.plist in Resources */,
 				4675B0561BF7878500287964 /* cancel.png in Resources */,
 				46BC281C1B8891BF00385B54 /* logoWhite.png in Resources */,
+				463F4DF11BFB2C9900128F05 /* pin.png in Resources */,
 				4675B08C1BF8629700287964 /* poikun.png in Resources */,
 				46BC28351B89835E00385B54 /* navLogoWhite.png in Resources */,
 				46BC282B1B895DE800385B54 /* pet_back_ground_orange.png in Resources */,

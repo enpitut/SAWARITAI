@@ -16,14 +16,16 @@ class DayTableViewCell: UITableViewCell {
     @IBOutlet weak var placeLabel: UILabel!
     
     @IBOutlet weak var backView: UIView!
+    
+    @IBOutlet weak var petImageView: UIImageView!
+    
 //    @IBOutlet weak var backgroundView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         backView.layer.borderWidth = 3.0
-        backView.layer.borderColor = UIColor(red: 240.0/255.0, green: 125.0/255.0, blue: 50.0/255.0, alpha: 1.0).CGColor//オレンジ
-        // Initialization code
+
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -32,9 +34,12 @@ class DayTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setCell(Day:PoiModel){
-        self.timeLabel.text = Day.time
-        self.placeLabel.text = Day.place
+    func setCell(poiModel:PoiModel){
+        self.timeLabel.text = poiModel.time
+        self.placeLabel.text = poiModel.place
+        self.backView.layer.borderColor = poiModel.color.CGColor
+        
+        self.petImageView.backgroundColor = poiModel.color
         
     }
 

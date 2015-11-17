@@ -14,7 +14,8 @@ class DayViewController: UIViewController,NSXMLParserDelegate,UITableViewDelegat
 
     @IBOutlet weak var DayTableView: UITableView!
     
-   
+    @IBOutlet weak var poikunView: UIView!
+    @IBOutlet weak var poikunLabel: UILabel!
     var pois:[PoiModel] = [PoiModel]()
 
     override func viewDidLoad() {
@@ -23,10 +24,38 @@ class DayViewController: UIViewController,NSXMLParserDelegate,UITableViewDelegat
                 let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM月dd日";
         
-        print("\(dateFormatter.stringFromDate(appDelegate.selectDay!))")
+        print("SELECT:\(dateFormatter.stringFromDate(appDelegate.selectDay!))")
         
+        switch appDelegate.poiWeek!{
+        case 0:
+            self.title = "\(dateFormatter.stringFromDate(appDelegate.selectDay!)) 日曜日"
+            poikunView.backgroundColor = UIColor(red: 217/255.0, green: 150/255.0, blue: 148/255.0, alpha: 1.0)
+        case 1:
+            self.title = "\(dateFormatter.stringFromDate(appDelegate.selectDay!)) 月曜日"
+            poikunView.backgroundColor = UIColor(red: 85/255.0, green: 142/255.0, blue: 213/255.0, alpha: 1.0)
+        case 2:
+            self.title = "\(dateFormatter.stringFromDate(appDelegate.selectDay!)) 火曜日"
+            poikunView.backgroundColor = UIColor(red: 85/255.0, green: 142/255.0, blue: 213/255.0, alpha: 1.0)
+        case 3:
+            self.title = "\(dateFormatter.stringFromDate(appDelegate.selectDay!)) 水曜日"
+            poikunView.backgroundColor = UIColor(red: 85/255.0, green: 142/255.0, blue: 213/255.0, alpha: 1.0)
+        case 4:
+            self.title = "\(dateFormatter.stringFromDate(appDelegate.selectDay!)) 木曜日"
+            poikunView.backgroundColor = UIColor(red: 85/255.0, green: 142/255.0, blue: 213/255.0, alpha: 1.0)
+        case 5:
+            self.title = "\(dateFormatter.stringFromDate(appDelegate.selectDay!)) 金曜日"
+            poikunView.backgroundColor = UIColor(red: 85/255.0, green: 142/255.0, blue: 213/255.0, alpha: 1.0)
+        case 6:
+            self.title = "\(dateFormatter.stringFromDate(appDelegate.selectDay!)) 土曜日"
+            poikunView.backgroundColor = UIColor(red: 155/255.0, green: 187/255.0, blue: 89/255.0, alpha: 1.0)
+        case 7:
+             self.title = "\(dateFormatter.stringFromDate(appDelegate.selectDay!)) 今日"
+        default:
+            
+            break
+        }
         
-        self.title = "\(dateFormatter.stringFromDate(appDelegate.selectDay!))"
+        poikunLabel.text = "\(appDelegate.poiTime.count) Poi Thank You!"
         
         DayTableView.delegate = self
         DayTableView.dataSource = self
@@ -42,17 +71,32 @@ class DayViewController: UIViewController,NSXMLParserDelegate,UITableViewDelegat
         var year:String!
         var time:String!
         var location:String!
+        var cap:String!
     }
     
     func setDay(){
         
         for var i:Int = 0 ; i < appDelegate.poiTime.count ; i++ {
-            let poi = PoiModel(time: "\(appDelegate.poiTime[i])", place: "\(appDelegate.poiPlace[i])")
+            
+            var poi:PoiModel
+            
+            
+            
+            //キャップがはずれているか
+            if Int(appDelegate.poiCap[i]) == 0{
+                
+                poi = PoiModel(time: "\(appDelegate.poiTime[i])", place: "\(appDelegate.poiPlace[i])" , color: UIColor(red: 155/255.0, green: 187/255.0, blue: 89/255.0, alpha: 1.0))//みどり
+                
+            }else{
+            
+                poi = PoiModel(time: "\(appDelegate.poiTime[i])", place: "\(appDelegate.poiPlace[i])" , color: UIColor(red: 217/255.0, green: 150/255.0, blue: 148/255.0, alpha: 1.0))//ピンク
+            }
             pois.append(poi)
         }
         
         appDelegate.poiTime = []
         appDelegate.poiPlace = []
+        appDelegate.poiCap = []
         
     }
     
@@ -74,6 +118,29 @@ class DayViewController: UIViewController,NSXMLParserDelegate,UITableViewDelegat
         cell.setCell(pois[indexPath.row])
         
         return cell
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        //ナビゲーションバー色
+        self.navigationController!.navigationBar.barTintColor = UIColor(red: 240.0/255.0, green: 125.0/255.0, blue: 50.0/255.0, alpha: 1.0)//オレンジ
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        //ナビゲーションバー色
+        self.navigationController!.navigationBar.barTintColor = UIColor(red: 85/255.0, green: 142/255.0, blue: 213/255.0, alpha: 1.0)//あお
+        
+        switch appDelegate.poiWeek!{
+        case 0:
+            self.navigationController!.navigationBar.barTintColor = UIColor(red: 217/255.0, green: 150/255.0, blue: 148/255.0, alpha: 1.0)//ピンク
+        case 6:
+            self.navigationController!.navigationBar.barTintColor = UIColor(red: 155/255.0, green: 187/255.0, blue: 89/255.0, alpha: 1.0)//みどり
+        case 7:
+            self.navigationController!.navigationBar.barTintColor = UIColor(red: 240.0/255.0, green: 125.0/255.0, blue: 50.0/255.0, alpha: 1.0)//オレンジ
+            
+        default:
+            
+            break
+        }
     }
 
 }
