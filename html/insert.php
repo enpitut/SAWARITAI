@@ -41,17 +41,16 @@ if($poipet_id){
 
 #日付　dateで取得
 #$date = (string)$_POST['date'];
-date_default_timezone_set('Asia/Tokyo');
-$date = date("Y-m-d H:i:s");
+#date_default_timezone_set('Asia/Tokyo');
+#$date = date("Y-m-d H:i:s");
 
 #キャップの有無 1/0
 $cap = (string)$_POST['cap'];
-
+   
 echo $user_name;
 echo $poipet_id;
-echo $date;
 echo $cap;
-if($result2 = $mysqli->query("insert into pois(user_id,poipet_id,date,cap) values(${user_id},${poipet_id},'${date}',${cap})")){
+if($result2 = $mysqli->query("insert into pois(user_id,poipet_id,date,cap) values(${user_id},${poipet_id}, cast(now() as DATETIME), ${cap})")){
     echo '  insert成功';
 }else{
     echo '  insert失敗';
