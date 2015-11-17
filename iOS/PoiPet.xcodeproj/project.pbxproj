@@ -7,34 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4675B0551BF7878500287964 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0521BF7878500287964 /* setting.png */; };
-		4675B0561BF7878500287964 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0531BF7878500287964 /* cancel.png */; };
-		4675B0571BF7878500287964 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0541BF7878500287964 /* reload.png */; };
-		4675B07F1BF85BD300287964 /* AkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0731BF85BD300287964 /* AkiraTextField.swift */; };
-		4675B0801BF85BD300287964 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0741BF85BD300287964 /* HoshiTextField.swift */; };
-		4675B0811BF85BD300287964 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0751BF85BD300287964 /* Info.plist */; };
-		4675B0821BF85BD300287964 /* IsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0761BF85BD300287964 /* IsaoTextField.swift */; };
-		4675B0831BF85BD300287964 /* JiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0771BF85BD300287964 /* JiroTextField.swift */; };
-		4675B0841BF85BD300287964 /* KaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0781BF85BD300287964 /* KaedeTextField.swift */; };
-		4675B0851BF85BD300287964 /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0791BF85BD300287964 /* MadokaTextField.swift */; };
-		4675B0861BF85BD300287964 /* MinoruTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B07A1BF85BD300287964 /* MinoruTextField.swift */; };
-		4675B0871BF85BD300287964 /* TextFieldEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 4675B07B1BF85BD300287964 /* TextFieldEffects.h */; };
-		4675B0881BF85BD300287964 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B07C1BF85BD300287964 /* TextFieldsEffects.swift */; };
-		4675B0891BF85BD300287964 /* YokoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B07D1BF85BD300287964 /* YokoTextField.swift */; };
-		4675B08A1BF85BD300287964 /* YoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B07E1BF85BD300287964 /* YoshikoTextField.swift */; };
-		4675B08C1BF8629700287964 /* poikun.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B08B1BF8629700287964 /* poikun.png */; };
-		4675B09A1BF884EC00287964 /* background.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0991BF884EC00287964 /* background.JPG */; };
-		4675B09C1BF89A2B00287964 /* UserIDSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B09B1BF89A2B00287964 /* UserIDSettingViewController.swift */; };
-		4675B09E1BF89D0200287964 /* backgroundDebug.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4675B09D1BF89D0200287964 /* backgroundDebug.jpg */; };
-		4675B0A01BF8A7F000287964 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B09F1BF8A7F000287964 /* DayViewController.swift */; };
-		4675B0A81BF8B17C00287964 /* PoiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0A71BF8B17C00287964 /* PoiModel.swift */; };
-		4675B0AA1BF8B23D00287964 /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0A91BF8B23D00287964 /* DayTableViewCell.swift */; };
-		4675B0AC1BF8D99C00287964 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0AB1BF8D99C00287964 /* pin.png */; };
-		4675B0AE1BF8DCFA00287964 /* cellBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0AD1BF8DCFA00287964 /* cellBackground.png */; };
-		4675B0B21BF8FC3500287964 /* pet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0B11BF8FC3500287964 /* pet.png */; };
-		4675B0B61BF8FD3700287964 /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0B51BF8FD3700287964 /* time.png */; };
-		468784B21BF5950600F30644 /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468784B11BF5950600F30644 /* UserSettingViewController.swift */; };
 		46BC27E41B881F7900385B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC27E31B881F7900385B54 /* AppDelegate.swift */; };
+		46BC27E61B881F7900385B54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC27E51B881F7900385B54 /* ViewController.swift */; };
 		46BC27E91B881F7900385B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BC27E71B881F7900385B54 /* Main.storyboard */; };
 		46BC27EB1B881F7900385B54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BC27EA1B881F7900385B54 /* Images.xcassets */; };
 		46BC27EE1B881F7900385B54 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46BC27EC1B881F7900385B54 /* LaunchScreen.xib */; };
@@ -50,7 +24,7 @@
 		46BC282C1B895DE800385B54 /* pet_back_ground_pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28281B895DE800385B54 /* pet_back_ground_pink.png */; };
 		46BC282D1B895DE800385B54 /* pet_back_ground_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28291B895DE800385B54 /* pet_back_ground_blue.png */; };
 		46BC28351B89835E00385B54 /* navLogoWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BC28341B89835E00385B54 /* navLogoWhite.png */; };
-		46C780E31BE7385E00629B4D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C780E21BE7385E00629B4D /* MainViewController.swift */; };
+		46C780E71BE76C5700629B4D /* titleLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 46C780E61BE76C5700629B4D /* titleLogo.png */; };
 		46DB00AF1B8996630049DC4E /* pet_back_ground_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 46DB00AE1B8996630049DC4E /* pet_back_ground_gray.png */; };
 		46DB00B11B899D6A0049DC4E /* poikun.gif in Resources */ = {isa = PBXBuildFile; fileRef = 46DB00B01B899D6A0049DC4E /* poikun.gif */; };
 		E1EA09532413455317ED6F77 /* Pods_PoiPet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96912BC2E57199658BB6AE64 /* Pods_PoiPet.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -67,36 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4675B0521BF7878500287964 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
-		4675B0531BF7878500287964 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
-		4675B0541BF7878500287964 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
-		4675B0731BF85BD300287964 /* AkiraTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AkiraTextField.swift; sourceTree = "<group>"; };
-		4675B0741BF85BD300287964 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
-		4675B0751BF85BD300287964 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4675B0761BF85BD300287964 /* IsaoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsaoTextField.swift; sourceTree = "<group>"; };
-		4675B0771BF85BD300287964 /* JiroTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JiroTextField.swift; sourceTree = "<group>"; };
-		4675B0781BF85BD300287964 /* KaedeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaedeTextField.swift; sourceTree = "<group>"; };
-		4675B0791BF85BD300287964 /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
-		4675B07A1BF85BD300287964 /* MinoruTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinoruTextField.swift; sourceTree = "<group>"; };
-		4675B07B1BF85BD300287964 /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
-		4675B07C1BF85BD300287964 /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldsEffects.swift; sourceTree = "<group>"; };
-		4675B07D1BF85BD300287964 /* YokoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YokoTextField.swift; sourceTree = "<group>"; };
-		4675B07E1BF85BD300287964 /* YoshikoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoshikoTextField.swift; sourceTree = "<group>"; };
-		4675B08B1BF8629700287964 /* poikun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poikun.png; sourceTree = "<group>"; };
-		4675B0991BF884EC00287964 /* background.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.JPG; sourceTree = "<group>"; };
-		4675B09B1BF89A2B00287964 /* UserIDSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserIDSettingViewController.swift; sourceTree = "<group>"; };
-		4675B09D1BF89D0200287964 /* backgroundDebug.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backgroundDebug.jpg; sourceTree = "<group>"; };
-		4675B09F1BF8A7F000287964 /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
-		4675B0A71BF8B17C00287964 /* PoiModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiModel.swift; sourceTree = "<group>"; };
-		4675B0A91BF8B23D00287964 /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
-		4675B0AB1BF8D99C00287964 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
-		4675B0AD1BF8DCFA00287964 /* cellBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellBackground.png; sourceTree = "<group>"; };
-		4675B0B11BF8FC3500287964 /* pet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet.png; sourceTree = "<group>"; };
-		4675B0B51BF8FD3700287964 /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time.png; sourceTree = "<group>"; };
-		468784B11BF5950600F30644 /* UserSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
 		46BC27DE1B881F7900385B54 /* PoiPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoiPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BC27E21B881F7900385B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46BC27E31B881F7900385B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		46BC27E51B881F7900385B54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		46BC27E81B881F7900385B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		46BC27EA1B881F7900385B54 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		46BC27ED1B881F7900385B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -115,7 +63,7 @@
 		46BC28281B895DE800385B54 /* pet_back_ground_pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_pink.png; sourceTree = "<group>"; };
 		46BC28291B895DE800385B54 /* pet_back_ground_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_blue.png; sourceTree = "<group>"; };
 		46BC28341B89835E00385B54 /* navLogoWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navLogoWhite.png; sourceTree = "<group>"; };
-		46C780E21BE7385E00629B4D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		46C780E61BE76C5700629B4D /* titleLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleLogo.png; sourceTree = "<group>"; };
 		46DB00AE1B8996630049DC4E /* pet_back_ground_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_gray.png; sourceTree = "<group>"; };
 		46DB00B01B899D6A0049DC4E /* poikun.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = poikun.gif; sourceTree = "<group>"; };
 		4BD0B0F8F65A992C14473233 /* Pods-PoiPet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoiPet.release.xcconfig"; path = "Pods/Target Support Files/Pods-PoiPet/Pods-PoiPet.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,25 +90,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4675B0721BF85BD300287964 /* TextFieldEffects */ = {
-			isa = PBXGroup;
-			children = (
-				4675B0731BF85BD300287964 /* AkiraTextField.swift */,
-				4675B0741BF85BD300287964 /* HoshiTextField.swift */,
-				4675B0751BF85BD300287964 /* Info.plist */,
-				4675B0761BF85BD300287964 /* IsaoTextField.swift */,
-				4675B0771BF85BD300287964 /* JiroTextField.swift */,
-				4675B0781BF85BD300287964 /* KaedeTextField.swift */,
-				4675B0791BF85BD300287964 /* MadokaTextField.swift */,
-				4675B07A1BF85BD300287964 /* MinoruTextField.swift */,
-				4675B07B1BF85BD300287964 /* TextFieldEffects.h */,
-				4675B07C1BF85BD300287964 /* TextFieldsEffects.swift */,
-				4675B07D1BF85BD300287964 /* YokoTextField.swift */,
-				4675B07E1BF85BD300287964 /* YoshikoTextField.swift */,
-			);
-			path = TextFieldEffects;
-			sourceTree = "<group>";
-		};
 		468BB8621BE73380002D2F52 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,15 +127,9 @@
 				46BC27EC1B881F7900385B54 /* LaunchScreen.xib */,
 				46BC27E71B881F7900385B54 /* Main.storyboard */,
 				46BC27E31B881F7900385B54 /* AppDelegate.swift */,
-				46C780E21BE7385E00629B4D /* MainViewController.swift */,
-				4675B09F1BF8A7F000287964 /* DayViewController.swift */,
-				468784B11BF5950600F30644 /* UserSettingViewController.swift */,
-				4675B09B1BF89A2B00287964 /* UserIDSettingViewController.swift */,
-				4675B0A71BF8B17C00287964 /* PoiModel.swift */,
-				4675B0A91BF8B23D00287964 /* DayTableViewCell.swift */,
+				46BC27E51B881F7900385B54 /* ViewController.swift */,
 				46BC281E1B89557400385B54 /* PoiPet-Bridging-Header.h */,
 				468BB8621BE73380002D2F52 /* Calendar */,
-				4675B0721BF85BD300287964 /* TextFieldEffects */,
 				46BC28171B88670000385B54 /* Image */,
 				46BC27EA1B881F7900385B54 /* Images.xcassets */,
 				46BC27E21B881F7900385B54 /* Info.plist */,
@@ -234,19 +157,10 @@
 		46BC28171B88670000385B54 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				4675B0B51BF8FD3700287964 /* time.png */,
-				4675B0B11BF8FC3500287964 /* pet.png */,
-				4675B0AD1BF8DCFA00287964 /* cellBackground.png */,
-				4675B0AB1BF8D99C00287964 /* pin.png */,
-				4675B0991BF884EC00287964 /* background.JPG */,
-				4675B09D1BF89D0200287964 /* backgroundDebug.jpg */,
-				4675B08B1BF8629700287964 /* poikun.png */,
-				4675B0521BF7878500287964 /* setting.png */,
-				4675B0531BF7878500287964 /* cancel.png */,
-				4675B0541BF7878500287964 /* reload.png */,
 				46BC28191B88901E00385B54 /* logo.png */,
 				46BC28341B89835E00385B54 /* navLogoWhite.png */,
 				46BC281B1B8891BF00385B54 /* logoWhite.png */,
+				46C780E61BE76C5700629B4D /* titleLogo.png */,
 				46BC28261B895DE800385B54 /* pet_back_ground_gleen.png */,
 				46DB00AE1B8996630049DC4E /* pet_back_ground_gray.png */,
 				46BC28271B895DE800385B54 /* pet_back_ground_orange.png */,
@@ -281,7 +195,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4675B0871BF85BD300287964 /* TextFieldEffects.h in Headers */,
 				46BC28231B895B0F00385B54 /* FLAnimatedImage.h in Headers */,
 				46BC28251B895B1400385B54 /* FLAnimatedImageView.h in Headers */,
 			);
@@ -374,29 +287,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				46DB00B11B899D6A0049DC4E /* poikun.gif in Resources */,
-				4675B09A1BF884EC00287964 /* background.JPG in Resources */,
-				4675B0B61BF8FD3700287964 /* time.png in Resources */,
-				4675B0B21BF8FC3500287964 /* pet.png in Resources */,
 				46BC282A1B895DE800385B54 /* pet_back_ground_gleen.png in Resources */,
-				4675B0AE1BF8DCFA00287964 /* cellBackground.png in Resources */,
-				4675B0AC1BF8D99C00287964 /* pin.png in Resources */,
-				4675B0811BF85BD300287964 /* Info.plist in Resources */,
-				4675B0561BF7878500287964 /* cancel.png in Resources */,
 				46BC281C1B8891BF00385B54 /* logoWhite.png in Resources */,
-				4675B08C1BF8629700287964 /* poikun.png in Resources */,
 				46BC28351B89835E00385B54 /* navLogoWhite.png in Resources */,
 				46BC282B1B895DE800385B54 /* pet_back_ground_orange.png in Resources */,
 				46BC27E91B881F7900385B54 /* Main.storyboard in Resources */,
 				46BC27EE1B881F7900385B54 /* LaunchScreen.xib in Resources */,
-				4675B0551BF7878500287964 /* setting.png in Resources */,
+				46C780E71BE76C5700629B4D /* titleLogo.png in Resources */,
 				46BC282C1B895DE800385B54 /* pet_back_ground_pink.png in Resources */,
-				4675B09E1BF89D0200287964 /* backgroundDebug.jpg in Resources */,
 				46BC281A1B88901E00385B54 /* logo.png in Resources */,
 				46DB00AF1B8996630049DC4E /* pet_back_ground_gray.png in Resources */,
 				46BC282D1B895DE800385B54 /* pet_back_ground_blue.png in Resources */,
 				46BC28121B8862A900385B54 /* CalendarCollectionViewCell.xib in Resources */,
 				46BC27EB1B881F7900385B54 /* Images.xcassets in Resources */,
-				4675B0571BF7878500287964 /* reload.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,24 +365,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4675B0891BF85BD300287964 /* YokoTextField.swift in Sources */,
 				46BC28111B8862A900385B54 /* CalendarCollectionViewCell.swift in Sources */,
-				4675B0801BF85BD300287964 /* HoshiTextField.swift in Sources */,
+				46BC27E61B881F7900385B54 /* ViewController.swift in Sources */,
 				46BC27E41B881F7900385B54 /* AppDelegate.swift in Sources */,
-				4675B0A81BF8B17C00287964 /* PoiModel.swift in Sources */,
-				468784B21BF5950600F30644 /* UserSettingViewController.swift in Sources */,
-				4675B09C1BF89A2B00287964 /* UserIDSettingViewController.swift in Sources */,
-				4675B0841BF85BD300287964 /* KaedeTextField.swift in Sources */,
-				4675B0851BF85BD300287964 /* MadokaTextField.swift in Sources */,
-				4675B07F1BF85BD300287964 /* AkiraTextField.swift in Sources */,
-				4675B0AA1BF8B23D00287964 /* DayTableViewCell.swift in Sources */,
-				4675B0831BF85BD300287964 /* JiroTextField.swift in Sources */,
-				4675B08A1BF85BD300287964 /* YoshikoTextField.swift in Sources */,
-				4675B0881BF85BD300287964 /* TextFieldsEffects.swift in Sources */,
-				4675B0821BF85BD300287964 /* IsaoTextField.swift in Sources */,
-				46C780E31BE7385E00629B4D /* MainViewController.swift in Sources */,
-				4675B0861BF85BD300287964 /* MinoruTextField.swift in Sources */,
-				4675B0A01BF8A7F000287964 /* DayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,14 +498,12 @@
 			baseConfigurationReference = A2334CD19E9FF8DE5B2773F6 /* Pods-PoiPet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PoiPet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "koooootake.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PoiPet/PoiPet-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -626,14 +512,12 @@
 			baseConfigurationReference = 4BD0B0F8F65A992C14473233 /* Pods-PoiPet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PoiPet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "koooootake.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PoiPet/PoiPet-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
