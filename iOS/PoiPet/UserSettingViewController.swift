@@ -18,6 +18,8 @@ class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSess
     
     @IBOutlet weak var RegistrationButton: UIButton!
     
+    let indicator:SpringIndicator = SpringIndicator()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,8 +88,13 @@ class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSess
         let session:NSURLSession = NSURLSession(configuration: config, delegate: self, delegateQueue: nil)
         let task:NSURLSessionDataTask = session.dataTaskWithRequest(request)
         
-        task.resume()
+        //ぐるぐる
+        indicator.frame = CGRectMake(self.view.frame.width/2-self.view.frame.width/8, self.view.frame.height/2-self.view.frame.width/8, self.view.frame.width/4, self.view.frame.width/4)
+        indicator.lineWidth = 3
+        self.view.addSubview(indicator)
+        indicator.startAnimation()
         
+        task.resume()
     }
     
     //通信終了
@@ -97,6 +104,8 @@ class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSess
         
         // バックグラウンドだとUIの処理が出来ないので、メインスレッドでUIの処理を行わせる.
         dispatch_async(dispatch_get_main_queue(), {
+            
+            self.indicator.removeFromSuperview()
             
             //成功
             if Int(userID) != nil {
@@ -109,7 +118,7 @@ class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSess
                 
                 print("Registration Finish")
                 
-                let alert:UIAlertController = UIAlertController(title: "登録完了！", message: "\(userID)\n\(self.registrationID)->\(self.userName)", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert:UIAlertController = UIAlertController(title: "Sucsess", message: "\(userID)\n登録ID : \(self.registrationID)\nユーザ名 : \(self.userName)", preferredStyle: UIAlertControllerStyle.Alert)
                 let okAction = UIAlertAction(title: "OK", style: .Default) {
                     action in
                         self.dismissViewControllerAnimated(true, completion: nil)
@@ -121,7 +130,7 @@ class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSess
             }else{
                 print("Error:\(userID)")
                 
-                let alert:UIAlertController = UIAlertController(title: "登録失敗！", message: "\(userID)\n\(self.registrationID)->\(self.userName)", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert:UIAlertController = UIAlertController(title: "false", message: "\(userID)\n登録ID : \(self.registrationID)\nユーザ名 : \(self.userName)", preferredStyle: UIAlertControllerStyle.Alert)
                 let okAction = UIAlertAction(title: "OK", style: .Default) {
                 action in
                 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		463F4DEE1BFAE22200128F05 /* SpringIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F4DED1BFAE22200128F05 /* SpringIndicator.swift */; };
 		4675B0551BF7878500287964 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0521BF7878500287964 /* setting.png */; };
 		4675B0561BF7878500287964 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0531BF7878500287964 /* cancel.png */; };
 		4675B0571BF7878500287964 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0541BF7878500287964 /* reload.png */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		463F4DED1BFAE22200128F05 /* SpringIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringIndicator.swift; sourceTree = "<group>"; };
 		4675B0521BF7878500287964 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 		4675B0531BF7878500287964 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		4675B0541BF7878500287964 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		463F4DE31BFACECB00128F05 /* AnimatedImage */ = {
 			isa = PBXGroup;
 			children = (
+				463F4DED1BFAE22200128F05 /* SpringIndicator.swift */,
 				46BC28241B895B1400385B54 /* FLAnimatedImageView.h */,
 				46BC28221B895B0F00385B54 /* FLAnimatedImage.h */,
 			);
@@ -482,6 +485,7 @@
 				4675B07F1BF85BD300287964 /* AkiraTextField.swift in Sources */,
 				4675B0AA1BF8B23D00287964 /* DayTableViewCell.swift in Sources */,
 				4675B0831BF85BD300287964 /* JiroTextField.swift in Sources */,
+				463F4DEE1BFAE22200128F05 /* SpringIndicator.swift in Sources */,
 				4675B08A1BF85BD300287964 /* YoshikoTextField.swift in Sources */,
 				4675B0881BF85BD300287964 /* TextFieldsEffects.swift in Sources */,
 				4675B0821BF85BD300287964 /* IsaoTextField.swift in Sources */,

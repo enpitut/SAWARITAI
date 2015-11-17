@@ -40,6 +40,11 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     var wCell:CGFloat=0.0
     var spaceCell:CGFloat=0.0
+    
+    let indicator:SpringIndicator = SpringIndicator()
+    let refreshControl = SpringIndicator.Refresher()
+    
+    //let test:UIView = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +90,37 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         calendarMonth = comps.month
         calendarDay = comps.day
         
+        //ぐるぐる
+        indicator.frame = CGRectMake(wBounds/2-wBounds/8, hBounds/2-wBounds/8+hNavigation, wBounds/4, wBounds/4)
+        indicator.lineWidth = 3
+        
+        refresh()
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //refresh()
+        
+    }
+    
+    //更新
+    @IBAction func refreshButton(sender: AnyObject) {
+        
+        self.view.addSubview(indicator)
+        self.indicator.startAnimation()
+        refresh()
+        
+    }
+    
+    func refresh(){
+        
+        pois=[]
+        
+        //userID
         let userDefault = NSUserDefaults.standardUserDefaults()
+        
         if userDefault.objectForKey("ID") == nil{
             
             print("UserID:nil")
@@ -96,24 +131,78 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             
         }else{
             
+            swipeCount=0
+            
+            //日付更新
+            var now: NSDate!
+            now = NSDate()
+            let calendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+            var comps: NSDateComponents!
+            comps = calendar.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Weekday],fromDate:now)
+            
+            nowYear = comps.year
+            nowMonth = comps.month
+            nowDay = comps.day
+            
             let userID:String = userDefault.objectForKey("ID") as! String
             print("UserID:\(userID)")
-            
-            //サーバーURL
-            let data:NSData? = NSData(contentsOfURL: NSURL(string: "http://poipet.ml/poilog?id=\(userID)")!)
-            //パーサー用意、接続開始
-            let parser : NSXMLParser! = NSXMLParser(data: data!)
             print("通信開始")
-            if parser != nil{
-                parser!.delegate=self
-                parser!.parse()
-            }else{
-                print("false")
+            
+            let url = NSURL(string: "http://poipet.ml/poilog?id=\(userID)")
+            var data:NSData = NSData()
+            
+            do{
+                
+                data = try NSData(contentsOfURL: url!, options: NSDataReadingOptions())
+                
+            } catch {
+
+                let alert:UIAlertController = UIAlertController(title: "Acsess False", message: "\(error)", preferredStyle: UIAlertControllerStyle.Alert)
+                let okAction = UIAlertAction(title: "OK", style: .Default) {
+                    action in
+                }
+                alert.addAction(okAction)
+                self.presentViewController(alert, animated: true, completion: nil)
             }
+            
+            let parser : NSXMLParser! = NSXMLParser(data: data)
+            
+            if parser != nil{
+            parser!.delegate=self
+            parser!.parse()
+            }else{
+            print("false")
+            
+            let alert:UIAlertController = UIAlertController(title: "No Data", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "OK", style: .Default) {
+            action in
+            }
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            }
+            
             print("通信完了")
+            
+            if self.view.viewWithTag(100) != nil{
+            
+                let remove:UIView = self.view.viewWithTag(100)!
+                UIView.animateWithDuration(0.1, animations: {
+                    
+                    remove.alpha=0.0
+                    remove.removeFromSuperview()
+                    self.indicator.stopAnimation(true, completion: nil)
+                    
+                    }, completion: { finished in
+
+                        
+                })
+            }
+            
         }
         
     }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -132,20 +221,25 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
                 calendarMonth=12
             }
             
-            let calendar:UIView = calendarView()
-            if swipeCount > 0{
-                calendar.layer.position = CGPointMake(wBounds*3/2, calendar.frame.height/2 + hNavigation)
-            }else if swipeCount < 0{
-                calendar.layer.position = CGPointMake(-wBounds/2, calendar.frame.height/2 + hNavigation)
-            }else{
-                calendar.alpha=0.0
-            }
-            self.view.addSubview(calendar)
+            print("Calendar generate")
+            let calendarViews = calendarView()
             
-            UIView.animateWithDuration(0.5, animations: {() -> Void in
-                calendar.layer.position = CGPointMake(self.wBounds/2, calendar.frame.height/2 + self.hNavigation)
-                calendar.alpha=1.0
+            if swipeCount > 0{
+                calendarViews.layer.position = CGPointMake(wBounds*3/2, calendarViews.frame.height/2 + hNavigation)
+            }else if swipeCount < 0{
+                calendarViews.layer.position = CGPointMake(-wBounds/2, calendarViews.frame.height/2 + hNavigation)
+            }else{
+                calendarViews.alpha=0.0
+            }
+            self.view.addSubview(calendarViews)
+            //self.view.sendSubviewToBack(calendarViews)
+            
+            UIView.animateWithDuration(0.5, animations: {
+                calendarViews.layer.position = CGPointMake(self.wBounds/2, calendarViews.frame.height/2 + self.hNavigation)
+                calendarViews.alpha=1.0
+                
             })
+            
         }
     }
     
@@ -210,7 +304,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         let date:NSDate = dateFormatter.dateFromString("\(year)/\(month)")!;
         let range = calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: date)
         let dayCount = range.length
-        print("\(year).\(month)...LastDay:\(dayCount)")
+        //print("\(year).\(month)...LastDay:\(dayCount)")
         
         return dayCount;
     }
@@ -230,7 +324,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             result = result + 7
         }
         
-         print("\(year).\(month)...FirstDayWeek:\(result)")
+        //print("\(year).\(month)...FirstDayWeek:\(result)")
         
         return result
     }
@@ -489,64 +583,6 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         print("解析終了")
     }
     
-    //更新
-    @IBAction func refreshButton(sender: AnyObject) {
-        
-        pois=[]
-        
-        //userID
-        let userDefault = NSUserDefaults.standardUserDefaults()
-        
-        if userDefault.objectForKey("ID") == nil{
-            
-            print("UserID:nil")
-            
-            //登録されていなければ登録画面を表示
-            let settingViweController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingViewController")
-            self.navigationController?.showDetailViewController(settingViweController!, sender: nil)
-            
-        }else{
-        
-            let userID:String = userDefault.objectForKey("ID") as! String
-            print("UserID:\(userID)")
-            
-            //サーバーURL
-            let data:NSData? = NSData(contentsOfURL: NSURL(string: "http://poipet.ml/poilog?id=\(userID)")!)
-            //パーサー用意、接続開始
-            let parser : NSXMLParser! = NSXMLParser(data: data!)
-            print("通信開始")
-            if parser != nil{
-                parser!.delegate=self
-                parser!.parse()
-            }else{
-                print("false")
-            }
-            print("通信完了")
-        
-        
-        swipeCount=0
-        
-        //日付更新
-        var now: NSDate!
-        now = NSDate()
-        let calendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        var comps: NSDateComponents!
-        comps = calendar.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Weekday],fromDate:now)
-        
-        nowYear = comps.year
-        nowMonth = comps.month
-        nowDay = comps.day
-        
-        let remove:UIView = self.view.viewWithTag(100)!
-        UIView.animateWithDuration(0.1, animations:{
-            remove.alpha=0.0
-            }, completion: { finished in
-                remove.removeFromSuperview()
-        })
-        }
-        
-        
-    }
     
     @IBAction func unwindToTop(segue: UIStoryboardSegue) {
     }
