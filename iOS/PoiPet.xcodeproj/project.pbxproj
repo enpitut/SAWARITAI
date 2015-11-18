@@ -12,6 +12,12 @@
 		463F4DF71BFB529A00128F05 /* petHart.png in Resources */ = {isa = PBXBuildFile; fileRef = 463F4DF61BFB529A00128F05 /* petHart.png */; };
 		463F4DFB1BFB646A00128F05 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 463F4DF91BFB646A00128F05 /* Info.plist */; };
 		463F4DFC1BFB646A00128F05 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F4DFA1BFB646A00128F05 /* SCLAlertView.swift */; };
+		463F4DFE1BFB7B5600128F05 /* logoW.png in Resources */ = {isa = PBXBuildFile; fileRef = 463F4DFD1BFB7B5600128F05 /* logoW.png */; };
+		463F4E001BFB7BDF00128F05 /* titleLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 463F4DFF1BFB7BDF00128F05 /* titleLogo.png */; };
+		463F4E211BFB807600128F05 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F4E1D1BFB807600128F05 /* Configuration.swift */; };
+		463F4E221BFB807600128F05 /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F4E1E1BFB807600128F05 /* TouchView.swift */; };
+		463F4E231BFB807600128F05 /* UIWindow+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F4E1F1BFB807600128F05 /* UIWindow+Swizzle.swift */; };
+		463F4E241BFB807600128F05 /* Visualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F4E201BFB807600128F05 /* Visualizer.swift */; };
 		4675B0551BF7878500287964 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0521BF7878500287964 /* setting.png */; };
 		4675B0561BF7878500287964 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0531BF7878500287964 /* cancel.png */; };
 		4675B0571BF7878500287964 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0541BF7878500287964 /* reload.png */; };
@@ -76,6 +82,12 @@
 		463F4DF61BFB529A00128F05 /* petHart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petHart.png; sourceTree = "<group>"; };
 		463F4DF91BFB646A00128F05 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		463F4DFA1BFB646A00128F05 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
+		463F4DFD1BFB7B5600128F05 /* logoW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoW.png; sourceTree = "<group>"; };
+		463F4DFF1BFB7BDF00128F05 /* titleLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleLogo.png; sourceTree = "<group>"; };
+		463F4E1D1BFB807600128F05 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		463F4E1E1BFB807600128F05 /* TouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
+		463F4E1F1BFB807600128F05 /* UIWindow+Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Swizzle.swift"; sourceTree = "<group>"; };
+		463F4E201BFB807600128F05 /* Visualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visualizer.swift; sourceTree = "<group>"; };
 		4675B0521BF7878500287964 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 		4675B0531BF7878500287964 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		4675B0541BF7878500287964 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
@@ -169,6 +181,17 @@
 			path = SCLAlertView;
 			sourceTree = "<group>";
 		};
+		463F4E251BFB817000128F05 /* Touch */ = {
+			isa = PBXGroup;
+			children = (
+				463F4E1D1BFB807600128F05 /* Configuration.swift */,
+				463F4E1E1BFB807600128F05 /* TouchView.swift */,
+				463F4E1F1BFB807600128F05 /* UIWindow+Swizzle.swift */,
+				463F4E201BFB807600128F05 /* Visualizer.swift */,
+			);
+			name = Touch;
+			sourceTree = "<group>";
+		};
 		4675B0721BF85BD300287964 /* TextFieldEffects */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +252,7 @@
 				4675B09F1BF8A7F000287964 /* DayViewController.swift */,
 				468784B11BF5950600F30644 /* UserSettingViewController.swift */,
 				4675B09B1BF89A2B00287964 /* UserIDSettingViewController.swift */,
+				463F4E251BFB817000128F05 /* Touch */,
 				468BB8621BE73380002D2F52 /* CellCustom */,
 				463F4DE31BFACECB00128F05 /* AnimatedImage */,
 				4675B0721BF85BD300287964 /* TextFieldEffects */,
@@ -261,6 +285,8 @@
 		46BC28171B88670000385B54 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				463F4DFF1BFB7BDF00128F05 /* titleLogo.png */,
+				463F4DFD1BFB7B5600128F05 /* logoW.png */,
 				4675B0B51BF8FD3700287964 /* time.png */,
 				463F4DF01BFB2C9900128F05 /* pin.png */,
 				4675B0B11BF8FC3500287964 /* pet.png */,
@@ -370,6 +396,7 @@
 				TargetAttributes = {
 					46BC27DD1B881F7900385B54 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = R3L8QANSY7;
 					};
 					46BC27F21B881F7900385B54 = {
 						CreatedOnToolsVersion = 6.4;
@@ -408,12 +435,14 @@
 				46BC282A1B895DE800385B54 /* pet_back_ground_gleen.png in Resources */,
 				4675B0AE1BF8DCFA00287964 /* cellBackground.png in Resources */,
 				4675B0811BF85BD300287964 /* Info.plist in Resources */,
+				463F4E001BFB7BDF00128F05 /* titleLogo.png in Resources */,
 				4675B0561BF7878500287964 /* cancel.png in Resources */,
 				46BC281C1B8891BF00385B54 /* logoWhite.png in Resources */,
 				463F4DF11BFB2C9900128F05 /* pin.png in Resources */,
 				4675B08C1BF8629700287964 /* poikun.png in Resources */,
 				46BC28351B89835E00385B54 /* navLogoWhite.png in Resources */,
 				463F4DFB1BFB646A00128F05 /* Info.plist in Resources */,
+				463F4DFE1BFB7B5600128F05 /* logoW.png in Resources */,
 				46BC282B1B895DE800385B54 /* pet_back_ground_orange.png in Resources */,
 				46BC27E91B881F7900385B54 /* Main.storyboard in Resources */,
 				46BC27EE1B881F7900385B54 /* LaunchScreen.xib in Resources */,
@@ -501,12 +530,16 @@
 				468784B21BF5950600F30644 /* UserSettingViewController.swift in Sources */,
 				4675B09C1BF89A2B00287964 /* UserIDSettingViewController.swift in Sources */,
 				4675B0841BF85BD300287964 /* KaedeTextField.swift in Sources */,
+				463F4E231BFB807600128F05 /* UIWindow+Swizzle.swift in Sources */,
+				463F4E211BFB807600128F05 /* Configuration.swift in Sources */,
 				4675B0851BF85BD300287964 /* MadokaTextField.swift in Sources */,
 				4675B07F1BF85BD300287964 /* AkiraTextField.swift in Sources */,
 				4675B0AA1BF8B23D00287964 /* DayTableViewCell.swift in Sources */,
 				4675B0831BF85BD300287964 /* JiroTextField.swift in Sources */,
 				463F4DEE1BFAE22200128F05 /* SpringIndicator.swift in Sources */,
 				4675B08A1BF85BD300287964 /* YoshikoTextField.swift in Sources */,
+				463F4E241BFB807600128F05 /* Visualizer.swift in Sources */,
+				463F4E221BFB807600128F05 /* TouchView.swift in Sources */,
 				4675B0881BF85BD300287964 /* TextFieldsEffects.swift in Sources */,
 				4675B0821BF85BD300287964 /* IsaoTextField.swift in Sources */,
 				46C780E31BE7385E00629B4D /* MainViewController.swift in Sources */,
@@ -643,11 +676,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PoiPet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "koooootake.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PoiPet/PoiPet-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -659,11 +694,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PoiPet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "koooootake.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PoiPet/PoiPet-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
