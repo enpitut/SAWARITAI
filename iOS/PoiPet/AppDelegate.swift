@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var configV = Configuration()
         configV.color = UIColor.grayColor()
+        configV.defaultSize = CGSize(width: 40, height: 40)
         Visualizer.start(configV)
 
         

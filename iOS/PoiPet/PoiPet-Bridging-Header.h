@@ -5,4 +5,6 @@
 #import "FLAnimatedImage.h"
 #import "FLAnimatedImageView.h"
 
+#import "EAIntroView.h"
+#import "EAIntroPage.h"
 

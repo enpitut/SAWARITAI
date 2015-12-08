@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,NSXMLParserDelegate {
+class MainViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,NSXMLParserDelegate,EAIntroDelegate {
     
     let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     @IBOutlet weak var settingButton: UIBarButtonItem!
@@ -60,6 +60,12 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         titleImageView.contentMode = .ScaleAspectFit
         titleImageView.frame = CGRectMake(0, 0, self.view.frame.width, self.navigationController!.navigationBar.frame.height*0.7)
         self.navigationItem.titleView = titleImageView
+        
+        //ボタン
+        //settingButton.image = UIImage(named: "setting.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        //settingButton.style = UIBarButtonItemStyle.Plain
+        //self.navigationItem.leftBarButtonItem = settingButton
+        
         //ボタン色
         self.navigationController!.navigationBar.tintColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         //背景色
@@ -77,10 +83,11 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         backgroundAnimationImage.frame=CGRectMake(0.0, hBounds, wBounds, hPoiBounds)
         self.view.addSubview(backgroundAnimationImage)
         
-        nameLabel.frame = CGRectMake(0, hBounds - 20, wBounds, 20)
-        nameLabel.text = "　ユーザ名 : "
-        nameLabel.textColor = UIColor(red: 247.0/255.0, green: 150.0/255.0, blue: 70.0/255.0, alpha: 1.0)//オレンジ
-        nameLabel.font=UIFont.systemFontOfSize(10)
+        nameLabel.frame = CGRectMake(wBounds - 55, hBounds + hPoiBounds - 20, 50, 20)
+        nameLabel.text = ""
+        nameLabel.textAlignment = .Right
+        nameLabel.textColor = UIColor.whiteColor()//UIColor(red: 247.0/255.0, green: 150.0/255.0, blue: 70.0/255.0, alpha: 1.0)//オレンジ
+        nameLabel.font=UIFont.systemFontOfSize(12)
         self.view.addSubview(nameLabel)
         
         
@@ -105,6 +112,8 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         refreshCalendar()
         
+        
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -126,6 +135,68 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         
     }
     
+    func introDidFinish(introView: EAIntroView!) {
+        print("finish")
+        self.navigationBarAndStatusBarHidden(false, animated:true)
+        //登録されていなければ登録画面を表示
+        let settingViweController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingViewController")
+        self.navigationController?.showDetailViewController(settingViweController!, sender: nil)
+        
+    }
+    
+    //説明View
+    func showIntroWithCrossDissolve(){
+        
+        let page1 : EAIntroPage = EAIntroPage()
+        let image1 = UIImageView(image: UIImage(named: "poipet_gaiyo.png"))
+        image1.contentMode = .ScaleAspectFit
+        image1.frame = CGRectMake(0, 0, wBounds, wBounds)
+        page1.titleIconView = image1
+        page1.titleFont = UIFont.systemFontOfSize(CGFloat(18))
+        page1.title = "PoiPetはゴミ捨てや分別が楽しくなる\nペットボトル専用ゴミ箱です"
+        page1.desc = "　"
+        //page1.bgImage = UIImage(named:"PoiKunImg.png")
+        page1.bgColor = UIColor(red: 230.0/255.0, green: 104.0/255.0, blue: 38.0/255.0, alpha: 1.0)//オレンジ
+        
+        let page2 : EAIntroPage = EAIntroPage()
+        //     page2.titleIconView = UIImageView(image: UIImage(named: "cheer.png"))
+        
+        page2.titleFont = UIFont.systemFontOfSize(CGFloat(18))
+        page2.title = "まずは\nPoiPetにICカードをタッチして\n表示された4桁の数字をアプリに入力し\nユーザ登録をしてください"
+        page2.desc = "　"
+        //page2.bgImage = UIImage(named:"PoiKunImg.png")
+        page2.bgColor = UIColor(red: 75.0/255.0, green: 135.0/255.0, blue: 203.0/255.0, alpha: 1.0)//オレンジ
+        
+        let page3 : EAIntroPage = EAIntroPage()
+        let image3 = UIImageView(image: UIImage(named: "poipet_iphone.png"))
+        image3.contentMode = .ScaleAspectFit
+        image3.frame = CGRectMake(0, 0, wBounds, wBounds)
+        page3.titleIconView = image3
+        page3.titleFont = UIFont.systemFontOfSize(CGFloat(18))
+        page3.title = "PoiPetにICカードをタッチすることで\nいつどこでいくつ\nペットボトルを捨てたかを\nアプリに記録することができます"
+        page3.desc = "　"
+        //page3.bgImage = UIImage(named:"PoiKunImg.png")
+        page3.bgColor = UIColor(red: 253.0/255.0, green: 181.0/255.0, blue: 10.0/255.0, alpha: 1.0)//オレンジ
+        
+        let page4 : EAIntroPage = EAIntroPage()
+        let image4 = UIImageView(image: UIImage(named: "poipet_gaiyo.png"))
+        image4.contentMode = .ScaleAspectFit
+        image4.frame = CGRectMake(0, 0, wBounds, wBounds)
+        page4.titleIconView = image4
+        
+        page4.titleFont = UIFont.systemFontOfSize(CGFloat(18))
+        page4.title = "PoiPetに楽しく\nPoiしましょう"
+        page4.desc = "　"
+        //page3.bgImage = UIImage(named:"PoiKunImg.png")
+        page4.bgColor = UIColor(red: 230.0/255.0, green: 104.0/255.0, blue: 38.0/255.0, alpha: 1.0)//オレンジ
+        
+        let intro : EAIntroView = EAIntroView(frame: self.view.bounds, andPages:[page1,page3,page2,page4])
+        intro.delegate = self
+        intro.showInView(self.view, animateDuration:0.0)
+        
+    }
+    
+    
     func refreshCalendar(){
         
         pois=[]
@@ -135,11 +206,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         if userDefault.objectForKey("ID") == nil{
             
-            print("UserID:nil")
             
-            //登録されていなければ登録画面を表示
-            let settingViweController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingViewController")
-            self.navigationController?.showDetailViewController(settingViweController!, sender: nil)
             
         }else{
             
@@ -158,47 +225,55 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             
             let userID:String = userDefault.objectForKey("ID") as! String
             print("UserID:\(userID)")
-            print("通信開始")
             
-            let url = NSURL(string: "http://poipet.ml/poilog?id=\(userID)")
-            var data:NSData = NSData()
-            
-            do{
-                
-                data = try NSData(contentsOfURL: url!, options: NSDataReadingOptions())
-                
-            } catch {
-                
-                SCLAlertView().showError("通信失敗しました", subTitle: "")
-            }
-            
-            let parser : NSXMLParser! = NSXMLParser(data: data)
-            
-            if parser != nil{
-                parser!.delegate=self
-                parser!.parse()
-            }else{
-                print("false")
+            if userID == "" || userID == " "{
                 
                 SCLAlertView().showWarning("データがありません", subTitle: "")
                 
-            }
-            
-            print("通信完了")
-            
-            if self.view.viewWithTag(100) != nil{
+            }else{
                 
-                let remove:UIView = self.view.viewWithTag(100)!
-                UIView.animateWithDuration(0.1, animations: {
+                print("通信開始")
+                
+                let url = NSURL(string: "http://poipet.ml/poilog?id=\(userID)")
+                var data:NSData = NSData()
+                
+                do{
                     
-                    remove.alpha=0.0
-                    remove.removeFromSuperview()
-                    self.indicator.stopAnimation(true, completion: nil)
+                    data = try NSData(contentsOfURL: url!, options: NSDataReadingOptions())
                     
-                    }, completion: { finished in
+                } catch {
+                    
+                    SCLAlertView().showError("通信失敗しました", subTitle: "")
+                }
+                
+                let parser : NSXMLParser! = NSXMLParser(data: data)
+                
+                if parser != nil{
+                    parser!.delegate=self
+                    parser!.parse()
+                }else{
+                    print("false")
+                    
+                    SCLAlertView().showWarning("データがありません", subTitle: "")
+                    
+                }
+                
+                print("通信完了")
+                
+                if self.view.viewWithTag(100) != nil{
+                    
+                    let remove:UIView = self.view.viewWithTag(100)!
+                    UIView.animateWithDuration(0.1, animations: {
                         
+                        remove.alpha=0.0
+                        remove.removeFromSuperview()
+                        self.indicator.stopAnimation(true, completion: nil)
                         
-                })
+                        }, completion: { finished in
+                            
+                            
+                    })
+                }
             }
             
         }
@@ -262,6 +337,25 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             let calendarViews = calendarView(year,saveMonth: month)
             
             self.view.addSubview(calendarViews)
+            
+            
+            
+            
+            let userDefault = NSUserDefaults.standardUserDefaults()
+            
+            if userDefault.objectForKey("ID") == nil{
+                
+                
+                self.navigationBarAndStatusBarHidden(true, animated:true)
+                
+                //はじめての画面
+                self.showIntroWithCrossDissolve()
+                
+                
+                
+                
+            }
+            
             //self.view.addSubview(rightCalendarViews)
             //self.view.addSubview(leftCalendarViews)
             
@@ -293,6 +387,28 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
                 
             })
             
+        }
+    }
+    
+    func navigationBarAndStatusBarHidden(hidden: Bool, animated: Bool)
+    {
+        if let nv = navigationController {
+            
+            if nv.navigationBarHidden == hidden {
+                return
+            }
+            
+            //let application = UIApplication.sharedApplication()
+            
+            if (hidden) {
+                // 隠す
+                nv.setNavigationBarHidden(hidden, animated: animated)
+               // application.setStatusBarHidden(hidden, withAnimation: animated ? .Slide : .None)
+            } else {
+                // 表示する
+                // application.setStatusBarHidden(hidden, withAnimation: animated ? .Slide : .None)
+                nv.setNavigationBarHidden(hidden, animated: animated)
+            }
         }
     }
     
@@ -663,7 +779,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         if currentElementName == nameElementName{
             print("UserName：\(string)")
-            nameLabel.text = "　ユーザ名 : \(string)"
+            nameLabel.text = "\(string)"
         }
     }
     

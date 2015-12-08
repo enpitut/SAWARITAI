@@ -18,9 +18,7 @@
 		463F4E221BFB807600128F05 /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F4E1E1BFB807600128F05 /* TouchView.swift */; };
 		463F4E231BFB807600128F05 /* UIWindow+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F4E1F1BFB807600128F05 /* UIWindow+Swizzle.swift */; };
 		463F4E241BFB807600128F05 /* Visualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F4E201BFB807600128F05 /* Visualizer.swift */; };
-		4675B0551BF7878500287964 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0521BF7878500287964 /* setting.png */; };
 		4675B0561BF7878500287964 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0531BF7878500287964 /* cancel.png */; };
-		4675B0571BF7878500287964 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0541BF7878500287964 /* reload.png */; };
 		4675B07F1BF85BD300287964 /* AkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0731BF85BD300287964 /* AkiraTextField.swift */; };
 		4675B0801BF85BD300287964 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4675B0741BF85BD300287964 /* HoshiTextField.swift */; };
 		4675B0811BF85BD300287964 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0751BF85BD300287964 /* Info.plist */; };
@@ -63,6 +61,20 @@
 		46C780E31BE7385E00629B4D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C780E21BE7385E00629B4D /* MainViewController.swift */; };
 		46DB00AF1B8996630049DC4E /* pet_back_ground_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 46DB00AE1B8996630049DC4E /* pet_back_ground_gray.png */; };
 		46DB00B11B899D6A0049DC4E /* poikun.gif in Resources */ = {isa = PBXBuildFile; fileRef = 46DB00B01B899D6A0049DC4E /* poikun.gif */; };
+		46FBB2971C16AFFE001BA8FC /* EAIntroPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 46FBB2931C16AFFE001BA8FC /* EAIntroPage.h */; };
+		46FBB2981C16AFFE001BA8FC /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FBB2941C16AFFE001BA8FC /* EAIntroPage.m */; };
+		46FBB2991C16AFFE001BA8FC /* EAIntroView.h in Headers */ = {isa = PBXBuildFile; fileRef = 46FBB2951C16AFFE001BA8FC /* EAIntroView.h */; };
+		46FBB29A1C16AFFE001BA8FC /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FBB2961C16AFFE001BA8FC /* EAIntroView.m */; };
+		46FBB29E1C16B07B001BA8FC /* EARestrictedScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 46FBB29C1C16B07B001BA8FC /* EARestrictedScrollView.h */; };
+		46FBB29F1C16B07B001BA8FC /* EARestrictedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FBB29D1C16B07B001BA8FC /* EARestrictedScrollView.m */; };
+		46FBB2A11C16B48A001BA8FC /* PoiKunImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FBB2A01C16B48A001BA8FC /* PoiKunImg.png */; };
+		46FBB2A31C16B6FB001BA8FC /* poipet_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FBB2A21C16B6FB001BA8FC /* poipet_img.png */; };
+		46FBB2B21C16C4DF001BA8FC /* poipet_gaiyo.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FBB2B01C16C4DF001BA8FC /* poipet_gaiyo.png */; };
+		46FBB2B31C16C4DF001BA8FC /* poipet_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FBB2B11C16C4DF001BA8FC /* poipet_iphone.png */; };
+		46FBB2B81C16D148001BA8FC /* reloadw.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FBB2B61C16D148001BA8FC /* reloadw.png */; };
+		46FBB2B91C16D148001BA8FC /* settingw.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FBB2B71C16D148001BA8FC /* settingw.png */; };
+		46FBB2BC1C16D316001BA8FC /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FBB2BA1C16D316001BA8FC /* setting.png */; };
+		46FBB2BD1C16D316001BA8FC /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FBB2BB1C16D316001BA8FC /* reload.png */; };
 		E1EA09532413455317ED6F77 /* Pods_PoiPet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96912BC2E57199658BB6AE64 /* Pods_PoiPet.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -88,9 +100,7 @@
 		463F4E1E1BFB807600128F05 /* TouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
 		463F4E1F1BFB807600128F05 /* UIWindow+Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Swizzle.swift"; sourceTree = "<group>"; };
 		463F4E201BFB807600128F05 /* Visualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visualizer.swift; sourceTree = "<group>"; };
-		4675B0521BF7878500287964 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 		4675B0531BF7878500287964 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
-		4675B0541BF7878500287964 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
 		4675B0731BF85BD300287964 /* AkiraTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AkiraTextField.swift; sourceTree = "<group>"; };
 		4675B0741BF85BD300287964 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		4675B0751BF85BD300287964 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,6 +148,20 @@
 		46C780E21BE7385E00629B4D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		46DB00AE1B8996630049DC4E /* pet_back_ground_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_back_ground_gray.png; sourceTree = "<group>"; };
 		46DB00B01B899D6A0049DC4E /* poikun.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = poikun.gif; sourceTree = "<group>"; };
+		46FBB2931C16AFFE001BA8FC /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
+		46FBB2941C16AFFE001BA8FC /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
+		46FBB2951C16AFFE001BA8FC /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
+		46FBB2961C16AFFE001BA8FC /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
+		46FBB29C1C16B07B001BA8FC /* EARestrictedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EARestrictedScrollView.h; sourceTree = "<group>"; };
+		46FBB29D1C16B07B001BA8FC /* EARestrictedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EARestrictedScrollView.m; sourceTree = "<group>"; };
+		46FBB2A01C16B48A001BA8FC /* PoiKunImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoiKunImg.png; sourceTree = "<group>"; };
+		46FBB2A21C16B6FB001BA8FC /* poipet_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poipet_img.png; sourceTree = "<group>"; };
+		46FBB2B01C16C4DF001BA8FC /* poipet_gaiyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poipet_gaiyo.png; sourceTree = "<group>"; };
+		46FBB2B11C16C4DF001BA8FC /* poipet_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poipet_iphone.png; sourceTree = "<group>"; };
+		46FBB2B61C16D148001BA8FC /* reloadw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reloadw.png; sourceTree = "<group>"; };
+		46FBB2B71C16D148001BA8FC /* settingw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingw.png; sourceTree = "<group>"; };
+		46FBB2BA1C16D316001BA8FC /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
+		46FBB2BB1C16D316001BA8FC /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
 		4BD0B0F8F65A992C14473233 /* Pods-PoiPet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoiPet.release.xcconfig"; path = "Pods/Target Support Files/Pods-PoiPet/Pods-PoiPet.release.xcconfig"; sourceTree = "<group>"; };
 		96912BC2E57199658BB6AE64 /* Pods_PoiPet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoiPet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2334CD19E9FF8DE5B2773F6 /* Pods-PoiPet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoiPet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PoiPet/Pods-PoiPet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -222,6 +246,17 @@
 			name = CellCustom;
 			sourceTree = "<group>";
 		};
+		4693CEA21C117F9D0034328D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				46C780E21BE7385E00629B4D /* MainViewController.swift */,
+				4675B09F1BF8A7F000287964 /* DayViewController.swift */,
+				468784B11BF5950600F30644 /* UserSettingViewController.swift */,
+				4675B09B1BF89A2B00287964 /* UserIDSettingViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		46BC27D51B881F7900385B54 = {
 			isa = PBXGroup;
 			children = (
@@ -248,13 +283,11 @@
 				46BC27EC1B881F7900385B54 /* LaunchScreen.xib */,
 				46BC27E71B881F7900385B54 /* Main.storyboard */,
 				46BC27E31B881F7900385B54 /* AppDelegate.swift */,
-				46C780E21BE7385E00629B4D /* MainViewController.swift */,
-				4675B09F1BF8A7F000287964 /* DayViewController.swift */,
-				468784B11BF5950600F30644 /* UserSettingViewController.swift */,
-				4675B09B1BF89A2B00287964 /* UserIDSettingViewController.swift */,
-				463F4E251BFB817000128F05 /* Touch */,
+				4693CEA21C117F9D0034328D /* ViewController */,
 				468BB8621BE73380002D2F52 /* CellCustom */,
+				463F4E251BFB817000128F05 /* Touch */,
 				463F4DE31BFACECB00128F05 /* AnimatedImage */,
+				46FBB29B1C16B004001BA8FC /* EAIntro */,
 				4675B0721BF85BD300287964 /* TextFieldEffects */,
 				463F4DF81BFB646A00128F05 /* SCLAlertView */,
 				46BC28171B88670000385B54 /* Image */,
@@ -285,6 +318,11 @@
 		46BC28171B88670000385B54 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				46FBB2BA1C16D316001BA8FC /* setting.png */,
+				46FBB2BB1C16D316001BA8FC /* reload.png */,
+				46FBB2B01C16C4DF001BA8FC /* poipet_gaiyo.png */,
+				46FBB2B11C16C4DF001BA8FC /* poipet_iphone.png */,
+				46FBB2A21C16B6FB001BA8FC /* poipet_img.png */,
 				463F4DFF1BFB7BDF00128F05 /* titleLogo.png */,
 				463F4DFD1BFB7B5600128F05 /* logoW.png */,
 				4675B0B51BF8FD3700287964 /* time.png */,
@@ -295,9 +333,9 @@
 				4675B0991BF884EC00287964 /* background.JPG */,
 				4675B09D1BF89D0200287964 /* backgroundDebug.jpg */,
 				4675B08B1BF8629700287964 /* poikun.png */,
-				4675B0521BF7878500287964 /* setting.png */,
 				4675B0531BF7878500287964 /* cancel.png */,
-				4675B0541BF7878500287964 /* reload.png */,
+				46FBB2B61C16D148001BA8FC /* reloadw.png */,
+				46FBB2B71C16D148001BA8FC /* settingw.png */,
 				46BC28191B88901E00385B54 /* logo.png */,
 				46BC28341B89835E00385B54 /* navLogoWhite.png */,
 				46BC281B1B8891BF00385B54 /* logoWhite.png */,
@@ -306,9 +344,23 @@
 				46BC28271B895DE800385B54 /* pet_back_ground_orange.png */,
 				46BC28281B895DE800385B54 /* pet_back_ground_pink.png */,
 				46BC28291B895DE800385B54 /* pet_back_ground_blue.png */,
+				46FBB2A01C16B48A001BA8FC /* PoiKunImg.png */,
 				46DB00B01B899D6A0049DC4E /* poikun.gif */,
 			);
 			name = Image;
+			sourceTree = "<group>";
+		};
+		46FBB29B1C16B004001BA8FC /* EAIntro */ = {
+			isa = PBXGroup;
+			children = (
+				46FBB2931C16AFFE001BA8FC /* EAIntroPage.h */,
+				46FBB2941C16AFFE001BA8FC /* EAIntroPage.m */,
+				46FBB2951C16AFFE001BA8FC /* EAIntroView.h */,
+				46FBB2961C16AFFE001BA8FC /* EAIntroView.m */,
+				46FBB29C1C16B07B001BA8FC /* EARestrictedScrollView.h */,
+				46FBB29D1C16B07B001BA8FC /* EARestrictedScrollView.m */,
+			);
+			name = EAIntro;
 			sourceTree = "<group>";
 		};
 		4B18EF990CF639C5CD526390 /* Pods */ = {
@@ -337,7 +389,10 @@
 			files = (
 				4675B0871BF85BD300287964 /* TextFieldEffects.h in Headers */,
 				46BC28231B895B0F00385B54 /* FLAnimatedImage.h in Headers */,
+				46FBB2971C16AFFE001BA8FC /* EAIntroPage.h in Headers */,
+				46FBB29E1C16B07B001BA8FC /* EARestrictedScrollView.h in Headers */,
 				46BC28251B895B1400385B54 /* FLAnimatedImageView.h in Headers */,
+				46FBB2991C16AFFE001BA8FC /* EAIntroView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,29 +488,35 @@
 				4675B0B61BF8FD3700287964 /* time.png in Resources */,
 				4675B0B21BF8FC3500287964 /* pet.png in Resources */,
 				46BC282A1B895DE800385B54 /* pet_back_ground_gleen.png in Resources */,
+				46FBB2BC1C16D316001BA8FC /* setting.png in Resources */,
 				4675B0AE1BF8DCFA00287964 /* cellBackground.png in Resources */,
 				4675B0811BF85BD300287964 /* Info.plist in Resources */,
 				463F4E001BFB7BDF00128F05 /* titleLogo.png in Resources */,
 				4675B0561BF7878500287964 /* cancel.png in Resources */,
+				46FBB2B21C16C4DF001BA8FC /* poipet_gaiyo.png in Resources */,
 				46BC281C1B8891BF00385B54 /* logoWhite.png in Resources */,
 				463F4DF11BFB2C9900128F05 /* pin.png in Resources */,
 				4675B08C1BF8629700287964 /* poikun.png in Resources */,
 				46BC28351B89835E00385B54 /* navLogoWhite.png in Resources */,
 				463F4DFB1BFB646A00128F05 /* Info.plist in Resources */,
+				46FBB2BD1C16D316001BA8FC /* reload.png in Resources */,
+				46FBB2B81C16D148001BA8FC /* reloadw.png in Resources */,
 				463F4DFE1BFB7B5600128F05 /* logoW.png in Resources */,
 				46BC282B1B895DE800385B54 /* pet_back_ground_orange.png in Resources */,
 				46BC27E91B881F7900385B54 /* Main.storyboard in Resources */,
 				46BC27EE1B881F7900385B54 /* LaunchScreen.xib in Resources */,
-				4675B0551BF7878500287964 /* setting.png in Resources */,
+				46FBB2B91C16D148001BA8FC /* settingw.png in Resources */,
+				46FBB2A31C16B6FB001BA8FC /* poipet_img.png in Resources */,
 				46BC282C1B895DE800385B54 /* pet_back_ground_pink.png in Resources */,
 				463F4DF71BFB529A00128F05 /* petHart.png in Resources */,
+				46FBB2B31C16C4DF001BA8FC /* poipet_iphone.png in Resources */,
+				46FBB2A11C16B48A001BA8FC /* PoiKunImg.png in Resources */,
 				4675B09E1BF89D0200287964 /* backgroundDebug.jpg in Resources */,
 				46BC281A1B88901E00385B54 /* logo.png in Resources */,
 				46DB00AF1B8996630049DC4E /* pet_back_ground_gray.png in Resources */,
 				46BC282D1B895DE800385B54 /* pet_back_ground_blue.png in Resources */,
 				46BC28121B8862A900385B54 /* CalendarCollectionViewCell.xib in Resources */,
 				46BC27EB1B881F7900385B54 /* Images.xcassets in Resources */,
-				4675B0571BF7878500287964 /* reload.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4675B0891BF85BD300287964 /* YokoTextField.swift in Sources */,
+				46FBB29F1C16B07B001BA8FC /* EARestrictedScrollView.m in Sources */,
 				46BC28111B8862A900385B54 /* CalendarCollectionViewCell.swift in Sources */,
 				463F4DFC1BFB646A00128F05 /* SCLAlertView.swift in Sources */,
 				4675B0801BF85BD300287964 /* HoshiTextField.swift in Sources */,
@@ -530,6 +592,7 @@
 				468784B21BF5950600F30644 /* UserSettingViewController.swift in Sources */,
 				4675B09C1BF89A2B00287964 /* UserIDSettingViewController.swift in Sources */,
 				4675B0841BF85BD300287964 /* KaedeTextField.swift in Sources */,
+				46FBB29A1C16AFFE001BA8FC /* EAIntroView.m in Sources */,
 				463F4E231BFB807600128F05 /* UIWindow+Swizzle.swift in Sources */,
 				463F4E211BFB807600128F05 /* Configuration.swift in Sources */,
 				4675B0851BF85BD300287964 /* MadokaTextField.swift in Sources */,
@@ -538,6 +601,7 @@
 				4675B0831BF85BD300287964 /* JiroTextField.swift in Sources */,
 				463F4DEE1BFAE22200128F05 /* SpringIndicator.swift in Sources */,
 				4675B08A1BF85BD300287964 /* YoshikoTextField.swift in Sources */,
+				46FBB2981C16AFFE001BA8FC /* EAIntroPage.m in Sources */,
 				463F4E241BFB807600128F05 /* Visualizer.swift in Sources */,
 				463F4E221BFB807600128F05 /* TouchView.swift in Sources */,
 				4675B0881BF85BD300287964 /* TextFieldsEffects.swift in Sources */,
