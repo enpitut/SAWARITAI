@@ -10,6 +10,8 @@ import UIKit
 
 class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSessionDelegate,NSURLSessionDataDelegate {
     
+    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     @IBOutlet weak var RegistrationIDTextField: AkiraTextField!
     @IBOutlet weak var UserNameTextField: AkiraTextField!
     
@@ -17,9 +19,17 @@ class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSess
     var userName: String = ""
     
     @IBOutlet weak var RegistrationButton: UIButton!
+    //レイアウト
+    var wBounds:CGFloat=0.0
+    var hBounds:CGFloat=0.0
+    
+    let indicator:SpringIndicator = SpringIndicator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        wBounds = self.view.bounds.width
+        hBounds = self.view.bounds.height*3/4
         
         RegistrationIDTextField.delegate=self
         RegistrationIDTextField.tag=0
@@ -86,8 +96,13 @@ class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSess
         let session:NSURLSession = NSURLSession(configuration: config, delegate: self, delegateQueue: nil)
         let task:NSURLSessionDataTask = session.dataTaskWithRequest(request)
         
-        task.resume()
+        //ぐるぐる
+        indicator.frame = CGRectMake(self.view.frame.width/2-self.view.frame.width/8, self.view.frame.height/2-self.view.frame.width/8, self.view.frame.width/4, self.view.frame.width/4)
+        indicator.lineWidth = 3
+        self.view.addSubview(indicator)
+        indicator.startAnimation()
         
+        task.resume()
     }
     
     //通信終了
@@ -98,45 +113,100 @@ class UserSettingViewController: UIViewController, UITextFieldDelegate,NSURLSess
         // バックグラウンドだとUIの処理が出来ないので、メインスレッドでUIの処理を行わせる.
         dispatch_async(dispatch_get_main_queue(), {
             
+            self.indicator.removeFromSuperview()
+            print(userID.characters.count)
+            
             //成功
-            if Int(userID) != nil {
-                print("UserID:\(Int(userID)!)")
+            if userID.characters.count == 16 {
+                print("UserID:\(userID)")
                 
                 let userDefault = NSUserDefaults.standardUserDefaults()
                 
-                userDefault.setObject("\(Int(userID)!)", forKey: "ID")
+                userDefault.setObject("\(userID)", forKey: "ID")
                 userDefault.synchronize()
                 
                 print("Registration Finish")
                 
-                let alert:UIAlertController = UIAlertController(title: "登録完了！", message: "\(userID)\n\(self.registrationID)->\(self.userName)", preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "OK", style: .Default) {
-                    action in
-                        self.dismissViewControllerAnimated(true, completion: nil)
+                let alertView = SCLAlertView()
+                alertView.addButton("OK") {
+                    self.appDelegate.isSetting = true
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
-                alert.addAction(okAction)
-                self.presentViewController(alert, animated: true, completion: nil)
+                alertView.showCloseButton = false
+                alertView.showSuccess("登録完了しました", subTitle: "登録ID : \(self.registrationID)\nユーザ名 : \(self.userName)")
                 
                 //失敗
             }else{
                 print("Error:\(userID)")
                 
-                let alert:UIAlertController = UIAlertController(title: "登録失敗！", message: "\(userID)\n\(self.registrationID)->\(self.userName)", preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "OK", style: .Default) {
-                action in
+                SCLAlertView().showError("登録失敗しました", subTitle: "登録ID : \(self.registrationID)\nユーザ名 : \(self.userName)")
                 
-                }
-                //alert.view.tintColor = UIColor(red: 240.0/255.0, green: 125.0/255.0, blue: 50.0/255.0, alpha: 1.0)//オレンジ
-                alert.addAction(okAction)
-                
-                self.presentViewController(alert, animated: true, completion: nil)
             }
             
         })
         
     }
     
+    @IBAction func setumeiButton(sender: AnyObject) {
+        
+        //はじめての画面
+        self.showIntroWithCrossDissolve()
+        
+    }
+    //説明View
+    func showIntroWithCrossDissolve(){
+        
+        let page1 : EAIntroPage = EAIntroPage()
+        let image1 = UIImageView(image: UIImage(named: "poipet_gaiyo.png"))
+        image1.contentMode = .ScaleAspectFit
+        image1.frame = CGRectMake(0, 0, wBounds, wBounds)
+        page1.titleIconView = image1
+        page1.titleFont = UIFont.systemFontOfSize(CGFloat(18))
+        page1.title = "PoiPetは\nゴミ捨てや分別が楽しくなる\nペットボトル専用ゴミ箱です"
+        page1.desc = "　"
+        page1.bgColor = UIColor(red: 230.0/255.0, green: 104.0/255.0, blue: 38.0/255.0, alpha: 1.0)//オレンジ
+        
+        let page2 : EAIntroPage = EAIntroPage()
+        let image2 = UIImageView(image: UIImage(named: "poi3.png"))
+        image2.contentMode = .ScaleAspectFit
+        image2.frame = CGRectMake(0, 0, wBounds, wBounds)
+        page2.titleIconView = image2
+        page2.titleFont = UIFont.systemFontOfSize(CGFloat(18))
+        page2.title = "まずは\nPoiPetにICカードをタッチして\n表示される4桁の数字を\nアプリに入力してください"
+        page2.desc = "　"
+        page2.bgColor = UIColor(red: 75.0/255.0, green: 135.0/255.0, blue: 203.0/255.0, alpha: 1.0)//オレンジ
+        
+        let page3 : EAIntroPage = EAIntroPage()
+        let image3 = UIImageView(image: UIImage(named: "poi2.png"))
+        image3.contentMode = .ScaleAspectFit
+        image3.frame = CGRectMake(0, 0, wBounds, wBounds)
+        page3.titleIconView = image3
+        page3.titleFont = UIFont.systemFontOfSize(CGFloat(18))
+        page3.title = "PoiPet for iPhoneでは\nいつどこでいくつ\nペットボトルを捨てたかを\n記録することができます"
+        page3.desc = "　"
+        page3.bgColor = UIColor(red: 253.0/255.0, green: 181.0/255.0, blue: 10.0/255.0, alpha: 1.0)//オレンジ
+        
+        let page4 : EAIntroPage = EAIntroPage()
+        let image4 = UIImageView(image: UIImage(named: "poi4.png"))
+        image4.contentMode = .ScaleAspectFit
+        image4.frame = CGRectMake(0, 0, wBounds, wBounds)
+        page4.titleIconView = image4
+        
+        page4.titleFont = UIFont.systemFontOfSize(CGFloat(18))
+        page4.title = "PoiPetとアプリと連携して\nみんなで楽しく\nPoiしましょう"
+        page4.desc = "　"
+        page4.bgColor = UIColor(red: 230.0/255.0, green: 104.0/255.0, blue: 38.0/255.0, alpha: 1.0)//オレンジ
+        
+        let intro : EAIntroView = EAIntroView(frame: self.view.bounds, andPages:[page1,page3,page2,page4])
+        //intro.delegate = self
+        intro.showInView(self.view, animateDuration:0.0)
+        
+    }
+
+    
+    
     @IBAction func unwindToTop(segue: UIStoryboardSegue) {
+        
     }
     
 }
