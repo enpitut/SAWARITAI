@@ -188,6 +188,25 @@
                                     <segue destination="WZW-HL-lp4" kind="show" id="waJ-1O-Ge3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krK-bO-MIy">
+                                <rect key="frame" x="20" y="540" width="560" height="40"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.5" alpha="0.49614653716216217" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="lv8-31-FGr"/>
+                                </constraints>
+                                <state key="normal" title="アプリの説明">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="setumeiButton:" destination="MdK-0U-o4w" eventType="touchUpInside" id="ghd-89-XWl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.58823529411764708" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
@@ -203,7 +222,9 @@
                             <constraint firstItem="Z6d-Qr-kfl" firstAttribute="width" secondItem="8hH-Dr-15I" secondAttribute="width" id="FXd-Ck-Vq5"/>
                             <constraint firstItem="wLT-bC-47p" firstAttribute="top" secondItem="Bap-SQ-QMr" secondAttribute="bottom" id="FjK-es-S6D"/>
                             <constraint firstItem="8Hp-V1-Nww" firstAttribute="top" secondItem="Bap-SQ-QMr" secondAttribute="bottom" id="HVt-PC-qPg"/>
+                            <constraint firstItem="krK-bO-MIy" firstAttribute="trailing" secondItem="ISG-Yu-I4E" secondAttribute="trailingMargin" id="I4M-Kc-YkV"/>
                             <constraint firstItem="pGq-pg-NWd" firstAttribute="trailing" secondItem="ISG-Yu-I4E" secondAttribute="trailingMargin" id="ORG-JU-Lyy"/>
+                            <constraint firstItem="bop-It-UAQ" firstAttribute="top" secondItem="krK-bO-MIy" secondAttribute="bottom" constant="20" id="PJ7-Tc-S3M"/>
                             <constraint firstItem="XEo-RQ-f9G" firstAttribute="top" secondItem="pGq-pg-NWd" secondAttribute="bottom" id="PPL-JS-SOR"/>
                             <constraint firstItem="vyl-ve-dD4" firstAttribute="trailing" secondItem="ISG-Yu-I4E" secondAttribute="trailingMargin" id="Q8r-qS-ZYg"/>
                             <constraint firstItem="Z6d-Qr-kfl" firstAttribute="trailing" secondItem="ISG-Yu-I4E" secondAttribute="trailingMargin" id="Rl2-t7-W4s"/>
@@ -228,6 +249,7 @@
                             <constraint firstItem="Z6d-Qr-kfl" firstAttribute="top" secondItem="pGq-pg-NWd" secondAttribute="bottom" constant="35" id="pBs-iP-wrk"/>
                             <constraint firstItem="bop-It-UAQ" firstAttribute="top" secondItem="EqB-ia-ijK" secondAttribute="bottom" id="qDz-nu-KX4"/>
                             <constraint firstItem="EqB-ia-ijK" firstAttribute="top" secondItem="ISG-Yu-I4E" secondAttribute="topMargin" id="qhY-Mh-y7n"/>
+                            <constraint firstItem="krK-bO-MIy" firstAttribute="leading" secondItem="ISG-Yu-I4E" secondAttribute="leadingMargin" id="rVo-wW-Eds"/>
                             <constraint firstItem="XEo-RQ-f9G" firstAttribute="trailing" secondItem="ISG-Yu-I4E" secondAttribute="trailingMargin" id="tnC-5x-zh8"/>
                             <constraint firstItem="pGq-pg-NWd" firstAttribute="leading" secondItem="ISG-Yu-I4E" secondAttribute="leadingMargin" id="uLv-0L-xca"/>
                             <constraint firstItem="EqB-ia-ijK" firstAttribute="leading" secondItem="ISG-Yu-I4E" secondAttribute="leadingMargin" constant="-20" id="wGb-Mj-TS2"/>

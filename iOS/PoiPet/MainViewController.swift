@@ -153,39 +153,41 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         image1.frame = CGRectMake(0, 0, wBounds, wBounds)
         page1.titleIconView = image1
         page1.titleFont = UIFont.systemFontOfSize(CGFloat(18))
-        page1.title = "PoiPetはゴミ捨てや分別が楽しくなる\nペットボトル専用ゴミ箱です"
+        page1.title = "PoiPetは\nゴミ捨てや分別が楽しくなる\nペットボトル専用ゴミ箱です"
         page1.desc = "　"
         //page1.bgImage = UIImage(named:"PoiKunImg.png")
         page1.bgColor = UIColor(red: 230.0/255.0, green: 104.0/255.0, blue: 38.0/255.0, alpha: 1.0)//オレンジ
         
         let page2 : EAIntroPage = EAIntroPage()
-        //     page2.titleIconView = UIImageView(image: UIImage(named: "cheer.png"))
-        
+        let image2 = UIImageView(image: UIImage(named: "poi3.png"))
+        image2.contentMode = .ScaleAspectFit
+        image2.frame = CGRectMake(0, 0, wBounds, wBounds)
+        page2.titleIconView = image2
         page2.titleFont = UIFont.systemFontOfSize(CGFloat(18))
-        page2.title = "まずは\nPoiPetにICカードをタッチして\n表示された4桁の数字をアプリに入力し\nユーザ登録をしてください"
+        page2.title = "まずは\nPoiPetにICカードをタッチして\n表示される4桁の数字を\nアプリに入力してください"
         page2.desc = "　"
         //page2.bgImage = UIImage(named:"PoiKunImg.png")
         page2.bgColor = UIColor(red: 75.0/255.0, green: 135.0/255.0, blue: 203.0/255.0, alpha: 1.0)//オレンジ
         
         let page3 : EAIntroPage = EAIntroPage()
-        let image3 = UIImageView(image: UIImage(named: "poipet_iphone.png"))
+        let image3 = UIImageView(image: UIImage(named: "poi2.png"))
         image3.contentMode = .ScaleAspectFit
         image3.frame = CGRectMake(0, 0, wBounds, wBounds)
         page3.titleIconView = image3
         page3.titleFont = UIFont.systemFontOfSize(CGFloat(18))
-        page3.title = "PoiPetにICカードをタッチすることで\nいつどこでいくつ\nペットボトルを捨てたかを\nアプリに記録することができます"
+        page3.title = "PoiPet for iPhoneでは\nいつどこでいくつ\nペットボトルを捨てたかを\n記録することができます"
         page3.desc = "　"
         //page3.bgImage = UIImage(named:"PoiKunImg.png")
         page3.bgColor = UIColor(red: 253.0/255.0, green: 181.0/255.0, blue: 10.0/255.0, alpha: 1.0)//オレンジ
         
         let page4 : EAIntroPage = EAIntroPage()
-        let image4 = UIImageView(image: UIImage(named: "poipet_gaiyo.png"))
+        let image4 = UIImageView(image: UIImage(named: "poi4.png"))
         image4.contentMode = .ScaleAspectFit
         image4.frame = CGRectMake(0, 0, wBounds, wBounds)
         page4.titleIconView = image4
         
         page4.titleFont = UIFont.systemFontOfSize(CGFloat(18))
-        page4.title = "PoiPetに楽しく\nPoiしましょう"
+        page4.title = "PoiPetとアプリと連携して\nみんなで楽しく\nPoiしましょう"
         page4.desc = "　"
         //page3.bgImage = UIImage(named:"PoiKunImg.png")
         page4.bgColor = UIColor(red: 230.0/255.0, green: 104.0/255.0, blue: 38.0/255.0, alpha: 1.0)//オレンジ
@@ -259,15 +261,17 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
                 }
                 
                 print("通信完了")
+                self.indicator.stopAnimation(true, completion: nil)
+                self.indicator.removeFromSuperview()
                 
                 if self.view.viewWithTag(100) != nil{
                     
                     let remove:UIView = self.view.viewWithTag(100)!
-                    UIView.animateWithDuration(0.1, animations: {
+                    UIView.animateWithDuration(0.3, animations: {
                         
                         remove.alpha=0.0
                         remove.removeFromSuperview()
-                        self.indicator.stopAnimation(true, completion: nil)
+                        
                         
                         }, completion: { finished in
                             
@@ -371,7 +375,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             }
             
             
-            UIView.animateWithDuration(0.2, animations: {
+            UIView.animateWithDuration(0.3, animations: {
                 /* if self.swipeCount > 0{
                 //calendarViews.layer.position = CGPointMake(self.wBounds*3/2, calendarViews.frame.height/2 + self.hNavigation)
                 rightCalendarViews.layer.position = CGPointMake(self.wBounds/2, calendarViews.frame.height/2 + self.hNavigation)

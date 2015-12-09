@@ -42,6 +42,12 @@
 		4675B0B21BF8FC3500287964 /* pet.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0B11BF8FC3500287964 /* pet.png */; };
 		4675B0B61BF8FD3700287964 /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = 4675B0B51BF8FD3700287964 /* time.png */; };
 		468784B21BF5950600F30644 /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468784B11BF5950600F30644 /* UserSettingViewController.swift */; };
+		46A695DF1C17AC85009B7BCD /* poipet_gaiyo.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A695DE1C17AC85009B7BCD /* poipet_gaiyo.png */; };
+		46A695E31C17B690009B7BCD /* poipet_sc.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A695E21C17B690009B7BCD /* poipet_sc.png */; };
+		46A695E51C17E140009B7BCD /* poipet_ferica.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A695E41C17E140009B7BCD /* poipet_ferica.png */; };
+		46A695E91C17E6C5009B7BCD /* poi2.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A695E61C17E6C5009B7BCD /* poi2.png */; };
+		46A695EA1C17E6C5009B7BCD /* poi4.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A695E71C17E6C5009B7BCD /* poi4.png */; };
+		46A695EB1C17E6C5009B7BCD /* poi3.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A695E81C17E6C5009B7BCD /* poi3.png */; };
 		46BC27E41B881F7900385B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC27E31B881F7900385B54 /* AppDelegate.swift */; };
 		46BC27E91B881F7900385B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BC27E71B881F7900385B54 /* Main.storyboard */; };
 		46BC27EB1B881F7900385B54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46BC27EA1B881F7900385B54 /* Images.xcassets */; };
@@ -69,7 +75,6 @@
 		46FBB29F1C16B07B001BA8FC /* EARestrictedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FBB29D1C16B07B001BA8FC /* EARestrictedScrollView.m */; };
 		46FBB2A11C16B48A001BA8FC /* PoiKunImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FBB2A01C16B48A001BA8FC /* PoiKunImg.png */; };
 		46FBB2A31C16B6FB001BA8FC /* poipet_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FBB2A21C16B6FB001BA8FC /* poipet_img.png */; };
-		46FBB2B21C16C4DF001BA8FC /* poipet_gaiyo.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FBB2B01C16C4DF001BA8FC /* poipet_gaiyo.png */; };
 		46FBB2B31C16C4DF001BA8FC /* poipet_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FBB2B11C16C4DF001BA8FC /* poipet_iphone.png */; };
 		46FBB2B81C16D148001BA8FC /* reloadw.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FBB2B61C16D148001BA8FC /* reloadw.png */; };
 		46FBB2B91C16D148001BA8FC /* settingw.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FBB2B71C16D148001BA8FC /* settingw.png */; };
@@ -124,6 +129,12 @@
 		4675B0B11BF8FC3500287964 /* pet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet.png; sourceTree = "<group>"; };
 		4675B0B51BF8FD3700287964 /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time.png; sourceTree = "<group>"; };
 		468784B11BF5950600F30644 /* UserSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
+		46A695DE1C17AC85009B7BCD /* poipet_gaiyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poipet_gaiyo.png; sourceTree = "<group>"; };
+		46A695E21C17B690009B7BCD /* poipet_sc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poipet_sc.png; sourceTree = "<group>"; };
+		46A695E41C17E140009B7BCD /* poipet_ferica.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poipet_ferica.png; sourceTree = "<group>"; };
+		46A695E61C17E6C5009B7BCD /* poi2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi2.png; sourceTree = "<group>"; };
+		46A695E71C17E6C5009B7BCD /* poi4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi4.png; sourceTree = "<group>"; };
+		46A695E81C17E6C5009B7BCD /* poi3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poi3.png; sourceTree = "<group>"; };
 		46BC27DE1B881F7900385B54 /* PoiPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoiPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BC27E21B881F7900385B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46BC27E31B881F7900385B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,7 +167,6 @@
 		46FBB29D1C16B07B001BA8FC /* EARestrictedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EARestrictedScrollView.m; sourceTree = "<group>"; };
 		46FBB2A01C16B48A001BA8FC /* PoiKunImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoiKunImg.png; sourceTree = "<group>"; };
 		46FBB2A21C16B6FB001BA8FC /* poipet_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poipet_img.png; sourceTree = "<group>"; };
-		46FBB2B01C16C4DF001BA8FC /* poipet_gaiyo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poipet_gaiyo.png; sourceTree = "<group>"; };
 		46FBB2B11C16C4DF001BA8FC /* poipet_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poipet_iphone.png; sourceTree = "<group>"; };
 		46FBB2B61C16D148001BA8FC /* reloadw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reloadw.png; sourceTree = "<group>"; };
 		46FBB2B71C16D148001BA8FC /* settingw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingw.png; sourceTree = "<group>"; };
@@ -318,9 +328,14 @@
 		46BC28171B88670000385B54 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				46A695E61C17E6C5009B7BCD /* poi2.png */,
+				46A695E71C17E6C5009B7BCD /* poi4.png */,
+				46A695E81C17E6C5009B7BCD /* poi3.png */,
+				46A695E41C17E140009B7BCD /* poipet_ferica.png */,
+				46A695E21C17B690009B7BCD /* poipet_sc.png */,
+				46A695DE1C17AC85009B7BCD /* poipet_gaiyo.png */,
 				46FBB2BA1C16D316001BA8FC /* setting.png */,
 				46FBB2BB1C16D316001BA8FC /* reload.png */,
-				46FBB2B01C16C4DF001BA8FC /* poipet_gaiyo.png */,
 				46FBB2B11C16C4DF001BA8FC /* poipet_iphone.png */,
 				46FBB2A21C16B6FB001BA8FC /* poipet_img.png */,
 				463F4DFF1BFB7BDF00128F05 /* titleLogo.png */,
@@ -485,17 +500,19 @@
 			files = (
 				46DB00B11B899D6A0049DC4E /* poikun.gif in Resources */,
 				4675B09A1BF884EC00287964 /* background.JPG in Resources */,
+				46A695E91C17E6C5009B7BCD /* poi2.png in Resources */,
 				4675B0B61BF8FD3700287964 /* time.png in Resources */,
 				4675B0B21BF8FC3500287964 /* pet.png in Resources */,
 				46BC282A1B895DE800385B54 /* pet_back_ground_gleen.png in Resources */,
 				46FBB2BC1C16D316001BA8FC /* setting.png in Resources */,
 				4675B0AE1BF8DCFA00287964 /* cellBackground.png in Resources */,
 				4675B0811BF85BD300287964 /* Info.plist in Resources */,
+				46A695E31C17B690009B7BCD /* poipet_sc.png in Resources */,
 				463F4E001BFB7BDF00128F05 /* titleLogo.png in Resources */,
 				4675B0561BF7878500287964 /* cancel.png in Resources */,
-				46FBB2B21C16C4DF001BA8FC /* poipet_gaiyo.png in Resources */,
 				46BC281C1B8891BF00385B54 /* logoWhite.png in Resources */,
 				463F4DF11BFB2C9900128F05 /* pin.png in Resources */,
+				46A695EB1C17E6C5009B7BCD /* poi3.png in Resources */,
 				4675B08C1BF8629700287964 /* poikun.png in Resources */,
 				46BC28351B89835E00385B54 /* navLogoWhite.png in Resources */,
 				463F4DFB1BFB646A00128F05 /* Info.plist in Resources */,
@@ -504,13 +521,16 @@
 				463F4DFE1BFB7B5600128F05 /* logoW.png in Resources */,
 				46BC282B1B895DE800385B54 /* pet_back_ground_orange.png in Resources */,
 				46BC27E91B881F7900385B54 /* Main.storyboard in Resources */,
+				46A695DF1C17AC85009B7BCD /* poipet_gaiyo.png in Resources */,
 				46BC27EE1B881F7900385B54 /* LaunchScreen.xib in Resources */,
 				46FBB2B91C16D148001BA8FC /* settingw.png in Resources */,
 				46FBB2A31C16B6FB001BA8FC /* poipet_img.png in Resources */,
 				46BC282C1B895DE800385B54 /* pet_back_ground_pink.png in Resources */,
+				46A695E51C17E140009B7BCD /* poipet_ferica.png in Resources */,
 				463F4DF71BFB529A00128F05 /* petHart.png in Resources */,
 				46FBB2B31C16C4DF001BA8FC /* poipet_iphone.png in Resources */,
 				46FBB2A11C16B48A001BA8FC /* PoiKunImg.png in Resources */,
+				46A695EA1C17E6C5009B7BCD /* poi4.png in Resources */,
 				4675B09E1BF89D0200287964 /* backgroundDebug.jpg in Resources */,
 				46BC281A1B88901E00385B54 /* logo.png in Resources */,
 				46DB00AF1B8996630049DC4E /* pet_back_ground_gray.png in Resources */,
