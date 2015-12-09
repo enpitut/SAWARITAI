@@ -40,17 +40,24 @@ PoiPet for iPhone
 
 ###**Usage**
 ####**Registar**
-PoiPetにICカードをタッチして表示される4桁の数字をアプリに入力し、ユーザ登録を行います    
+はじめに、PoiPetにICカードをタッチして表示される4桁の数字をアプリに入力し、ユーザ登録を行います    
 ![k-means](https://github.com/enpitut/SAWARITAI/blob/master/ScreenShot/poipet_image3.PNG)
 
 ####**Carendar**
-カレンダーで何月何日に何本捨てたかを確認することができます  
+ユーザ登録後、ICカードをタッチした後にペットボトルを捨てると、アプリのカレンダーで何月何日に何本捨てたかを確認することができます  
 ![k-means](https://github.com/enpitut/SAWARITAI/blob/master/ScreenShot/poipet_image1.PNG)  
 
 ####**Log**
-日毎のログで何時にどこに捨てたか、ラベルとキャップを分別して捨てたかを確認することができます  
+また、日毎のログで何時にどこに捨てたか、ラベルとキャップを分別して捨てたかを確認することができます  
 将来展望として、分別して捨てる毎にポイントを加算・換金できると、より分別を促進できると考えています   
 ![k-means](https://github.com/enpitut/SAWARITAI/blob/master/ScreenShot/poipet_image2.PNG)
+
+###**Requirements**
+iOS 8.0+  
+Xcode 7.1.1  
+
+iOSフォルダをダウンロードし、XcodeでPoiPet.xcworkspaceを開いてRunしてください  
+
 
 
 
