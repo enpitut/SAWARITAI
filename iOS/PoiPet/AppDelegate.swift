@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,9 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var poiTime:[String] = []
     var poiPlace:[String] = []
+    var poiCap:[String] = []
+    var poiBottle:[String] = []
+    var poiLabel:[String] = []
+    var poipetID:[String] = []
+    var poiWeek:Int?
+    var isSetting:Bool = false
     
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        var configV = Configuration()
+        configV.color = UIColor.grayColor()
+        configV.defaultSize = CGSize(width: 40, height: 40)
+        Visualizer.start(configV)
+
         
         //ナビゲーションバータイトルの色
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]

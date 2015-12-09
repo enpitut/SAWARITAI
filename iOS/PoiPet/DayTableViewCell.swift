@@ -16,14 +16,16 @@ class DayTableViewCell: UITableViewCell {
     @IBOutlet weak var placeLabel: UILabel!
     
     @IBOutlet weak var backView: UIView!
+    
+    @IBOutlet weak var petImageView: UIImageView!
+    
 //    @IBOutlet weak var backgroundView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         backView.layer.borderWidth = 3.0
-        backView.layer.borderColor = UIColor(red: 240.0/255.0, green: 125.0/255.0, blue: 50.0/255.0, alpha: 1.0).CGColor//オレンジ
-        // Initialization code
+
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -32,9 +34,29 @@ class DayTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setCell(Day:PoiModel){
-        self.timeLabel.text = Day.time
-        self.placeLabel.text = Day.place
+    func setCell(poiModel:PoiModel){
+        self.timeLabel.text = poiModel.time
+        
+        
+        if poiModel.place.characters.count > 9{
+            //改行
+            self.placeLabel.text = "\(poiModel.place.stringByReplacingOccurrencesOfString(" ", withString: "\n"))"
+            self.placeLabel.numberOfLines=2
+            self.placeLabel.font=UIFont.systemFontOfSize(11)
+        }else{
+            self.placeLabel.text = poiModel.place
+            self.placeLabel.numberOfLines=1
+            self.placeLabel.font=UIFont.systemFontOfSize(18)
+        }
+        
+        //placeLabel.frame = CGRectMake(placeLabel.frame.origin.x, placeLabel.frame.origin.y, placeLabel.frame.width, 0)
+        //placeLabel.numberOfLines = 0
+        //placeLabel.sizeToFit()
+        
+        self.backView.layer.borderColor = poiModel.color.CGColor
+        
+        self.petImageView.backgroundColor = poiModel.color
+        self.petImageView.image = poiModel.image
         
     }
 

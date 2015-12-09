@@ -10,6 +10,8 @@ import UIKit
 
 class UserIDSettingViewController: UIViewController, UITextFieldDelegate,NSURLSessionDelegate,NSURLSessionDataDelegate {
 
+    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     @IBOutlet weak var UserIDLabel: UILabel!
     @IBOutlet weak var UserIDTextField: AkiraTextField!
     var userID: String = ""
@@ -46,7 +48,7 @@ class UserIDSettingViewController: UIViewController, UITextFieldDelegate,NSURLSe
         userID=textField.text!
         print("UserID:\(textField.text!)")
         
-        if Int(userID) != nil{
+        if userID != ""{
             RegistrationButton.enabled=true
             RegistrationButton.alpha=1.0
         }else{
@@ -72,11 +74,13 @@ class UserIDSettingViewController: UIViewController, UITextFieldDelegate,NSURLSe
         if Int(userID) == 0{
             userDefault.setObject(nil, forKey: "ID")
         }else{
-            userDefault.setObject("\(Int(userID)!)", forKey: "ID")
+            userDefault.setObject("\(userID)", forKey: "ID")
         }
         userDefault.synchronize()
         
-        UserIDLabel.text = "NowID : \(Int(userID)!)"
+        UserIDLabel.text = "\(userID)"
+        SCLAlertView().showSuccess("ユーザを切り替えました", subTitle: "ユーザID : \(userID)")
+        self.appDelegate.isSetting = true
         
     }
     
