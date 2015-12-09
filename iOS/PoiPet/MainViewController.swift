@@ -51,6 +51,12 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //デモ用ユーザいれとく
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        if userDefault.objectForKey("ID") == nil{
+            userDefault.setObject("1", forKey: "ID")
+        }
+        
         wBounds = self.view.bounds.width
         hBounds = self.view.bounds.height*3/4
         hPoiBounds = self.view.bounds.height*1/4
@@ -129,9 +135,16 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     //更新
     @IBAction func refreshButton(sender: AnyObject) {
         
-        self.view.addSubview(indicator)
-        self.indicator.startAnimation()
-        refreshCalendar()
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        
+        if userDefault.objectForKey("ID") == nil{
+            SCLAlertView().showWarning("ユーザ登録してください", subTitle: "")
+        }else{
+            self.view.addSubview(indicator)
+            self.indicator.startAnimation()
+            refreshCalendar()
+
+        }
         
     }
     
@@ -349,14 +362,10 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             
             if userDefault.objectForKey("ID") == nil{
                 
-                
                 self.navigationBarAndStatusBarHidden(true, animated:true)
                 
                 //はじめての画面
                 self.showIntroWithCrossDissolve()
-                
-                
-                
                 
             }
             
