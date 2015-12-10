@@ -1,8 +1,9 @@
 # SAWARITAI
 ![poipet_logo](https://github.com/enpitut/SAWARITAI/blob/master/LP/img/poipet_logo.png)  
   
-###**HP**
-http://poipet.ml/ 
+###**Site**
+HP : http://poipet.ml/   
+PoiPet管理画面 : http://poipet.ml/map.php    
 
 ###**Movie**
 https://youtu.be/dh_vc2HoN-o
@@ -61,6 +62,7 @@ iOS 8.0+
 Xcode 7.1.1  
 
 iOSフォルダをダウンロードし、XcodeでPoiPet.xcworkspaceを開いてRunしてください  
+
 
 
 
