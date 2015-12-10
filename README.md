@@ -38,6 +38,7 @@ PoiPet for iPhone
 ![k-means](https://github.com/enpitut/SAWARITAI/blob/master/ScreenShot/poipet_iphone.gif)  
 
 ###**Overview**
+![k-means](https://github.com/enpitut/SAWARITAI/blob/master/ScreenShot/poipet_setumei0.PNG)      
 ![k-means](https://github.com/enpitut/SAWARITAI/blob/master/ScreenShot/poipet_setumei1.PNG)
 ![k-means](https://github.com/enpitut/SAWARITAI/blob/master/ScreenShot/poipet_setumei2.PNG)
 
