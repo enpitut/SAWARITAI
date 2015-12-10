@@ -2,7 +2,10 @@
 ![poipet_logo](https://github.com/enpitut/SAWARITAI/blob/master/LP/img/poipet_logo.png)  
   
 ###**HP**
-http://poipet.ml/  
+http://poipet.ml/ 
+
+###**Movie**
+https://youtu.be/dh_vc2HoN-o
 
 ###**Member**
 - 奥村彩水
@@ -48,7 +51,8 @@ PoiPet for iPhone
 ![k-means](https://github.com/enpitut/SAWARITAI/blob/master/ScreenShot/poipet_image1.PNG)  
 
 ####**Log**
-また、日毎のログで何時にどこに捨てたか、ラベルとキャップを分別して捨てたかを確認することができます  
+また、日毎のログで何時にどこに捨てたかを確認することができます  
+ラベルとキャップを分別して捨てると、ボトルのアイコンにハートマークはつきます  
 将来展望として、分別して捨てる毎にポイントを加算・換金できると、より分別を促進できると考えています   
 ![k-means](https://github.com/enpitut/SAWARITAI/blob/master/ScreenShot/poipet_image2.PNG)
 
