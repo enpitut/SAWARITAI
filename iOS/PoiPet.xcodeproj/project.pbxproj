@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46339F0A1C19F27E0088974B /* separate.png in Resources */ = {isa = PBXBuildFile; fileRef = 46339F091C19F27E0088974B /* separate.png */; };
+		46339F0E1C19F3A90088974B /* poipet_bunbetsu.png in Resources */ = {isa = PBXBuildFile; fileRef = 46339F0D1C19F3A90088974B /* poipet_bunbetsu.png */; };
 		463F4DEE1BFAE22200128F05 /* SpringIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463F4DED1BFAE22200128F05 /* SpringIndicator.swift */; };
 		463F4DF11BFB2C9900128F05 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 463F4DF01BFB2C9900128F05 /* pin.png */; };
 		463F4DF71BFB529A00128F05 /* petHart.png in Resources */ = {isa = PBXBuildFile; fileRef = 463F4DF61BFB529A00128F05 /* petHart.png */; };
@@ -94,6 +96,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46339F091C19F27E0088974B /* separate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separate.png; sourceTree = "<group>"; };
+		46339F0D1C19F3A90088974B /* poipet_bunbetsu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poipet_bunbetsu.png; sourceTree = "<group>"; };
 		463F4DED1BFAE22200128F05 /* SpringIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringIndicator.swift; sourceTree = "<group>"; };
 		463F4DF01BFB2C9900128F05 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		463F4DF61BFB529A00128F05 /* petHart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petHart.png; sourceTree = "<group>"; };
@@ -328,6 +332,8 @@
 		46BC28171B88670000385B54 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				46339F0D1C19F3A90088974B /* poipet_bunbetsu.png */,
+				46339F091C19F27E0088974B /* separate.png */,
 				46A695E61C17E6C5009B7BCD /* poi2.png */,
 				46A695E71C17E6C5009B7BCD /* poi4.png */,
 				46A695E81C17E6C5009B7BCD /* poi3.png */,
@@ -520,12 +526,14 @@
 				46FBB2B81C16D148001BA8FC /* reloadw.png in Resources */,
 				463F4DFE1BFB7B5600128F05 /* logoW.png in Resources */,
 				46BC282B1B895DE800385B54 /* pet_back_ground_orange.png in Resources */,
+				46339F0E1C19F3A90088974B /* poipet_bunbetsu.png in Resources */,
 				46BC27E91B881F7900385B54 /* Main.storyboard in Resources */,
 				46A695DF1C17AC85009B7BCD /* poipet_gaiyo.png in Resources */,
 				46BC27EE1B881F7900385B54 /* LaunchScreen.xib in Resources */,
 				46FBB2B91C16D148001BA8FC /* settingw.png in Resources */,
 				46FBB2A31C16B6FB001BA8FC /* poipet_img.png in Resources */,
 				46BC282C1B895DE800385B54 /* pet_back_ground_pink.png in Resources */,
+				46339F0A1C19F27E0088974B /* separate.png in Resources */,
 				46A695E51C17E140009B7BCD /* poipet_ferica.png in Resources */,
 				463F4DF71BFB529A00128F05 /* petHart.png in Resources */,
 				46FBB2B31C16C4DF001BA8FC /* poipet_iphone.png in Resources */,

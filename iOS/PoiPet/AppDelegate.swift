@@ -27,10 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        var configV = Configuration()
-        configV.color = UIColor.grayColor()
-        configV.defaultSize = CGSize(width: 40, height: 40)
-        Visualizer.start(configV)
+        //var configV = Configuration()
+        //configV.color = UIColor.grayColor()
+        //configV.defaultSize = CGSize(width: 40, height: 40)
+        //Visualizer.start(configV)
 
         
         //ナビゲーションバータイトルの色

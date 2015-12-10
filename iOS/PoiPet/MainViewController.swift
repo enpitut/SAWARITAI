@@ -161,12 +161,12 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     func showIntroWithCrossDissolve(){
         
         let page1 : EAIntroPage = EAIntroPage()
-        let image1 = UIImageView(image: UIImage(named: "poipet_gaiyo.png"))
+        let image1 = UIImageView(image: UIImage(named: "poipet_bunbetsu.png"))
         image1.contentMode = .ScaleAspectFit
         image1.frame = CGRectMake(0, 0, wBounds, wBounds)
         page1.titleIconView = image1
         page1.titleFont = UIFont.systemFontOfSize(CGFloat(18))
-        page1.title = "PoiPetは\nゴミ捨てや分別が楽しくなる\nペットボトル専用ゴミ箱です"
+        page1.title = "\nPoiPetは\nゴミ捨てや分別が楽しくなる\nペットボトル専用ゴミ箱です"
         page1.desc = "　"
         //page1.bgImage = UIImage(named:"PoiKunImg.png")
         page1.bgColor = UIColor(red: 230.0/255.0, green: 104.0/255.0, blue: 38.0/255.0, alpha: 1.0)//オレンジ
@@ -200,7 +200,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         page4.titleIconView = image4
         
         page4.titleFont = UIFont.systemFontOfSize(CGFloat(18))
-        page4.title = "PoiPetとアプリと連携して\nみんなで楽しく\nPoiしましょう"
+        page4.title = "\nPoiPetとアプリと連携して\nみんなで楽しく\nPoiしましょう"
         page4.desc = "　"
         //page3.bgImage = UIImage(named:"PoiKunImg.png")
         page4.bgColor = UIColor(red: 230.0/255.0, green: 104.0/255.0, blue: 38.0/255.0, alpha: 1.0)//オレンジ
