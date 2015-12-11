@@ -2,7 +2,7 @@
 ![poipet_logo](https://github.com/enpitut/SAWARITAI/blob/master/LP/img/poipet_logo.png)  
 
 ###**Overview**
-![k-means](https://github.com/enpitut/SAWARITAI/blob/master/ScreenShot/poipet_setumei0.PNG)    
+![k-means](https://github.com/enpitut/SAWARITAI/blob/master/ScreenShot/poipet_gaiyo.png)    
 ゴミ捨てや分別が楽しくなる、インタラクティブなペットボトル専用ゴミ箱  
   
 ###**Site**
