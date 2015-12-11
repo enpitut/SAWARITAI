@@ -1,5 +1,9 @@
 # SAWARITAI
 ![poipet_logo](https://github.com/enpitut/SAWARITAI/blob/master/LP/img/poipet_logo.png)  
+
+###**Overview**
+![k-means](https://github.com/enpitut/SAWARITAI/blob/master/ScreenShot/poipet_setumei0.PNG)    
+ゴミ捨てや分別が楽しくなる、インタラクティブなペットボトル専用ゴミ箱  
   
 ###**Site**
 HP : http://poipet.ml/   
@@ -9,12 +13,12 @@ PoiPet管理画面 : http://poipet.ml/map.php
 https://youtu.be/dh_vc2HoN-o
 
 ###**Member**
-- 奥村彩水
-- 木邑和馬
-- 神武里奈
-- 高田崚介
-- 夛田一貴
-- 山路大樹
+- 奥村彩水 : Webサイト
+- 木邑和馬 : サーバー・DB
+- 神武里奈 : スマホアプリ
+- 高田崚介 : デザイン・設計 
+- 夛田一貴 : ソフトウェア
+- 山路大樹 : センシング回路
 
 ###**Elevator pitch** 
 ペットボトルのラベルとキャップの分別を促進したい   
