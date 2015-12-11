@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoWhite.png" translatesAutoresizingMaskIntoConstraints="NO" id="9XR-Ux-fMD">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="titleLogo.png" highlightedImage="titleLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="9XR-Ux-fMD">
                     <rect key="frame" x="20" y="0.0" width="440" height="480"/>
                     <animations/>
                 </imageView>
@@ -30,6 +30,6 @@
         </view>
     </objects>
     <resources>
-        <image name="logoWhite.png" width="2372" height="623"/>
+        <image name="titleLogo.png" width="1182" height="295"/>
     </resources>
 </document>

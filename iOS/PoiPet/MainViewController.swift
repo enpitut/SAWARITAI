@@ -1,6 +1,6 @@
 //
 //  MainViewController.swift
-//  
+//
 //
 //  Created by koooootake on 2015/11/02.
 //
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MainViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,NSXMLParserDelegate {
+class MainViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,NSXMLParserDelegate,EAIntroDelegate {
     
-
+    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     @IBOutlet weak var settingButton: UIBarButtonItem!
     var calendarCollectionView : UICollectionView!
     
@@ -40,9 +40,22 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     var wCell:CGFloat=0.0
     var spaceCell:CGFloat=0.0
-
+    
+    let indicator:SpringIndicator = SpringIndicator()
+    let refreshControl = SpringIndicator.Refresher()
+    
+    var nameLabel:UILabel = UILabel()
+    
+    //let test:UIView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //デモ用ユーザいれとく
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        if userDefault.objectForKey("ID") == nil{
+            userDefault.setObject("1", forKey: "ID")
+        }
         
         wBounds = self.view.bounds.width
         hBounds = self.view.bounds.height*3/4
@@ -53,10 +66,16 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         titleImageView.contentMode = .ScaleAspectFit
         titleImageView.frame = CGRectMake(0, 0, self.view.frame.width, self.navigationController!.navigationBar.frame.height*0.7)
         self.navigationItem.titleView = titleImageView
+        
+        //ボタン
+        //settingButton.image = UIImage(named: "setting.png")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        //settingButton.style = UIBarButtonItemStyle.Plain
+        //self.navigationItem.leftBarButtonItem = settingButton
+        
         //ボタン色
         self.navigationController!.navigationBar.tintColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         //背景色
-        self.navigationController!.navigationBar.barTintColor = UIColor(red: 240.0/255.0, green: 125.0/255.0, blue: 50.0/255.0, alpha: 1.0)//オレンジ
+        self.navigationController!.navigationBar.barTintColor = UIColor(red: 247.0/255.0, green: 150.0/255.0, blue: 70.0/255.0, alpha: 1.0)//オレンジ
         //Navigationbar高さ保存
         hNavigation = CGFloat(self.navigationController!.navigationBar.frame.height) + CGFloat(UIApplication.sharedApplication().statusBarFrame.height)
         
@@ -69,6 +88,14 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         //Poiくん位置
         backgroundAnimationImage.frame=CGRectMake(0.0, hBounds, wBounds, hPoiBounds)
         self.view.addSubview(backgroundAnimationImage)
+        
+        nameLabel.frame = CGRectMake(wBounds - 55, hBounds + hPoiBounds - 20, 50, 20)
+        nameLabel.text = ""
+        nameLabel.textAlignment = .Right
+        nameLabel.textColor = UIColor.whiteColor()//UIColor(red: 247.0/255.0, green: 150.0/255.0, blue: 70.0/255.0, alpha: 1.0)//オレンジ
+        nameLabel.font=UIFont.systemFontOfSize(12)
+        self.view.addSubview(nameLabel)
+        
         
         //カレンダー
         //現在の日付を取得する
@@ -85,72 +112,354 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         calendarMonth = comps.month
         calendarDay = comps.day
         
+        //ぐるぐる
+        indicator.frame = CGRectMake(wBounds/2-wBounds/8, hBounds/2-wBounds/8+hNavigation, wBounds/4, wBounds/4)
+        indicator.lineWidth = 3
+        
+        refreshCalendar()
+        
+        
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if appDelegate.isSetting == true{
+            refreshCalendar()
+            appDelegate.isSetting=false
+        }
+        
+    }
+    
+    
+    //更新
+    @IBAction func refreshButton(sender: AnyObject) {
+        
         let userDefault = NSUserDefaults.standardUserDefaults()
+        
+        if userDefault.objectForKey("ID") == nil{
+            SCLAlertView().showWarning("ユーザ登録してください", subTitle: "")
+        }else{
+            self.view.addSubview(indicator)
+            self.indicator.startAnimation()
+            refreshCalendar()
+
+        }
+        
+    }
+    
+    func introDidFinish(introView: EAIntroView!) {
+        print("finish")
+        self.navigationBarAndStatusBarHidden(false, animated:true)
+        //登録されていなければ登録画面を表示
+        let settingViweController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingViewController")
+        self.navigationController?.showDetailViewController(settingViweController!, sender: nil)
+        
+    }
+    
+    //説明View
+    func showIntroWithCrossDissolve(){
+        
+        let page1 : EAIntroPage = EAIntroPage()
+        let image1 = UIImageView(image: UIImage(named: "poipet_bunbetsu.png"))
+        image1.contentMode = .ScaleAspectFit
+        image1.frame = CGRectMake(0, 0, wBounds, wBounds)
+        page1.titleIconView = image1
+        page1.titleFont = UIFont.systemFontOfSize(CGFloat(18))
+        page1.title = "\nPoiPetは\nゴミ捨てや分別が楽しくなる\nペットボトル専用ゴミ箱です"
+        page1.desc = "　"
+        //page1.bgImage = UIImage(named:"PoiKunImg.png")
+        page1.bgColor = UIColor(red: 230.0/255.0, green: 104.0/255.0, blue: 38.0/255.0, alpha: 1.0)//オレンジ
+        
+        let page2 : EAIntroPage = EAIntroPage()
+        let image2 = UIImageView(image: UIImage(named: "poi3.png"))
+        image2.contentMode = .ScaleAspectFit
+        image2.frame = CGRectMake(0, 0, wBounds, wBounds)
+        page2.titleIconView = image2
+        page2.titleFont = UIFont.systemFontOfSize(CGFloat(18))
+        page2.title = "まずは\nPoiPetにICカードをタッチして\n表示される4桁の数字を\nアプリに入力してください"
+        page2.desc = "　"
+        //page2.bgImage = UIImage(named:"PoiKunImg.png")
+        page2.bgColor = UIColor(red: 75.0/255.0, green: 135.0/255.0, blue: 203.0/255.0, alpha: 1.0)//オレンジ
+        
+        let page3 : EAIntroPage = EAIntroPage()
+        let image3 = UIImageView(image: UIImage(named: "poi2.png"))
+        image3.contentMode = .ScaleAspectFit
+        image3.frame = CGRectMake(0, 0, wBounds, wBounds)
+        page3.titleIconView = image3
+        page3.titleFont = UIFont.systemFontOfSize(CGFloat(18))
+        page3.title = "PoiPet for iPhoneでは\nいつどこでいくつ\nペットボトルを捨てたかを\n記録することができます"
+        page3.desc = "　"
+        //page3.bgImage = UIImage(named:"PoiKunImg.png")
+        page3.bgColor = UIColor(red: 253.0/255.0, green: 181.0/255.0, blue: 10.0/255.0, alpha: 1.0)//オレンジ
+        
+        let page4 : EAIntroPage = EAIntroPage()
+        let image4 = UIImageView(image: UIImage(named: "poi4.png"))
+        image4.contentMode = .ScaleAspectFit
+        image4.frame = CGRectMake(0, 0, wBounds, wBounds)
+        page4.titleIconView = image4
+        
+        page4.titleFont = UIFont.systemFontOfSize(CGFloat(18))
+        page4.title = "\nPoiPetとアプリと連携して\nみんなで楽しく\nPoiしましょう"
+        page4.desc = "　"
+        //page3.bgImage = UIImage(named:"PoiKunImg.png")
+        page4.bgColor = UIColor(red: 230.0/255.0, green: 104.0/255.0, blue: 38.0/255.0, alpha: 1.0)//オレンジ
+        
+        let intro : EAIntroView = EAIntroView(frame: self.view.bounds, andPages:[page1,page3,page2,page4])
+        intro.delegate = self
+        intro.showInView(self.view, animateDuration:0.0)
+        
+    }
+    
+    
+    func refreshCalendar(){
+        
+        pois=[]
+        
+        //userID
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        
         if userDefault.objectForKey("ID") == nil{
             
-            print("UserID:nil")
             
-            //登録されていなければ登録画面を表示
-            let settingViweController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingViewController")
-            self.navigationController?.showDetailViewController(settingViweController!, sender: nil)
             
         }else{
+            
+            swipeCount=0
+            
+            //日付更新
+            var now: NSDate!
+            now = NSDate()
+            let calendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+            var comps: NSDateComponents!
+            comps = calendar.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Weekday],fromDate:now)
+            
+            nowYear = comps.year
+            nowMonth = comps.month
+            nowDay = comps.day
             
             let userID:String = userDefault.objectForKey("ID") as! String
             print("UserID:\(userID)")
             
-            //サーバーURL
-            let data:NSData? = NSData(contentsOfURL: NSURL(string: "http://poipet.ml/poilog?id=\(userID)")!)
-            //パーサー用意、接続開始
-            let parser : NSXMLParser! = NSXMLParser(data: data!)
-            print("通信開始")
-            if parser != nil{
-                parser!.delegate=self
-                parser!.parse()
+            if userID == "" || userID == " "{
+                
+                SCLAlertView().showWarning("データがありません", subTitle: "")
+                
             }else{
-                print("false")
+                
+                print("通信開始")
+                
+                let url = NSURL(string: "http://poipet.ml/poilog?id=\(userID)")
+                var data:NSData = NSData()
+                
+                do{
+                    
+                    data = try NSData(contentsOfURL: url!, options: NSDataReadingOptions())
+                    
+                } catch {
+                    
+                    SCLAlertView().showError("通信失敗しました", subTitle: "")
+                }
+                
+                let parser : NSXMLParser! = NSXMLParser(data: data)
+                
+                if parser != nil{
+                    parser!.delegate=self
+                    parser!.parse()
+                }else{
+                    print("false")
+                    
+                    SCLAlertView().showWarning("データがありません", subTitle: "")
+                    
+                }
+                
+                print("通信完了")
+                self.indicator.stopAnimation(true, completion: nil)
+                self.indicator.removeFromSuperview()
+                
+                if self.view.viewWithTag(100) != nil{
+                    
+                    let remove:UIView = self.view.viewWithTag(100)!
+                    UIView.animateWithDuration(0.3, animations: {
+                        
+                        remove.alpha=0.0
+                        remove.removeFromSuperview()
+                        
+                        
+                        }, completion: { finished in
+                            
+                            
+                    })
+                }
             }
-            print("通信完了")
+            
         }
         
     }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         //読み込み
         
         if self.view.viewWithTag(100) == nil{
-        
-            calendarMonth = calendarMonth + swipeCount
+            
+            var month = calendarMonth + swipeCount
+            var year = calendarYear
+            
+            if month > 12{
+                year++
+                month = 1
+            }else if month < 1{
+                year--
+                month=12
+            }
+            
+            var rightMonth = month + 1
+            var rightYear = year
+            
+            if rightMonth > 12{
+                rightYear++
+                rightMonth = 1
+            }else if rightMonth < 1{
+                rightYear--
+                rightMonth=12
+            }
+            
+            var leftMonth = month + 1
+            var leftYear = year
+            
+            if leftMonth > 12{
+                leftYear++
+                leftMonth = 1
+            }else if leftMonth < 1{
+                leftYear--
+                leftMonth=12
+            }
+            
             monthCount=0
             
-            if calendarMonth > 12{
-                calendarYear++
-                calendarMonth=1
-            }else if calendarMonth < 1{
-                calendarYear--
-                calendarMonth=12
+            print("Calendar generate")
+            
+            
+            /*let rightCalendarViews = calendarView(rightYear,saveMonth: rightMonth)
+            rightCalendarViews.layer.position = CGPointMake(wBounds*3/2, calendarViews.frame.height/2 + hNavigation)
+            rightCalendarViews.tag = 200
+            
+            let leftCalendarViews = calendarView(leftYear,saveMonth: leftMonth)
+            leftCalendarViews.layer.position = CGPointMake(-wBounds/2, calendarViews.frame.height/2 + hNavigation)
+            leftCalendarViews.tag = 300
+            */
+            
+            let calendarViews = calendarView(year,saveMonth: month)
+            
+            self.view.addSubview(calendarViews)
+            
+            
+            
+            
+            let userDefault = NSUserDefaults.standardUserDefaults()
+            
+            if userDefault.objectForKey("ID") == nil{
+                
+                self.navigationBarAndStatusBarHidden(true, animated:true)
+                
+                //はじめての画面
+                self.showIntroWithCrossDissolve()
+                
             }
             
-            let calendar:UIView = calendarView()
+            //self.view.addSubview(rightCalendarViews)
+            //self.view.addSubview(leftCalendarViews)
+            
+            
+            //let rightCalendarViews = calendarView(calendarYear,saveMonth: calendarMonth)
+            
             if swipeCount > 0{
-                calendar.layer.position = CGPointMake(wBounds*3/2, calendar.frame.height/2 + hNavigation)
+                calendarViews.layer.position = CGPointMake(wBounds*3/2, calendarViews.frame.height/2 + hNavigation)
             }else if swipeCount < 0{
-                calendar.layer.position = CGPointMake(-wBounds/2, calendar.frame.height/2 + hNavigation)
+                calendarViews.layer.position = CGPointMake(-wBounds/2, calendarViews.frame.height/2 + hNavigation)
             }else{
-                calendar.alpha=0.0
+                calendarViews.alpha=0.0
             }
-            self.view.addSubview(calendar)
             
-            UIView.animateWithDuration(0.5, animations: {() -> Void in
-                calendar.layer.position = CGPointMake(self.wBounds/2, calendar.frame.height/2 + self.hNavigation)
-                calendar.alpha=1.0
+            
+            UIView.animateWithDuration(0.3, animations: {
+                /* if self.swipeCount > 0{
+                //calendarViews.layer.position = CGPointMake(self.wBounds*3/2, calendarViews.frame.height/2 + self.hNavigation)
+                rightCalendarViews.layer.position = CGPointMake(self.wBounds/2, calendarViews.frame.height/2 + self.hNavigation)
+                
+                }else if self.swipeCount < 0{
+                //calendarViews.layer.position = CGPointMake(-self.wBounds/2, calendarViews.frame.height/2 + self.hNavigation)
+                leftCalendarViews.layer.position = CGPointMake(self.wBounds/2, calendarViews.frame.height/2 + self.hNavigation)
+                }else{*/
+                calendarViews.layer.position = CGPointMake(self.wBounds/2, calendarViews.frame.height/2 + self.hNavigation)
+                calendarViews.alpha=1.0
+                //}
+                
+                
             })
+            
         }
     }
     
+    func navigationBarAndStatusBarHidden(hidden: Bool, animated: Bool)
+    {
+        if let nv = navigationController {
+            
+            if nv.navigationBarHidden == hidden {
+                return
+            }
+            
+            //let application = UIApplication.sharedApplication()
+            
+            if (hidden) {
+                // 隠す
+                nv.setNavigationBarHidden(hidden, animated: animated)
+               // application.setStatusBarHidden(hidden, withAnimation: animated ? .Slide : .None)
+            } else {
+                // 表示する
+                // application.setStatusBarHidden(hidden, withAnimation: animated ? .Slide : .None)
+                nv.setNavigationBarHidden(hidden, animated: animated)
+            }
+        }
+    }
+    
+    //左スワイプで前月を表示
+    @IBAction func swipePrevCalendar(sender: UISwipeGestureRecognizer) {
+        //カレンダービュー消去・追加
+        
+        let remove:UIView = self.view.viewWithTag(100)!
+        UIView.animateWithDuration(0.2, animations:{
+            remove.layer.position = CGPointMake(-self.wBounds/2, remove.frame.height/2 + self.hNavigation)
+            }, completion: { finished in
+                remove.removeFromSuperview()
+        })
+        
+        swipeCount = 1
+        
+        
+    }
+    
+    //右スワイプで次月を表示
+    @IBAction func swipeNextCalendar(sender: UISwipeGestureRecognizer) {
+        
+        let remove:UIView = self.view.viewWithTag(100)!
+        UIView.animateWithDuration(0.2, animations:{
+            remove.layer.position = CGPointMake(self.wBounds*3/2, remove.frame.height/2 + self.hNavigation)
+            }, completion: { finished in
+                remove.removeFromSuperview()
+        })
+        
+        swipeCount = -1
+        
+    }
+    
     //カレンダーView
-    private func calendarView() -> UIView{
+    private func calendarView(saveYear:Int,saveMonth:Int) -> UIView{
+        
+        calendarYear = saveYear
+        calendarMonth = saveMonth
         
         nowMonthLastDay=getLastDay(calendarYear, month: calendarMonth)
         if calendarMonth == 12{
@@ -194,7 +503,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         //ヘッダー追加
         calendarCollectionView.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
         
-        calendarCollectionView.backgroundColor=UIColor.whiteColor()
+        calendarCollectionView.backgroundColor=UIColor.clearColor()
         calendarCollectionView.delegate=self
         calendarCollectionView.dataSource=self
         
@@ -203,14 +512,14 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     //月の最終日の取得
     func getLastDay(year:Int,month:Int) -> Int{
-   
+        
         let calendar = NSCalendar.currentCalendar()
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy/MM";
         let date:NSDate = dateFormatter.dateFromString("\(year)/\(month)")!;
         let range = calendar.rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: date)
         let dayCount = range.length
-        print("\(year).\(month)...LastDay:\(dayCount)")
+        //print("\(year).\(month)...LastDay:\(dayCount)")
         
         return dayCount;
     }
@@ -230,7 +539,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
             result = result + 7
         }
         
-         print("\(year).\(month)...FirstDayWeek:\(result)")
+        //print("\(year).\(month)...FirstDayWeek:\(result)")
         
         return result
     }
@@ -241,7 +550,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         let cell : CalendarCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CalendarCollectionViewCell
         
         let cellPath = indexPath.row-nowMonthFirstWeek
-
+        
         if cellPath <= 0{
             //先月の尻
             let lastMonthDay = lastMonthLastDay + cellPath
@@ -296,7 +605,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         let headerReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath)
         let todayLabel:UILabel = UILabel(frame: CGRectMake(20.0, 10.0,wBounds-40, hHeadBounds*3/4-10.0))
-        todayLabel.text="\(calendarYear)年\(calendarMonth)月 \(monthCount)Poi"
+        todayLabel.text="\(calendarYear)年\(calendarMonth)月 \(monthCount) Poi"
         todayLabel.textColor=UIColor.grayColor()
         if hHeadBounds == 50{
             todayLabel.font=UIFont.systemFontOfSize(18)
@@ -353,8 +662,8 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         if 1 > indexPath.row-nowMonthFirstWeek || indexPath.row-nowMonthFirstWeek > nowMonthLastDay{
             
         }else{
-        
-            let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            
+            
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy/MM/dd";
             let date:NSDate = dateFormatter.dateFromString("\(calendarYear)/\(calendarMonth)/\(indexPath.row-nowMonthFirstWeek)")!
@@ -367,7 +676,19 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
                     //print("\(poi.time):\(poi.location)")
                     appDelegate.poiTime.append("\(poi.time)")
                     appDelegate.poiPlace.append("\(poi.location)")
-
+                    appDelegate.poiCap.append("\(poi.cap)")
+                    appDelegate.poiBottle.append("\(poi.bottle)")
+                    appDelegate.poiLabel.append("\(poi.label)")
+                    
+                    appDelegate.poipetID.append("\(poi.poipetID)")
+                    
+                    if calendarYear==nowYear && calendarMonth==nowMonth && indexPath.row-nowMonthFirstWeek==nowDay {
+                        appDelegate.poiWeek = 7
+                    }else{
+                        appDelegate.poiWeek = Int(indexPath.row)%7
+                    }
+                    
+                    
                 }
             }
             
@@ -383,33 +704,7 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         return 42
     }
     
-    //左スワイプで前月を表示
-    @IBAction func swipePrevCalendar(sender: UISwipeGestureRecognizer) {
-        //カレンダービュー消去・追加
-        
-        let remove:UIView = self.view.viewWithTag(100)!
-        UIView.animateWithDuration(0.5, animations:{
-            remove.layer.position = CGPointMake(-self.wBounds/2, remove.frame.height/2 + self.hNavigation)
-        }, completion: { finished in
-            remove.removeFromSuperview()
-        })
-        
-        swipeCount = 1
-    }
     
-    //右スワイプで次月を表示
-    @IBAction func swipeNextCalendar(sender: UISwipeGestureRecognizer) {
-        
-        let remove:UIView = self.view.viewWithTag(100)!
-        UIView.animateWithDuration(0.5, animations:{
-            remove.layer.position = CGPointMake(self.wBounds*3/2, remove.frame.height/2 + self.hNavigation)
-            }, completion: { finished in
-                remove.removeFromSuperview()
-        })
-        
-        swipeCount = -1
-        
-    }
     
     //XML解析
     var pois : [Poi]=[Poi]()
@@ -421,22 +716,32 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         var year:String!
         var time:String!
         var location:String!
+        var bottle:String!
+        var cap:String!
+        var label:String!
+        var poipetID:String!
     }
     
     var currentElementName : String?
     
     let poiElementName="poi"
+    let nameElementName="user_name"
+    
     let idElementName="id"
     let dateElementName="day"
     let monthEleementName="month"
     let yearEleementName="year"
     let timeEleementName="time"
     let locationEleementName="location"
+    let capEleementName="cap"
+    let poipetIDEleementName="poipet_id"
+    let bottleEleementName="bottle"
+    let labelEleementName="label"
     
     func parserDidStartDocument(parser: NSXMLParser) {
         print("解析開始")
     }
-
+    
     func parser(parser: NSXMLParser,
         didStartElement elementName: String,
         namespaceURI: String?,
@@ -446,7 +751,12 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         currentElementName = nil
         if elementName == poiElementName {
             pois.append(Poi())
-        } else {
+        } else if elementName == nameElementName {
+            //UserNameを取得
+            currentElementName = elementName
+            //print("UserName：\(namespaceURI)")
+            
+        } else{
             currentElementName = elementName
         }
     }
@@ -455,27 +765,34 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     {
         if pois.count > 0 {
             let lastPoi = pois[pois.count-1]
+            
             if currentElementName == idElementName {
                 let tmpString : String? = lastPoi.id
                 lastPoi.id = (tmpString != nil) ? tmpString! + string : string
-                //print("ID:\(lastPoi.id)")
             } else if currentElementName == dateElementName {
                 lastPoi.date = string
-                //print("DATE:\(lastPoi.date)")
             } else if currentElementName == monthEleementName{
                 lastPoi.month = string
-                //print("month:\(lastPoi.month)")
             } else if currentElementName == yearEleementName{
                 lastPoi.year = string
-                //print("month:\(lastPoi.year)")
-                
             } else if currentElementName == timeEleementName{
                 lastPoi.time = string
-                //print("month:\(lastPoi.year)")
             } else if currentElementName == locationEleementName{
                 lastPoi.location = string
-                //print("month:\(lastPoi.year)")
+            } else if currentElementName == capEleementName{
+                lastPoi.cap = string
+            } else if currentElementName == poipetIDEleementName{
+                lastPoi.poipetID = string
+            } else if currentElementName == labelEleementName{
+                lastPoi.label = string
+            } else if currentElementName == bottleEleementName{
+                lastPoi.bottle = string
             }
+        }
+        
+        if currentElementName == nameElementName{
+            print("UserName：\(string)")
+            nameLabel.text = "\(string)"
         }
     }
     
@@ -489,64 +806,6 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
         print("解析終了")
     }
     
-    //更新
-    @IBAction func refreshButton(sender: AnyObject) {
-        
-        pois=[]
-        
-        //userID
-        let userDefault = NSUserDefaults.standardUserDefaults()
-        
-        if userDefault.objectForKey("ID") == nil{
-            
-            print("UserID:nil")
-            
-            //登録されていなければ登録画面を表示
-            let settingViweController = self.storyboard?.instantiateViewControllerWithIdentifier("SettingViewController")
-            self.navigationController?.showDetailViewController(settingViweController!, sender: nil)
-            
-        }else{
-        
-            let userID:String = userDefault.objectForKey("ID") as! String
-            print("UserID:\(userID)")
-            
-            //サーバーURL
-            let data:NSData? = NSData(contentsOfURL: NSURL(string: "http://poipet.ml/poilog?id=\(userID)")!)
-            //パーサー用意、接続開始
-            let parser : NSXMLParser! = NSXMLParser(data: data!)
-            print("通信開始")
-            if parser != nil{
-                parser!.delegate=self
-                parser!.parse()
-            }else{
-                print("false")
-            }
-            print("通信完了")
-        
-        
-        swipeCount=0
-        
-        //日付更新
-        var now: NSDate!
-        now = NSDate()
-        let calendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        var comps: NSDateComponents!
-        comps = calendar.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Weekday],fromDate:now)
-        
-        nowYear = comps.year
-        nowMonth = comps.month
-        nowDay = comps.day
-        
-        let remove:UIView = self.view.viewWithTag(100)!
-        UIView.animateWithDuration(0.1, animations:{
-            remove.alpha=0.0
-            }, completion: { finished in
-                remove.removeFromSuperview()
-        })
-        }
-        
-        
-    }
     
     @IBAction func unwindToTop(segue: UIStoryboardSegue) {
     }
