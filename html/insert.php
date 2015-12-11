@@ -10,10 +10,10 @@ if ($mysqli->connect_errno) {
 }
 
 #POSTで受け取ったuser_nameがDBに存在すればそのユーザのIDを$user_idにいれる
-$user_name = (string)$_POST['user_name'];
-if($user_name){
-    $user_id = 'NULL';
-    $result1 = $mysqli->query("SELECT user_id from users where user_name='${user_name}'");
+$felica_id = (string)$_POST['felica_id'];
+if($felica_id){
+    $_id = 'NULL';
+    $result1 = $mysqli->query("SELECT user_id from users where user_id='${felica_id}'");
     if($row = $result1->fetch_assoc()){
         $user_id = $row['user_id'];
         echo $user_id;
@@ -45,12 +45,15 @@ if($poipet_id){
 #$date = date("Y-m-d H:i:s");
 
 #キャップの有無 1/0
+$bottle = (string)$_POST['bottle'];
 $cap = (string)$_POST['cap'];
-   
-echo $user_name;
+$label = (string)$_POST['label'];
+
+
+
 echo $poipet_id;
 echo $cap;
-if($result2 = $mysqli->query("insert into pois(user_id,poipet_id,date,cap) values(${user_id},${poipet_id}, cast(now() as DATETIME), ${cap})")){
+if($result2 = $mysqli->query("insert into pois(user_id,poipet_id,date,bottle,cap,label) values('${user_id}',${poipet_id}, cast(now() as DATETIME),${bottle},${cap},${label})")){
     echo '  insert成功';
 }else{
     echo '  insert失敗';

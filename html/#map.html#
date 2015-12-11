@@ -61,7 +61,7 @@
 						</div>
 						<div id="span4-right">
 							<h4><a href="#" data-id=0>総合研究棟B</a><max>もうすぐ回収！</max></h4>
-							<p>現在のペットボトル本数：42本<br />最終回収日時：11/17 16:30</p>
+							<p>現在のペットボトル本数：<?php echo $?>本<br />最終回収日時：11/17 16:30</p>
 						</div>
 						<hr class="grey"/>
 						<div id="span4-left">

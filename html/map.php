@@ -1,3 +1,27 @@
+<?php
+ini_set('display_errors',1);
+# MySQLに接続
+$mysqli = new mysqli("localhost", "root", "poi", "poipet");
+# 接続状況をチェック
+if ($mysqli->connect_errno) {
+    printf("Connect failed: %s\n", $mysqli->connect_error);
+    exit();
+}
+$mysqli->query('SET NAMES utf8'); // 日本語設定
+#
+$poipets = [];
+$result1 = $mysqli->query("SELECT * from poipets");
+while($row = $result1->fetch_assoc()){
+    $id = $row['poipet_id'];
+    $locate = $row['locate'];
+
+    $poipetLocate[$id] = $locate;
+    $result2 = $mysqli->query("SELECT count(*) as 'c' from pois where poipet_id = $id and collect = 0");
+    $row = $result2->fetch_assoc();
+    $poipetCount[$id] = $row['c'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +85,7 @@
 						</div>
 						<div id="span4-right">
 							<h4><a href="#" data-id=0>総合研究棟B</a><max>もうすぐ回収！</max></h4>
-							<p>現在のペットボトル本数：42本<br />最終回収日時：11/17 16:30</p>
+							<p>現在のペットボトル本数：<?php echo $poipetCount[1] ?>本<br />最終回収日時：11/17 16:30</p>
 						</div>
 						<hr class="grey"/>
 						<div id="span4-left">
@@ -71,7 +95,7 @@
 							<h4><a href="#" data-id=1>ゆかりの森</a></h4>
 							<p>現在のペットボトル本数：3本<br />最終回収日時：11/18 15:48</p>
 						</div>
-						<hr class="grey"/>
+ 						<hr class="grey"/>
 						<div id="span4-left">
 							<img src="img/s_box20-40.png">
 						</div>
@@ -79,9 +103,9 @@
 							<h4><a href="#" data-id=2>つくばエキスポセンター</a></h4>
 							<p>現在のペットボトル本数：12本<br />最終回収日時：11/18 12:23</p>
 						</div>
-						<div id="span4-button">
+						<!-- <div id="span4-button">
 							<input type="button" onclick="location.href='http://poipet.ml'"value="PoiPet新規追加">
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
