@@ -12,8 +12,6 @@ package {
 	import flash.geom.ColorTransform;
 	import flash.text.*;
 
-
-
 	import flash.utils.Timer;
 
 
@@ -51,7 +49,7 @@ package {
 
 		private var _nowFaceScale:Number = 1.0;
 
-		private var _faceKinds:Array = ["smile","happy","sleep","surprise","whiteface"];
+		private var _faceKinds:Array = ["smile","happy","sleep","surprise","white"];
 		private var _nowChanging:Boolean = false;
 		//変形flag
 		private var _changeFaceFlag:Boolean = false;
@@ -101,9 +99,14 @@ package {
 
 		private var _thankText:Texts;
 
-		private var _jiro:Jirokun;
 
 		private var _mouseMoveFlag:Boolean = true;
+
+
+		//天気用
+		//private var _sunny:Sunny;
+		//private var _degree:Degree;
+
 
 
 		//ペットボトル
@@ -131,10 +134,11 @@ package {
 
 			_backSp = new Sprite();
 			_backColor = 0xFFA500;
-			_backSp.graphics.beginFill(_backColor);
-			_backSp.graphics.drawRect(0,0,_stageWidth,_stageHeight);
-			_backSp.graphics.endFill();
-			addChild(_backSp);
+			//_backColor = 0x99cccc;
+			//_backSp.graphics.beginFill(_backColor);
+			//_backSp.graphics.drawRect(0,0,_stageWidth,_stageHeight);
+			//_backSp.graphics.endFill();
+			//addChild(_backSp);
 
 			_nowFaceKind = "smile";
 			_comment1 = new Comment1();
@@ -158,8 +162,8 @@ package {
 
 			//smileface.
 			_smile = new SmileFace();
-			_smile.x = (_stageWidth )/2;
-			_smile.y = (_stageHeight)/2;
+			//_smile.x = (_stageWidth )/2;
+			//_smile.y = (_stageHeight)/2;
 			changeFillColor(_smile,0xffffff);
 			_poikun.addChild(_smile);
 			_leftEyeArray.push(_smile.LeftEye);
@@ -169,8 +173,8 @@ package {
 
 			//happyface.
 			_happy = new HappyFace();
-			_happy.x = _stageWidth/2;
-			_happy.y = _stageHeight/2;
+			//_happy.x = _stageWidth/2;
+			//_happy.y = _stageHeight/2;
 			changeFillColor(_happy,0xffffff);
 			_poikun.addChild(_happy);
 			_leftEyeArray.push(_happy.LeftEye);
@@ -180,8 +184,8 @@ package {
 
 			//sleepface.
 			_sleep = new SleepFace();
-			_sleep.x = _stageWidth/2;
-			_sleep.y = _stageHeight/2;
+			//_sleep.x = _stageWidth/2;
+			//_sleep.y = _stageHeight/2;
 			changeFillColor(_sleep,0xffffff);
 			_poikun.addChild(_sleep);
 			_leftEyeArray.push(_sleep.LeftEye);
@@ -191,8 +195,8 @@ package {
 
 			//surpriseface.
 			_surprise = new SurpriseFace();
-			_surprise.x = _stageWidth/2;
-			_surprise.y = _stageHeight/2;
+			//_surprise.x = _stageWidth/2;
+			//_surprise.y = _stageHeight/2;
 			changeFillColor(_surprise,0xffffff);
 			_poikun.addChild(_surprise);
 			_leftEyeArray.push(_surprise.LeftEye);
@@ -202,8 +206,8 @@ package {
 
 			//whiteface.
 			_white = new WhiteFace();
-			_white.x = _stageWidth/2;
-			_white.y = _stageHeight/2;
+			//_white.x = _stageWidth/2;
+			//_white.y = _stageHeight/2;
 			changeFillColor(_white,0xffffff);
 			_poikun.addChild(_white);
 			_leftEyeArray.push(_white.LeftEye);
@@ -249,6 +253,7 @@ package {
 			_mouseMoveScaleY = 1.0;
 			//すべての顔を一旦非表示に
 			for (var key in _faceObject){
+				trace(key);
 				_faceObject[key].visible = false;
 			}
 			_faceObject["smile"].visible = true;
@@ -267,160 +272,41 @@ package {
 			addChild(_thankText);
 
 			//表情のランダムウォーク基準点
-			_eyeMoveTargetX = Math.random() * _stageWidth;
-			_eyeMoveTargetY = Math.random() * _stageHeight;
+			//_eyeMoveTargetX = Math.random() * _stageWidth;
+			//_eyeMoveTargetY = Math.random() * _stageHeight;
+			_eyeMoveTargetX = 1 * _stageWidth;
+			_eyeMoveTargetY = 1 * _stageHeight;
 
 			
-			//neta
-			_jiro = new Jirokun();
-			_jiro.x = _stageWidth/2;
-			_jiro.y = _stageHeight/2;
-			_jiro.alpha = 0;
 
-			addChild(_jiro);
+			//天気
+/*
+			_sunny = new Sunny();
+			_degree = new Degree();
+			addChild(_sunny);
+			addChild(_degree);
 
+			_sunny.x = 1388;
+			_sunny.y = 957;
+			_sunny.alpha = 0;
+			_sunny.scalseX = _sunny.scaleY = 0;
+			_degree.x = 1703;
+			_degree.y = 963;
+			_degree.alpha = 0;
+			_degree.scaleX = _degree.scaleY = 0;
+*/
 			addEventListener(Event.ENTER_FRAME, onLoop);
-			addEventListener(MouseEvent.CLICK, onClick);
+			//addEventListener(MouseEvent.CLICK, onClick);
 			defaultExpression();
 
 		}
-
-
-		public function onGetPet():void {
-			
-			if (_nowPetGetFlag == false) {
-				var toY:Number = (_stageHeight - _poikunText.height) / 2;
-				Tweener.addTween(_poikunText,{time:0.5,alpha:0,y:toY-50,onComplete:deleteComment});
-				_nowPetGetFlag = true;
-				
-				Tweener.addTween(_pet,{delay:0.2,time:2.0,alpha:1,y:900,rotation:810,transition:"easeOutBounce"});
-
-				for (var key in _faceObject){
-					Tweener.addTween(_faceObject[key],{delay:0,time:1,x:150,y:850,scaleX:0.5,scaleY:0.5,transition:"easeInQuint",onComplete:FaceChange});
-				}
-			}
-		}
-
-		public function onGetPet2():void {
-
-			trace("ongetpet2");
-			if (_nowPetGetFlag == false) {
-				var toY:Number = (_stageHeight - _poikunText.height) / 2;
-				Tweener.addTween(_poikunText,{time:0.5,alpha:0,y:toY-50,onComplete:deleteComment});
-				_nowPetGetFlag = true;
-				_pet.y = -300;
-				_pet.alpha = 0.5;
-
-				changeFace("white");
-				for (var key in _faceObject){
-					Tweener.addTween(_faceObject[key],{delay:1.0,time:1,scaleX:0.9,scaleY:0.9,x:600,transition:"easeOutElastic",onComplete:makeBubble});
-				}
-				Tweener.addTween(_pet,{delay:0.5,time:3.0,alpha:1,y:1500,rotation:720,transition:"easeOutBounce"});
-			}
-
-		}
-
-		private function makeBubble():void {
-			Bubble(5);
-			Tweener.addTween(_backSp,{delay:0.5,time:1.5,alpha:0,onComplete:backspUp});
-
-			for (var key in _faceObject){
-				Tweener.addTween(_faceObject[key],{delay:0,time:1,y:850,transition:"easeInQuint"});
-			}	
-		}
-
-		private function backspUp():void {
-			for (var key in _faceObject){
-				_faceObject[key].x = _stageWidth/2;
-			}	
-			_backSp.y = 3000;
-			_backSp.graphics.clear();
-			_backSp.graphics.beginFill(0x9bbb59);
-			_backSp.graphics.drawRect(0,0,_stageWidth,_stageHeight);
-			_backSp.graphics.endFill();
-			Tweener.addTween(_backSp,{delay:0.5,time:2.0,alpha:1,y:_stageHeight/2,transition:"easeOutBounce"});
-
-
-			Tweener.addTween(_backSp,{delay:5,time:1.5,alpha:1,y:0});
-			for (var key in _faceObject){
-				Tweener.addTween(_faceObject[key],{delay:5,time:1.5,y:_stageHeight/2,onComplete:toDefaultBack});
-			}
-
-		}
-
-		private function toDefaultBack():void {
-			changeFace("happy");
-			Tweener.addTween(_backSp,{delay:2,time:1.0,alpha:0,onComplete:toDefaultBack2});
-		}
-
-		private function toDefaultBack2():void {
-			_backSp.graphics.clear();
-			_backSp.x = _backSp.y = 0;
-			_backSp.graphics.beginFill(_backColor);
-			_backSp.graphics.drawRect(0,0,_stageWidth,_stageHeight);
-			_backSp.graphics.endFill();
-			Tweener.addTween(_backSp,{time:1.0,alpha:1,onComplete:vauumEnd});
-		}
-
-		private function Bubble(n:Number):void {
-			
-			for (var i:uint = 0; i < n; i++) {
-				_p = new Particle(Math.random()*stage.stageWidth, stage.stageHeight + 30,  Math.random() * 4,  Math.random() * 5+2, Math.random()*0.2+1);	 // x, y, vx, vy, ay
-				addChild(_p);
-			}
-		}
-
-		private function FaceChange():void {
-			_nowFaceScale = 0.5;
-			changeFace("surprise");
-
-			Tweener.addTween(_excalmation,{time:0.5,alpha:1,scaleX:0.7, scaleY:0.7,rotation:720});
-			Tweener.addTween(_excalmation,{time:0.2,delay:1,rotation:10});
-			Tweener.addTween(_excalmation,{time:0.2,delay:1.2,rotation:0});
-			Tweener.addTween(_excalmation,{time:0.2,delay:1.4,rotation:10});
-			Tweener.addTween(_excalmation,{time:0.2,delay:1.6,rotation:0});
-			Tweener.addTween(_excalmation,{time:0.5,delay:2,alpha:0,scaleX:0,scaleY:0,rotation:0,transition:"easeInQuart",onComplete:movePoikun});
-
-		}
-		private function movePoikun():void {
-			_changeFaceFlag = true;
-			for (var key in _faceObject){
-				//Tweener.addTween(_faceObject[key],{delay:0,time:1.5,x:150,y:850,scaleX:0.5,scaleY:0.5,transition:"easeInQuint"});
-				Tweener.addTween(_faceObject[key],{delay:1,time:1.5,x:1100,onComplete:stopMouseMove});
-				Tweener.addTween(_faceObject[key].Mouse,{delay:3,time:0.5,scaleY:1.5,transition:"easeInElastic"});
-				Tweener.addTween(_faceObject[key].Mouse,{delay:4,time:1,scaleY:2,transition:"easeInElastic"});
-				Tweener.addTween(_faceObject[key].Mouse,{delay:6,time:0.5,scaleY:0.8,transition:"easeInElastic"});
-				Tweener.addTween(_faceObject[key],{delay:8,time:1.0,x:_stageWidth/2,y:_stageHeight/2,scaleX:1.0,scaleY:1.0,onComplete:vauumEnd});
-			}
-			
-			Tweener.addTween(_pet,{delay:3,time:3.0,rotation:720,alpha:0,scaleX:0,scaleY:0,x:1150,transition:"easeInElastic"});
- 			
-		}
-
-		private function stopMouseMove():void {
-			_mouseMoveFlag = false;
-		}
-		private function vauumEnd():void {
-			_mouseMoveFlag = true;
-			_pet.x = 1600;
-			_pet.y = -100;
-			_pet.scaleX = _pet.scaleY = 1.5;
-			_pet.alpha = 0;
-			changeFace("happy");
-			_nowFaceScale = 1.0;
-			thankAnimation();
-		}
-
 		
-
-		private function onClick(e:MouseEvent):void {
-			trace("click");
-			_blinkDegree = -90;
-			_blinkFlag = true;
-		}
 
 		private function onLoop(e:Event):void {
 
+			//顔の変化
+
+			/*
 			if (!_changeFaceFlag && !_nowPetGetFlag) {
 				if (Math.random() * 100 < 1) {
 					if (!_nowChanging) {
@@ -430,63 +316,61 @@ package {
 					}
 				}
 			}
-			//if (!_changeFaceFlag) {
-				//右目目標値との角度
-				var rightEyeRad = Math.atan2(_eyeMoveTargetY - _rightEyeParam["defY"] , _eyeMoveTargetX - _rightEyeParam["defX"]);
-				//左目目標値との角度
-				var leftEyeRad = Math.atan2(_eyeMoveTargetY - _leftEyeParam["defY"] , _eyeMoveTargetX - _leftEyeParam["defX"]);
-				//口の目標値とのなす角度
-				var mouseRad = Math.atan2(_eyeMoveTargetY - _mouseParam["defY"], _eyeMoveTargetX - _mouseParam["defX"]);
-				
-				//右目の動き
-				_rigthEyeMoveToX = _rightEyeParam["defX"] + Math.cos(rightEyeRad)*50;
-				_rigthEyeMoveToY = _rightEyeParam["defY"] + Math.sin(rightEyeRad)*50;
+			*/
 
-				for (var i:uint = 0; i < _rightEyeArray.length; i++) {
-					_rightEyeArray[i].x += (_rigthEyeMoveToX - _rightEyeArray[i].x) / 16;
-					_rightEyeArray[i].y += (_rigthEyeMoveToY - _rightEyeArray[i].y) / 16;
-					_rightEyeArray[i].scaleX += (_rightEyeScaleX - _rightEyeArray[i].scaleX) / 8;
-					_rightEyeArray[i].scaleY += (_rightEyeScaleY - _rightEyeArray[i].scaleY) / 8;
-				}
+			/*
+			*
+			以下Poikunの顔と目の動きを制御するスクリプト
+			*
+			*/
 
-				//左目の動き
-				_leftEyeMoveToX = _leftEyeParam["defX"] + Math.cos(leftEyeRad)*50;
-				_leftEyeMoveToY = _leftEyeParam["defY"] + Math.sin(leftEyeRad)*50;
-				
-				for (var i:uint = 0; i < _leftEyeArray.length; i++) {
-					_leftEyeArray[i].x += (_leftEyeMoveToX - _leftEyeArray[i].x) / 16;
-					_leftEyeArray[i].y += (_leftEyeMoveToY - _leftEyeArray[i].y) / 16;
-					_leftEyeArray[i].scaleX += (_leftEyeScaleX - _leftEyeArray[i].scaleX) / 8;
-					_leftEyeArray[i].scaleY += (_leftEyeScaleY - _leftEyeArray[i].scaleY) / 8;
-				}
-
-				//口の動き
-				if (_mouseMoveFlag) {
-					_mouseMoveToX = _mouseParam["defX"] + Math.cos(mouseRad)*50;
-					_mouseMoveToY = _mouseParam["defY"] + Math.sin(mouseRad)*50;
-					_mouseMoveScaleY = 0.2 +  Math.sin(mouseRad) * _mouseScaleYVal;
-
-					for (var i:uint = 0; i < _mouseArray.length; i++) {
-						_mouseArray[i].x += (_mouseMoveToX - _mouseArray[i].x) / 16;
-						_mouseArray[i].y += (_mouseMoveToY - _mouseArray[i].y) / 16;
-						_mouseArray[i].scaleX += (_mouseMoveScaleX - _mouseArray[i].scaleX) / 8;
-						_mouseArray[i].scaleY += (_mouseMoveScaleY - _mouseArray[i].scaleY) / 8;
-					}
-				}
-			//}
-
-
-			//顔の向きを動かしてみるテスト
-			if (Math.random() * 50 < 1) { 
-				_eyeMoveTargetX = Math.random() * _stageWidth;
-				_eyeMoveTargetY = Math.random() * _stageHeight;
-			}
+			//右目目標値との角度
+			var rightEyeRad = Math.atan2(_eyeMoveTargetY - _rightEyeParam["defY"] , _eyeMoveTargetX - _rightEyeParam["defX"]);
+			//trace("re:" + rightEyeRad);
+			//左目目標値との角度
+			var leftEyeRad = Math.atan2(_eyeMoveTargetY - _leftEyeParam["defY"] , _eyeMoveTargetX - _leftEyeParam["defX"]);
+			//口の目標値とのなす角度
+			var mouseRad = Math.atan2(_eyeMoveTargetY - _mouseParam["defY"], _eyeMoveTargetX - _mouseParam["defX"]);
 			
-			//まばたきしてみるテスト
-			if (Math.random() * 300 < 2) {
-				_blinkFlag = true;
-				_blinkDegree = -90;
+			//右目の動き
+			_rigthEyeMoveToX = _rightEyeParam["defX"] + Math.cos(rightEyeRad)*50;
+			_rigthEyeMoveToY = _rightEyeParam["defY"] + Math.sin(rightEyeRad)*50;
+
+			trace("remt : " + _rigthEyeMoveToX);
+
+			for (var i:uint = 0; i < _rightEyeArray.length; i++) {
+				_rightEyeArray[i].x += (_rigthEyeMoveToX - _rightEyeArray[i].x) / 16;
+				_rightEyeArray[i].y += (_rigthEyeMoveToY - _rightEyeArray[i].y) / 16;
+				_rightEyeArray[i].scaleX += (_rightEyeScaleX - _rightEyeArray[i].scaleX) / 8;
+				_rightEyeArray[i].scaleY += (_rightEyeScaleY - _rightEyeArray[i].scaleY) / 8;
 			}
+
+			//左目の動き
+			_leftEyeMoveToX = _leftEyeParam["defX"] + Math.cos(leftEyeRad)*50;
+			_leftEyeMoveToY = _leftEyeParam["defY"] + Math.sin(leftEyeRad)*50;
+			
+			for (var i:uint = 0; i < _leftEyeArray.length; i++) {
+				_leftEyeArray[i].x += (_leftEyeMoveToX - _leftEyeArray[i].x) / 16;
+				_leftEyeArray[i].y += (_leftEyeMoveToY - _leftEyeArray[i].y) / 16;
+				_leftEyeArray[i].scaleX += (_leftEyeScaleX - _leftEyeArray[i].scaleX) / 8;
+				_leftEyeArray[i].scaleY += (_leftEyeScaleY - _leftEyeArray[i].scaleY) / 8;
+			}
+
+			//口の動き
+			if (_mouseMoveFlag) {
+				_mouseMoveToX = _mouseParam["defX"] + Math.cos(mouseRad)*50;
+				_mouseMoveToY = _mouseParam["defY"] + Math.sin(mouseRad)*50;
+				_mouseMoveScaleY = 0.2 +  Math.sin(mouseRad) * _mouseScaleYVal;
+
+				for (var i:uint = 0; i < _mouseArray.length; i++) {
+					_mouseArray[i].x += (_mouseMoveToX - _mouseArray[i].x) / 16;
+					_mouseArray[i].y += (_mouseMoveToY - _mouseArray[i].y) / 16;
+					_mouseArray[i].scaleX += (_mouseMoveScaleX - _mouseArray[i].scaleX) / 8;
+					_mouseArray[i].scaleY += (_mouseMoveScaleY - _mouseArray[i].scaleY) / 8;
+				}
+			}
+
+
 			if (_blinkFlag) {
 				_blinkDegree+=4;
 				for (var i:uint = 0; i < _leftEyeArray.length; i++) {
@@ -501,24 +385,62 @@ package {
 				}
 			}
 
+
+			/*
+			以下移動量の決定と，瞬き，セリフの管理
+			*/
+			
+			//顔の向きを動かしてみるテスト
+
+			/*
+			if (Math.random() * 50 < 1) { 
+				_eyeMoveTargetX = Math.random() * _stageWidth;
+				_eyeMoveTargetY = Math.random() * _stageHeight;
+			}
+			
+			//まばたきしてみるテスト
+			
 			
 			//コメント出してみるテスト
 			if (Math.random() * 1000 < 3 && _nowPetGetFlag == false) {
 				commentAnimation();
 			}
+			*/
 		}
+
+
+
+		public function changePositionX(tx:Number):void {
+			_eyeMoveTargetX = tx;
+		}
+
+		public function changePositionY(ty:Number):void {
+			_eyeMoveTargetY = ty;
+		}
+
+		public function blink():void {
+			_blinkFlag = true;
+			_blinkDegree = -90;
+		}
+
+		public function changeMovePositionX(mx:Number):void {
+
+		}
+
+		public function changeMovePositionY(my:Number):void {
+
+		}
+
+		/*
+		顔の変化と変化後の後処理
+		*/
 
 		public function changeFace(kind:String):void {
 
-			trace(_faceObject[kind].scaleX,_faceObject[kind].scaleY);
-			_jiro.alpha =0;
 			_nowChanging = true;
 			_preFaceKind = _nowFaceKind;
 			trace(_faceObject[kind]);
 			Tweener.addTween(_faceObject[_nowFaceKind],{time:0.5,alpha:0,transition:"easeInQuint"});
-			//_faceObject[_nowFaceKind].scaleY = 0;
-			//_faceObject[_nowFaceKind].alpha = 0;
-			_nowFaceKind = kind;
 			Tweener.addTween(_faceObject[kind],{delay:0.5,time:0.5,alpha:1,transition:"easeInQuad",onComplete:faceChanged});
 			_nowFaceKind = kind;
 		}
@@ -536,7 +458,23 @@ package {
 			_nowChanging = false;
 		}
 
+		/********/
 
+		/*
+		吸い込むときの口の動き
+		*/
+
+		public function vacuumMouse():void {
+			for (var key in _faceObject){
+				Tweener.addTween(_faceObject[key].Mouse,{time:0.5,scaleY:1.5,transition:"easeInElastic"});
+				Tweener.addTween(_faceObject[key].Mouse,{delay:1,time:1,scaleY:2,transition:"easeInElastic"});
+				Tweener.addTween(_faceObject[key].Mouse,{delay:3,time:0.5,scaleY:0.8,transition:"easeInElastic"});
+			}
+		}
+
+		/*
+		コメントの表示と後処理
+		*/
 		private function commentAnimation():void {
 			//trace("commentAnimation");
 			if (_commentFlag) {
@@ -549,33 +487,26 @@ package {
 				_poikunText.alpha = 0;
 				Tweener.addTween(_poikunText,{time:1.0,alpha:1,y:toY});
 				Tweener.addTween(_poikunText,{time:1.0,delay:3.0,alpha:0,y:toY-50,onComplete:deleteComment});
-				_commentFlag = false;	
+				_commentFlag = false;
+				
 			}
 		}
 
-
-		private function thankAnimation():void {
-			var toY:Number = _stageHeight-300;
-			_thankText.y = toY + 200;
-			_thankText.alpha = 0;
-			Tweener.addTween(_thankText,{time:1.0,delay:1.0,alpha:1,y:toY});
-			Tweener.addTween(_thankText,{time:1.0,delay:4.0,alpha:0,y:toY-50,onComplete:toDefault});
-		}
-
-		private function toDefault():void {
-			_changeFaceFlag = false;
-			_nowPetGetFlag = false;
-			_commentFlag = true;
-		}
-
 		private function deleteComment():void {
+			//_comment1.alpha = 0;
 			if (_nowPetGetFlag == false) _commentFlag = true;
 		}
+		/************************/
 
+
+		/*
+		各オブジェクトの位置や大きさの初期か
+		*/
 		public function defaultExpression():void {
+			
 			//吹き出し
 			addChild(_comment1);
-			_comment1.scaleX = _comment1.scaleY = 0.8;
+			//_comment1.scaleX = _comment1.scaleY = 0.8;
 			_comment1.scaleX = _comment1.scaleY = 0;
 			_comment1.rotation = 0;
 			_comment1.alpha = 0; 
@@ -589,7 +520,6 @@ package {
 			_excalmation.alpha = 0;
 			_excalmation.scaleX = _excalmation.scaleY = 0;
 			_poikun.addChild(_excalmation);
-			//trace(_excalmation.x);
 			//ペットボトル
 			_pet = new Pet();
 			_pet.x = 1600;

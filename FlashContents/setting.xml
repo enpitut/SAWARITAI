@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<root>
+	<arduinoSerial>/dev/tty.usbmodem1421</arduinoSerial>
+</root>

@@ -21,9 +21,9 @@ package {
 		
 		private function init():void {
 			if (_bold) {
-				this.defaultTextFormat = new TextFormat("Sony Sketch EF", _size, _col,true);
+				this.defaultTextFormat = new TextFormat("ヒラギノ角ゴ Std", _size, _col,true);
 			} else {
-				this.defaultTextFormat = new TextFormat("Sony Sketch EF", _size, _col);
+				this.defaultTextFormat = new TextFormat("ヒラギノ角ゴ Std", _size, _col);
 			}
 			this.autoSize = TextFieldAutoSize.LEFT;
 			this.text = _s;
